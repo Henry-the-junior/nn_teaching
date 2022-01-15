@@ -1,0 +1,320 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch5_top.html' %}
+<style type="text/css">
+
+.sign {
+	display: grid;
+	grid-template-columns: 250px 200px 250px;
+  	grid-template-rows: 400px;
+	background-image: url(../static/images/ch5_sign.png);
+	background-repeat:no-repeat;
+	background-size: 80%;
+	background-position: center;
+	height: 400px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#sign_x {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 130px;
+	margin-top: 195px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#sign_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 125px;
+	margin-top: 200px;
+	font-size: 25px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.sign_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 25px;
+	margin-top: 310px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.step {
+	display: grid;
+	grid-template-columns: 250px 200px 250px;
+  	grid-template-rows: 400px;
+	background-image: url(../static/images/ch5_step.png);
+	background-repeat:no-repeat;
+	background-size: 80%;
+	background-position: center;
+	height: 400px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#step_x {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 130px;
+	margin-top: 195px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#step_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 125px;
+	margin-top: 200px;
+	font-size: 25px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.step_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 25px;
+	margin-top: 310px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.sigmoid {
+	display: grid;
+	grid-template-columns: 250px 200px 250px;
+  	grid-template-rows: 400px;
+	background-image: url(../static/images/ch5_sigmoid.png);
+	background-repeat:no-repeat;
+	background-size: 80%;
+	background-position: center;
+	height: 400px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#sigmoid_x {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 130px;
+	margin-top: 195px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#sigmoid_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 125px;
+	margin-top: 200px;
+	font-size: 25px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.sigmoid_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 25px;
+	margin-top: 310px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.ramp {
+	display: grid;
+	grid-template-columns: 250px 200px 250px;
+  	grid-template-rows: 400px;
+	background-image: url(../static/images/ch5_ramp.png);
+	background-repeat:no-repeat;
+	background-size: 80%;
+	background-position: center;
+	height: 400px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#ramp_x {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 130px;
+	margin-top: 195px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#ramp_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 125px;
+	margin-top: 200px;
+	font-size: 25px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.ramp_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 25px;
+	margin-top: 310px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 570px;
+  	height: 620px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>符號函數是唯一的激勵函數嗎？</h2>
+<p>在模擬5-1中，我們先熟悉以下<mark>四種激勵函數</mark>，</p>
+<p>它們的運作方式其實並不難，所以希望你在操作過程中熟悉它們以外，</p>
+<p>還是要記得激勵函數<mark>在類神經網路中扮演的角色</mark>，</p>
+<p>以及它們個別的使用目的。</p>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="sign">
+	<input type="text" name="sign_x" id="sign_x">
+	<p id="sign_y"></p>
+	<div class="sign_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="sign_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="step">
+	<input type="text" name="step_x" id="step_x">
+	<p id="step_y"></p>
+	<div class="step_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="step_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="sigmoid">
+	<input type="text" name="sigmoid_x" id="sigmoid_x">
+	<p id="sigmoid_y"></p>
+	<div class="sigmoid_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="sigmoid_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="ramp">
+	<input type="text" name="ramp_x" id="ramp_x">
+	<p id="ramp_y"></p>
+	<div class="ramp_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="ramp_count()">計算</button>
+	</div>
+</div>
+
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>雖然我們在第五章的開頭，就介紹了上述四種激勵函數的功用，</p>
+			<p>但在操作上方的函數過後，請你再重述一下這些函數的使用目的？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>這是標題上一直出現的問題，「符號函數是唯一的激勵函數嗎？」</p>
+			<p>你現在認為它是唯一的嗎？</p>
+			<p>另外，上述四種激勵函數，是所有的激勵函數嗎？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer2, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<h2>重點總結</h2>
+<p>在模擬5-1中，我們認識到更多不同的激勵函數，也希望你了解到，</p>
+<p><mark>每個激勵函數使用的時機或目的都有所不同</mark>，上述的激勵函數，也不是所有的激勵函數，</p>
+<p>在<mark>類神經網路中，是可以依照自己的想法設計激勵函數的</mark>，今天你可能不想要資料只有分兩類，</p>
+<p>你也能夠自己設計一個函數將資料分成更多類別。</p>
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch5_manipulate_1.js') }}"></script>
+{% include 'ch5_buttom.html' %}
+{% endblock %}

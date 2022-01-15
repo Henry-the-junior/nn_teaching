@@ -1,0 +1,359 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch3_top.html' %}
+<style type="text/css">
+
+.emptynn1 {
+	display: grid;
+	grid-template-columns: 300px 210px 220px 270px;
+  	grid-template-rows: 160px 55px 185px;
+	background-image: url(../static/images/ch3_emptynn1.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 400px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn1_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 115px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 25px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 85px;
+	margin-top: 115px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 85px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 60px;
+	margin-top: 20px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_expect {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 150px;
+	margin-top: -5px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_error {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 95px;
+	margin-top: 90px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.nn1_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 0px;
+	margin-top: 100px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.emptynn2 {
+	display: grid;
+	grid-template-columns: 300px 180px 230px 290px;
+  	grid-template-rows: 200px 200px 200px;
+	background-image: url(../static/images/ch3_emptynn2.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+
+#nn2_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 142px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 88px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_x3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 15px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: 142px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: 61px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_w3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: 0px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 60px;
+	margin-top: 89.5px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_expect {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 150px;
+	margin-top: 125px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_error {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 95px;
+	margin-top: 165px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.nn2_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 30px;
+	margin-top: 60px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 700px;
+  	height: 750px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>類神經網路如何調整權重？</h2>
+
+<p><mark>在模擬3-2中，我們再用以下的操作介面熟悉本章的概念。</mark></p>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn1">
+	<input type="text" name="nn1_x1" id="nn1_x1">
+	<input type="text" name="nn1_x2" id="nn1_x2">
+	<input type="text" name="nn1_w1" id="nn1_w1">
+	<input type="text" name="nn1_w2" id="nn1_w2">
+	<p id="nn1_y">0</p>
+	<input type="text" name="nn1_expect" id="nn1_expect">
+	<p id="nn1_error">0</p>
+	<div class="nn1_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn1_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn2">
+	<input type="text" name="nn2_x1" id="nn2_x1">
+	<input type="text" name="nn2_x2" id="nn2_x2">
+	<input type="text" name="nn2_x3" id="nn2_x3">
+	<input type="text" name="nn2_w1" id="nn2_w1">
+	<input type="text" name="nn2_w2" id="nn2_w2">
+	<input type="text" name="nn2_w3" id="nn2_w3">
+	<p id="nn2_y">0</p>
+	<input type="text" name="nn2_expect" id="nn2_expect">
+	<p id="nn2_error">0</p>
+	<div class="nn2_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn2_count()">計算</button>
+	</div>
+</div>
+
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>假設y = x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub>，</p>
+			<p>當x<sub>1</sub> = 2、w<sub>1</sub> = 4、x<sub>2</sub> = 6、w<sub>2</sub> = 1 時，</p>
+			<p>請問y值為多少？在期望輸出為10的時候，誤差為多少？</p>
+			<p>(提示：誤差 = 期望輸出 - y值)</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>假設y = x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub> + x<sub>3</sub>w<sub>3</sub>，</p>
+			<p>當x<sub>1</sub> = 3、w<sub>1</sub> = 4、x<sub>2</sub> = 2、w<sub>2</sub> = 0.5、x<sub>3</sub> = 1、w<sub>3</sub> = 0.3 時，</p>
+			<p>請問y值為多少？在期望輸出為5的時候，誤差為多少？</p>
+			<p>(提示：誤差 = 期望輸出 - y值)</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer2, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<h2>重點總結</h2>
+<p>在結束這個章節，我們再回想一下目前為止學習到的概念，</p>
+<p>類神經網路是<mark>如何達成「分類」這個目的？調整權重的目的又是什麼？</mark></p>
+<p>類神經網路是依照輸入值計算輸出值，這個輸出值就能夠用來分類我們所輸入的資料，</p>
+<p>至於<mark>調整權重的目的，是降低誤差</mark>，這個章節我們用「手動」調整的方式體會這個概念，</p>
+<p>接下來<mark>我們會更深入認識類神經網路，並認識到如何「自動」調整權重</mark>。</p>
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch3_manipulate_2.js') }}"></script>
+
+{% include 'ch3_buttom.html' %}
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<style type="text/css">
+
+.graph_block1 {
+	display: grid;
+  	grid-template-columns: 310px 400px 90px;
+  	grid-template-rows: 200px;
+  	width: 800px;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 100px;
+  	margin-bottom: 100px;
+}
+
+.graph_block2 {
+	display: flex;
+	height: 100px;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 100px;
+	border: 5px #26C1E0 solid;
+}
+
+.graph {
+	flex-basis: 30px;
+	flex-grow: 1;
+	text-align: center;
+	line-height: 100px;
+}
+
+
+.center {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.graph:hover {
+	text-decoration: none;
+	background-color: inherit;
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+{% include 'ch2_top.html' %}
+
+<h2>什麼是類神經網路？</h2>
+<p><mark>類神經網路</mark>，又稱人工神經網路(Artificial neural networks)，</p>
+<p>類神經元透過連結相連，每個連結都有<mark>「權重」</mark>。</p>
+<p>權重在類神經網路中表達每個神經元輸入的強度或是每個神經元輸入的重要性。</p>
+<p>類神經網路就是透過不斷<mark>調整這些權重進行「學習」</mark>。</p>
+<img src="{{ url_for('static', filename='images/ch2_nn.png') }}" height="200" class="center">
+<p>舉例來說，現在常見的<mark>影像辨識</mark>，就是<mark>「訓練」</mark>一個類神經網路來分類影像，</p>
+<p>假設我們已經「訓練好」一個類神經網路可以辨識貓、狗的圖片，</p>
+<p>意思就是說輸入貓的圖片，類神經網路會輸出「貓」這個類別，反之就是輸出「狗」的類別。</p>
+
+
+<div class="graph_block1">
+	{% if session.option == 'ch2_dog' %}
+	<img src="{{ url_for('static', filename='images/ch2_dog.jpg') }}" height="200" style="margin: auto;">
+	{% else %}
+	<img src="{{ url_for('static', filename='images/ch2_cat.jpg') }}" height="200" style="margin: auto;">
+	{% endif %}
+	<img src="{{ url_for('static', filename='images/ch2_blocknn.png') }}" height="150" style="margin: auto;">
+	{% if session.option == 'ch2_dog' %}
+	<p style="margin: auto;">類別：狗</p>
+	{% else %}
+	<p style="margin: auto;">類別：貓</p>
+	{% endif %}
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著點擊下方框框的圖片)</p>
+
+<div class="graph_block2" id="anchor">
+	<a href="/ch2_concept_1/ch2_dog#anchor" class="graph"><img src="{{ url_for('static', filename='images/ch2_dog.jpg') }}" height="100" class="center"></a>
+	<a href="/ch2_concept_1/ch2_cat#anchor" class="graph"><img src="{{ url_for('static', filename='images/ch2_cat.jpg') }}" height="100" class="center"></a>
+</div>
+<a href="#top" style="margin-left: 40px; color: #7426E0;">回到最上方</a>
+<p></p>
+
+{% endblock %}

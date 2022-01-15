@@ -1,0 +1,317 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch2_top.html' %}
+<style type="text/css">
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	width: 60%;
+}
+
+.manipulate_zone {
+	display: grid;
+	grid-template-columns: 300px 500px 300px;
+  	grid-template-rows: 225px 325px 200px;
+  	height: 750px;
+  	width: 1100px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 80px;
+}
+
+.input_button {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.button_block {
+	display: block;
+	margin-left: 150px;
+	margin-top: 90px;
+	height: 50px;
+	width: 100px;
+}
+
+.input_block {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.neural_net {
+	display: block;
+	background-image: url(../static/images/ch2_neuralnet.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+
+.weights1 {
+	display: grid;
+	grid-template-columns: 50px 40px;
+  	grid-template-rows: 50px 50px 50px 50px 50px 50px;
+	height: 300px;
+	width: 90px;
+	margin-top: 120px;
+	margin-left: 150px;
+	background-color: rgba(38, 193, 224, 0.6);
+	float:left;
+}
+
+.weights2 {
+	display: grid;
+	grid-template-columns: 50px 40px;
+  	grid-template-rows: 50px 50px 50px 50px 50px;
+	height: 250px;
+	width: 90px;
+	margin-top: 150px;
+	margin-left: 310px;
+	background-color: rgba(38, 193, 224, 0.6);
+}
+
+.weight_text {
+	flex-basis: 45px;
+	flex-grow: 1;
+	text-align: center;
+	line-height: 45px;
+	font-size: 20px;
+}
+
+.weight_num {
+	flex-basis: 45px;
+	flex-grow: 1;
+	text-align: center;
+	line-height: 45px;
+	font-size: 20px;
+}
+
+.weight_none {
+	flex-basis: 45px;
+	flex-grow: 1;
+	text-align: center;
+	line-height: 45px;
+	font-size: 20px;
+}
+
+.p_text {
+	display: block;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+
+.graph_block {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.graph_zone {
+	display: grid;
+	grid-template-columns: 150px 150px 150px 150px 150px 150px;
+  	grid-template-rows: 150px;
+  	column-gap: 20px;
+  	height: 150px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 50px;
+}
+
+.empty {
+	display: inline-block;
+	height: 150px;
+	width: 150px;
+	margin: 0px;
+	background-color: white;
+	border: blue solid;
+}
+
+.graph {
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	height: 150px;
+	width: 150px;
+	cursor: pointer;
+}
+
+.hold {
+	border: solid #ccc 4px;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 1020px;
+  	height: 1070px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>應用類神經網路模型</h2>
+
+<p>在<mark>模擬2-1與模擬2-2，我們學習到資料搜集與訓練類神經網路</mark>，</p>
+<p>並且在課堂當中，也討論了許多相關問題，像是資料搜集的數量會如何影響訓練成果？</p>
+<p>資料搜集的人將資料分類寫錯會造成什麼？類神經網路在每次迭代中依照什麼調整權重？</p>
+<p>如果這些概念你還不熟悉的話，可以回到前面的單元再複習一下，</p>
+<p>因為接下來我們會越來越深入討論類神經網路這個課題，<mark>請繼續加油！</mark></p>
+
+<img src="{{ url_for('static', filename='images/ch2_colntrain.png') }}" class="center">
+
+<p>在模擬2-3當中，我們將運用訓練好的類神經網路，<mark>分類訓練資料集中沒有的圖片資料</mark>，</p>
+<p>也就是說，<mark>類神經網路</mark>透過我們給它的訓練資料集，<mark>學到貓與狗的判斷方法</mark>，</p>
+<p>如此一來，我們就<mark>可以用它來識別一張照片是貓或是狗</mark>。</p>
+<p>不過，這一切其實沒有這麼理想，在你操作完之後，我們還是需要討論一些問題。</p>
+
+<div class="manipulate_zone">
+	<div class="input_button">
+		<img src="{{ url_for('static', filename='images/ch2_camera.png') }}" height="100" style="margin-left: 30px; margin-top: 50px; float:left;">
+		<div class="button_block">
+			<button style="font-size:20px; width: 100%; height: 100%;" onclick="inputGraph()">輸入照片</button>
+		</div>
+	</div>
+	<div class="input_block">
+		<div class="empty" style="margin-left: 70px"></div>
+	</div>
+	<div class="neural_net">
+		<div class="weights1">
+			<div class="weight_text">w<sub>11</sub>:</div>
+			<div class="weight_num">0.2</div>
+			<div class="weight_text">w<sub>12</sub>:</div>
+			<div class="weight_num">0.4</div>
+			<div class="weight_text">w<sub>13</sub>:</div>
+			<div class="weight_num">0.6</div>
+			<div class="weight_none">...</div>
+			<div class="weight_none"></div>
+			<div class="weight_none">...</div>
+			<div class="weight_none"></div>
+			<div class="weight_text">w<sub>nn</sub>:</div>
+			<div class="weight_num">0.2</div>
+		</div>
+		<div class="weights2">
+			<div class="weight_text">w<sub>11</sub>:</div>
+			<div class="weight_num">0.5</div>
+			<div class="weight_text">w<sub>12</sub>:</div>
+			<div class="weight_num">0.4</div>
+			<div class="weight_text">w<sub>13</sub>:</div>
+			<div class="weight_num">0.1</div>
+			<div class="weight_none">...</div>
+			<div class="weight_none"></div>
+			<div class="weight_text">w<sub>nn</sub>:</div>
+			<div class="weight_num">0.1</div>
+		</div>
+	</div>
+	<div class="p_text">
+		<div style="display: block; margin-top: 250px;">
+			<p style="margin-left: 0px;">此張圖片是狗的機率y<sub>1</sub> : <span class="dog_p_num">0</span></p>
+			<p style="margin-left: 0px;">此張圖片是貓的機率y<sub>1</sub> : <span class="cat_p_num">0</span></p>
+		</div>
+	</div>
+	<div class="graph_block">
+		<p style="text-align: center; margin-bottom: 0px;">(試著將下方的圖片拖曳到上方的藍色框框中，並按下「輸入照片」)</p>
+		<p style="text-align: center; margin-bottom: 0px;">(每次只能輸入一張圖片，所以更換圖片時，記得將上方藍色框框中的圖片放回下方)</p>
+		<div class="graph_zone">
+			<div class="empty">
+				<div id="graph1" class="graph" draggable="true" style="background-image: url(../static/images/cat6.jpg);"></div>
+			</div>
+			<div class="empty">
+				<div id="graph2" class="graph" draggable="true" style="background-image: url(../static/images/cat7.jpg);"></div>
+			</div>
+			<div class="empty">
+				<div id="graph3" class="graph" draggable="true" style="background-image: url(../static/images/cat8.jpg);"></div>
+			</div>
+			<div class="empty">
+				<div id="graph4" class="graph" draggable="true" style="background-image: url(../static/images/dog6.jpg);"></div>
+			</div>
+			<div class="empty">
+				<div id="graph5" class="graph" draggable="true" style="background-image: url(../static/images/dog7.jpg);"></div>
+			</div>
+			<div class="empty">
+				<div id="graph6" class="graph" draggable="true" style="background-image: url(../static/images/dog8.jpg);"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>在測試類神經網路的中，有些圖片輸出的機率值，似乎無法明確地分類，</p>
+			<p>為什麼這些圖片所輸出的機率會這樣呢？是這些圖片有什麼特色嗎？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>如果回到資料搜集的步驟或是類神經網路訓練的步驟，</p>
+			<p>你覺得可以做什麼調整(例如：圖片數量、圖片代表性、迭代次數等)，</p>
+			<p>讓類神經網路的判斷更加精確？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer2, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>剛剛所訓練的類神經網路，是在分類貓的圖片與狗的圖片，</p>
+			<p>如果我們在資料搜集的時候，放入了一個不是貓也不是狗的圖片，</p>
+			<p>對類神經網路會有什麼影響嗎？(假設我們丟一張天竺鼠的照片)</p>
+		</div>
+		<img src="{{ url_for('static', filename='images/ch2_guinea.jpg') }}" height="200" style="margin-top: 0px; margin-left: 300px;">
+		<div class="form-group">
+			{{render_field(form.answer3, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<h2>重點總結</h2>
+<p>在模擬2-3，我們了解到<mark>訓練完成的類神經網路可以如何運用</mark>，</p>
+<p>將一張圖片輸入進類神經網路，它能夠幫你算出機率值，</p>
+<p>進一步將圖片分類，這就跟我們日常生活中的<mark>人臉辨識</mark>非常貼近。</p>
+<p>我們也<mark>討論了有關輸入資料的問題</mark>，也許我們能進一步思考，</p>
+<p>如果一張照片，或是任何類型的資料，我們自己就難以判斷分類，</p>
+<p>那這樣的分類問題對類神經網路來說，會不會也是困難的問題呢？</p>
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch2_manipulate_3.js') }}"></script>
+
+{% include 'ch2_buttom.html' %}
+{% endblock %}
