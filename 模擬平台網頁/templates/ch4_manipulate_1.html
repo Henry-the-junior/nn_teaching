@@ -67,6 +67,184 @@ mark {
   color: black;
 }
 
+.health_nn {
+	display: grid;
+	grid-template-columns: 300px 250px 250px 200px;
+  	grid-template-rows: 100px 160px 240px 100px;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+.health_nn_background {
+	background-image: url(../static/images/ch2_health_nn.png);
+	background-repeat:no-repeat;
+	background-size: 95%;
+	background-position: center;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 4;
+}
+
+#health_nn_x1 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 145px;
+	margin-top: 130px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#health_nn_x2 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 145px;
+	margin-top: 75px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#health_nn_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 180px;
+	margin-top: 18px;
+	font-size: 25px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.health_nn_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 165px;
+	margin-top: 150px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.blood_pressure {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	margin-left: 20px;
+	margin-top: 200px;
+}
+
+.blood_pressure_button_block {
+	height: 50px;
+	width: 80px;
+	margin-left: 140px;
+	margin-top: 250px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.blood_pressure_output {
+	height: 100px;
+	width: 300px;
+	margin-left: 200px;
+	margin-top: 220px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#blood_pressure_x1 {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 340px;
+	margin-top: 226px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#blood_pressure_x2 {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 340px;
+	margin-top: 265px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.heart_rate {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	margin-left: 10px;
+	margin-top: 50px;
+}
+
+.health_or_sick {
+	display: block;
+	height: 200px;
+	width: 200px;
+	background-image: url(../static/images/sick.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	margin-left: 0px;
+	margin-top: 100px;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  grid-template-rows: 50px 380px;
+  height: 430px;
+  width: 1000px;
+	margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
 </style>
 
 
@@ -97,6 +275,59 @@ mark {
 		<button style="font-size:20px; width: 100%; height: 100%;" onclick="count()">計算</button>
 	</div>
 </div>
+
+<div class="questions_zone">
+	<h2>討論一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>底下重新附上我們在模擬2-6所說的健康評分系統，</p>
+			<p>這個系統是設定70分以上為健康，70分以下則為不健康，</p>
+			<p>若套用符號函數來看，+1定義為健康，-1則為不健康，</p>
+			<p>那麼這個系統的𝜃值應該設定為多少？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<div class="health_nn">
+	<div class="health_nn_background"></div>
+	<input type="text" name="health_nn_x1" id="health_nn_x1">
+	<input type="text" name="health_nn_x2" id="health_nn_x2">
+	<p id="health_nn_y">0</p>
+
+	<div class="blood_pressure">
+		<img src="{{ url_for('static', filename='images/blood-pressure.png') }}" height="100">
+	</div>
+	<div class="blood_pressure_button_block">
+		<button style="font-size:15px; width: 100%; height: 100%;" onclick="blood_pressure_count()">測量血壓</button>
+	</div>
+	<div class="blood_pressure_output">
+		<p>收縮壓為_______mmHg</p>
+		<p>舒張壓為_______mmHg</p>
+	</div>
+
+	<p id="blood_pressure_x1"></p>
+	<p id="blood_pressure_x2"></p>
+
+	<div class="heart_rate">
+		<img id="heartBTN" src="{{ url_for('static', filename='images/heart-rate.png') }}" height="100" style="display:block; margin-left: 100px" onclick="heartSound()">
+		<p style="text-align: center; margin-bottom: 0px;">(試著打開聲音並點擊心臟)</p>
+		<audio id="audio">
+			<source src="{{ url_for('static', filename='images/heartbeat-01a.mp3') }}" type="audio/mpeg">
+		</audio>
+	</div>
+
+	<div class="health_nn_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="health_nn_count()">計算</button>
+	</div>
+	
+</div>
+
+
 
 <h2>重點總結</h2>
 <p>在模擬4-1中，我們認識到<mark>符號函數</mark>，並且認識到我們如何將比較值更改為𝜃，</p>

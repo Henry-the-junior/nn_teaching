@@ -216,6 +216,7 @@ def ch3_manipulate_1():
 class ch3_QuestionsForm_3(Form):
     answer1 = TextAreaField('answer1')
     answer2 = TextAreaField('answer2')
+    answer3 = TextAreaField('answer3')
 
 @app.route('/ch3_manipulate_2', methods=['GET', 'POST'])
 def ch3_manipulate_2():
@@ -223,9 +224,11 @@ def ch3_manipulate_2():
 	if request.method == 'POST' and form.validate():
 		answer1 = form.answer1.data
 		answer2 = form.answer2.data
+		answer3 = form.answer3.data
 
 		print(answer1)
 		print(answer2)
+		print(answer3)
 
 		flash('你送出你的回答了！真是太好了！', 'success')
 
@@ -236,9 +239,22 @@ def ch3_manipulate_2():
 def ch4_concept_1():
 	return render_template('ch4_concept_1.html')
 
+# ch4_manipulate_1 Questions Form Class
+class ch4_QuestionsForm_0(Form):
+    answer1 = TextAreaField('answer1')
+
 @app.route('/ch4_manipulate_1')
 def ch4_manipulate_1():
-	return render_template('ch4_manipulate_1.html')
+	form = ch4_QuestionsForm_0(request.form)
+	if request.method == 'POST' and form.validate():
+		answer1 = form.answer1.data
+
+		print(answer1)
+
+		flash('你送出你的回答了！真是太好了！', 'success')
+
+		return redirect(url_for('ch4_manipulate_1'))
+	return render_template('ch4_manipulate_1.html', form = form)
 
 # ch4_manipulate_2 Questions Form Class
 class ch4_QuestionsForm_1(Form):
