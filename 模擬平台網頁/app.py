@@ -175,6 +175,14 @@ def ch2_manipulate_6():
 		return redirect(url_for('ch2_manipulate_6'))
 	return render_template('ch2_manipulate_6.html', form = form)
 
+@app.route('/ch2_quiz_1')
+def ch2_quiz_1():
+	return render_template('ch2_quiz_1.html')
+
+@app.route('/ch2_quiz_2')
+def ch2_quiz_2():
+	return render_template('ch2_quiz_2.html')
+
 # ch3_concept_1 Questions Form Class
 class ch3_QuestionsForm_1(Form):
     answer1 = TextAreaField('answer1')
@@ -235,6 +243,14 @@ def ch3_manipulate_2():
 		return redirect(url_for('ch3_manipulate_2'))
 	return render_template('ch3_manipulate_2.html', form = form)
 
+@app.route('/ch3_quiz_1')
+def ch3_quiz_1():
+	return render_template('ch3_quiz_1.html')
+
+@app.route('/ch3_quiz_2')
+def ch3_quiz_2():
+	return render_template('ch3_quiz_2.html')
+
 @app.route('/ch4_concept_1')
 def ch4_concept_1():
 	return render_template('ch4_concept_1.html')
@@ -276,6 +292,14 @@ def ch4_manipulate_2():
 		return redirect(url_for('ch4_manipulate_2'))
 	return render_template('ch4_manipulate_2.html', form = form)
 
+@app.route('/ch4_quiz_1')
+def ch4_quiz_1():
+	return render_template('ch4_quiz_1.html')
+
+@app.route('/ch4_quiz_2')
+def ch4_quiz_2():
+	return render_template('ch4_quiz_2.html')
+
 @app.route('/ch5_concept_1')
 def ch5_concept_1():
 	return render_template('ch5_concept_1.html')
@@ -303,6 +327,14 @@ def ch5_manipulate_1():
 @app.route('/ch5_manipulate_2')
 def ch5_manipulate_2():
 	return render_template('ch5_manipulate_2.html')
+
+@app.route('/ch5_quiz_1')
+def ch5_quiz_1():
+	return render_template('ch5_quiz_1.html')
+
+@app.route('/ch5_quiz_2')
+def ch5_quiz_2():
+	return render_template('ch5_quiz_2.html')
 
 # ch6_concept_1 Questions Form Class
 class ch6_QuestionsForm_1(Form):

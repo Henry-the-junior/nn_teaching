@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% include 'ch4_top.html' %}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+<style type="text/css">
+
+.hint_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 300px;
+	height: 350px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.output_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 230px;
+	height: 280px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+code {
+	font-size: 20px;
+}
+
+</style>
+
+<h2>問題一、</h2>
+<p>用Python程式撰寫類神經網路，</p>
+<p>其中能夠輸入兩個數值(x1, x2)與兩個權重(w1, w2)，</p>
+<p>以及一個𝜃，類神經網路會將兩個數值與兩個權重相乘後加總，</p>
+<p>最後減去𝜃得到輸出X，然後將X值透過「符號函數」轉換為y，</p>
+<p>底下為部分程式的參考與程式撰寫後的輸出範例。</p>
+<p>請參照範例，試著將缺少的部分撰寫完成。</p>
+
+<div class="hint_zone">
+	<h2>程式提示</h2>
+	<pre>
+	<code class="python">
+	def nn(x1, x2, w1, w2, theta):
+		_____________________________
+		if X >= 0:
+			return 1
+		else:
+			________
+	</code>
+	</pre>
+</div>
+
+<div class="output_zone">
+	<h2>輸出提示</h2>
+	<pre>
+	<code class="python">
+	print(nn(3, 4, 1, 2, 5))
+	>>1
+	print(nn(7, 2, 2, 3, 25))
+	>>-1
+	</code>
+	</pre>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+{% include 'ch4_buttom.html' %}
+{% endblock %}
