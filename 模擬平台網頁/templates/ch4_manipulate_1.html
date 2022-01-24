@@ -249,7 +249,7 @@ textarea {
 
 
 <h2>類神經元的運算</h2>
-<p>在模擬4-1中，我們先介紹<mark>「符號函數」，它是其中一種「激勵函數」</mark>，</p>
+<p>在本章節中，我們先介紹<mark>「符號函數」，它是其中一種「激勵函數」</mark>，</p>
 <p>這個函數可以<mark>將大於0的數字歸類在+1的類別，小於0的數字歸類在-1的類別</mark>，</p>
 <p>以數線來視覺化的話，會像是下圖的樣子。假設綠點是屬於+1的類別，黃點是屬於-1的類別。</p>
 <img src="{{ url_for('static', filename='images/ch4_mathline1.png') }}" width="800" class="center">
@@ -264,7 +264,7 @@ textarea {
 <img src="{{ url_for('static', filename='images/ch4_mathline3.png') }}" width="800" class="center">
 
 <h2>符號函數</h2>
-<p>正式進入到模擬4-1的重點吧，以下就是我們的主角「符號函數」。</p>
+<p>正式進入到本章的重點吧，以下就是我們的主角「符號函數」。</p>
 <p>這個函數的運作非常簡單，不過它達成「分類」這件事，算是類神經網路中的重要角色呦。</p>
 
 <p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
@@ -281,7 +281,7 @@ textarea {
 	{% from "includes/_formhelpers.html" import render_field %}
 	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
-			<p>底下重新附上我們在模擬2-6所說的健康評分系統，</p>
+			<p>底下重新附上我們在第二章所說的健康評分系統，</p>
 			<p>這個系統是設定70分以上為健康，70分以下則為不健康，</p>
 			<p>若套用符號函數來看，+1定義為健康，-1則為不健康，</p>
 			<p>那麼這個系統的𝜃值應該設定為多少？</p>
@@ -330,7 +330,7 @@ textarea {
 
 
 <h2>重點總結</h2>
-<p>在模擬4-1中，我們認識到<mark>符號函數</mark>，並且認識到我們如何將比較值更改為𝜃，</p>
+<p>在本章節中，我們認識到<mark>符號函數</mark>，並且認識到我們如何將比較值更改為𝜃，</p>
 <p>在本章的最後，我們還是想提醒你，<mark>符號函數的用意之一，是「分類」</mark>，</p>
 <p>它能夠將你想處理的資料或數值，轉換成+1或-1，</p>
 <p>在<mark>後續的章節，我們會介紹更多激勵函數</mark>，希望你在學習的過程中，</p>

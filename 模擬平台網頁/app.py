@@ -410,6 +410,14 @@ def ch6_manipulate_3():
 		return redirect(url_for('ch6_manipulate_3'))
 	return render_template('ch6_manipulate_3.html', form = form)
 
+@app.route('/ch6_quiz_1')
+def ch6_quiz_1():
+	return render_template('ch6_quiz_1.html')
+
+@app.route('/ch6_quiz_2')
+def ch6_quiz_2():
+	return render_template('ch6_quiz_2.html')
+
 @app.route('/dragndrop')
 def dragndrop():
 	return render_template('dragndrop.html')
