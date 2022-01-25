@@ -122,8 +122,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 270px;
-  	height: 320px;
+  	grid-template-rows: 50px 220px;
+  	height: 270px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -148,38 +148,142 @@ mark {
   color: black;
 }
 
+.manipulate_zone {
+	display: grid;
+	grid-template-columns: 1040px;
+  grid-template-rows: 200px 160px 60px 60px;
+  height: 480px;
+  width: 1040px;
+	margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  border: blue solid;
+}
+
+.jumpers_input {
+	display: grid;
+	grid-template-columns: 500px 240px 300px;
+  grid-template-rows: 200px;
+  height: 200px;
+  width: 1040px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	background-image: url(../static/images/ch6_gears3.png);
+	background-size: 70%;
+	background-repeat: no-repeat;
+}
+
+#jumper1_input {
+	margin-top: 120px;
+	margin-left: 275px;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+}
+
+#jumper2_input {
+	margin-top: 120px;
+	margin-left: 115px;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+}
+
+
+.output_zone1 {
+	display: grid;
+	grid-template-columns: 20px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 20px 40px;
+  grid-template-rows: 160px;
+  height: 160px;
+  width: 1040px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.output_zone2 {
+	display: grid;
+	grid-template-columns: 20px 1000px 20px;
+  height: 60px;
+  width: 1040px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.output_zone3 {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#sum {
+	background-color: yellow;
+}
+
+#error {
+	background-color: yellow;
+}
+
+.center {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
 </style>
 
 <h2>權重與誤差(1)</h2>
 <p>在本章節，我們將用一個實際的例子來討論<mark>「誤差」如何影響「權重」的調整</mark>。</p>
-<p>假設今天在早餐店只有供應兩個品項：一杯25元的紅茶、一個30元的三明治，</p>
-<p>你在早餐店買3杯紅茶、4個三明治後，開始計算早餐花費，知道應該付195元，</p>
-<p>如果我們這時候要<mark>訓練一個類神經網路計算早餐價錢</mark>，</p>
-<p>但是這個<mark>類神經網路一開始設定的紅茶和三明治的價錢是錯誤的</mark>，</p>
-<p>認為紅茶是10元，三明治是25元，這時候就需要調整類神經網路所記得的價格，</p>
-<p>切記一件事情，<mark>類神經網路只會將輸入層和輸出層連接資料</mark>，</p>
-<p>所以它只知道以下三件事：</p>
-<p><mark>第一、你買了3杯紅茶和4個三明治。</mark></p>
-<p><mark>第二、你應該付195元。</mark></p>
-<p><mark>第三、紅茶10元，以及三明治25元。</mark></p>
-<p><mark>(讓我還是強調一下這件事，類神經網路並不知道正確的紅茶價格和三明治價格。)</mark></p>
-<p>這時候類神經網路就會計算出誤差65元，它就會依照這個誤差去調整權重。</p>
-<p>至於它如何調整呢？這我們後續的章節才會介紹到，</p>
-<p style="display: block; margin-bottom: 50px;">現階段你可以先試著調整看看下方的類神經網路，思考應該如何調整權重。</p>
+<p>假設有個<mark>機器人要直線前進</mark>，運送物資到達目的地，</p>
+<p>機器人體內有<mark>一個大齒輪與一個小齒輪</mark>，</p>
+<p>還有外接一個測距儀可以知道自己與目的地還差多少距離，</p>
+<p>機器人轉動一次大齒輪可以<mark>向前8個單位</mark>，</p>
+<p>機器人轉動一次小齒輪可以<mark>向前2個單位</mark>，</p>
+<p>而起初機器人<mark>與目的地的距離為50個單位</mark>，</p>
+<p>對應到我們先前學習到的類神經網路，</p>
+<p><mark>大齒輪與小齒輪</mark>轉動一次能夠前進的單位代表著輸入值，</p>
+<p><mark>也就是x<sub>1</sub>和x<sub>2</sub></mark>，而<mark>轉動的次數就是w<sub>1</sub>和w<sub>2</sub></mark>，</p>
+<p>最初起點與目的地的距離就是<mark>「期望輸出」</mark>，</p>
+<p>而機器人外接的測距儀，測量出<mark>與目的地之間的距離就是「誤差」</mark>。</p>
+<p>如果機器人一開始設定大齒輪轉動2次，小齒輪轉動1次，</p>
+<p>總共前進18個單位，誤差為32個單位。</p>
+<img src="{{ url_for('static', filename='images/ch6_gears1.png') }}" class="center" height="350" style="margin-bottom: 100px">
 
-<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
-<p style="text-align: center; margin-bottom: 0px;">(你需要「假裝」不知道正確價格，這樣你才更容易思考出你為何調整權重)</p>
-<div class="emptynn1">
-	<p id="nn1_x1">3</p>
-	<p id="nn1_x2">4</p>
-	<input type="text" name="nn1_w1" id="nn1_w1">
-	<input type="text" name="nn1_w2" id="nn1_w2">
-	<p id="nn1_y">130</p>
-	<p id="nn1_expect">195</p>
-	<p id="nn1_error">65</p>
-	<div class="nn1_button_block">
-		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn1_count()">計算</button>
+<p><mark>以這樣的情境來看，你可以思考看看該如何調整權重。</mark></p>
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下設定完成)</p>
+<div class="manipulate_zone">
+	<div class="jumpers_input">
+		<input type="text" name="jumper1_input" id="jumper1_input">
+		<input type="text" name="jumper2_input" id="jumper2_input">
+		<button style="font-size:18px; width: 100px; height: 50px; margin-top: 120px" onclick="jump()">設定完成</button>
 	</div>
+	<div class="output_zone1">
+		<div></div>
+		<img src="{{ url_for('static', filename='images/ch6_eight.png') }}" width="160" style="margin-top: auto; margin-bottom: 0px;">
+		<div></div>
+		<div></div>
+		<div></div>
+		<img src="{{ url_for('static', filename='images/ch6_eight.png') }}" width="160" style="margin-top: auto; margin-bottom: 0px;">
+		<div></div>
+		<div></div>
+		<div></div>
+		<img src="{{ url_for('static', filename='images/ch6_two.png') }}" width="40"  style="margin-top: auto; margin-bottom: 0px;">
+		<img src="{{ url_for('static', filename='images/ch6_robot.png') }}" width="300"  style="margin-top: auto; margin-bottom: 0px;">
+	</div>
+	<div class="output_zone2">
+		<div></div>
+		<img src="{{ url_for('static', filename='images/ch6_fifty.png') }}" width="1000"  style="margin-top: auto; margin-bottom: 0px;">
+	</div>
+	<div class="output_zone3">
+		<p>目標距離：50個單位｜機器人前進距離：<span id="sum">18個單位</span>｜誤差：<span id="error">32個單位</span></p>
+	</div>
+	
 </div>
 
 <div class="questions_zone">
@@ -187,8 +291,6 @@ mark {
 		<div style="margin-top: 40px;">
 			<h3>問題一</h3>
 			<p>在調整權重的過程中，你有思考出調整權重的目的嗎？</p>
-			<h3>問題二</h3>
-			<p>試著找出其他價錢組合也能讓誤差值為0，並寫下這些價錢組合。</p>
 		</div>
 </div>
 
@@ -200,6 +302,7 @@ mark {
 <p>類神經網路就是依賴這個目的去適配它所連接的資料。</p>
 
 <script type="text/javascript" src="{{ url_for('static', filename='ch3_manipulate_1.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='ch6_manipulate_1.js') }}"></script>
 
 {% include 'ch3_buttom.html' %}
 {% endblock %}
