@@ -1,0 +1,230 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch6_top.html' %}
+<style type="text/css">
+
+.center {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 270px;
+  	height: 320px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+.manipulate_zone {
+	display: grid;
+	grid-template-columns: 1040px;
+  grid-template-rows: 200px 160px 60px 60px;
+  height: 480px;
+  width: 1040px;
+	margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  border: blue solid;
+}
+
+.jumpers_input {
+	display: grid;
+	grid-template-columns: 500px 240px 300px;
+  grid-template-rows: 200px;
+  height: 200px;
+  width: 1040px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	background-image: url(../static/images/ch6_gears3.png);
+	background-size: 70%;
+	background-repeat: no-repeat;
+}
+
+#jumper1_input {
+	margin-top: 120px;
+	margin-left: 275px;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+}
+
+#jumper2_input {
+	margin-top: 120px;
+	margin-left: 115px;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+}
+
+
+.output_zone1 {
+	display: grid;
+	grid-template-columns: 20px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 20px 40px;
+  grid-template-rows: 160px;
+  height: 160px;
+  width: 1040px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.output_zone2 {
+	display: grid;
+	grid-template-columns: 20px 1000px 20px;
+  height: 60px;
+  width: 1040px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.output_zone3 {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#sum {
+	background-color: yellow;
+}
+
+#error {
+	background-color: yellow;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  grid-template-rows: 50px 670px;
+  height: 720px;
+  width: 1000px;
+	margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border: 5px #7426E0 solid;
+}
+
+
+</style>
+
+<h2>類神經網路如何學習分類？</h2>
+<p>在1958年時，<mark>Frank Rosenblatt提出的學習演算法</mark>：</p>
+<p style="text-align: center; margin-bottom: 0px;">w<sub>new</sub> = w<sub>i</sub> + 𝛼 * x<sub>i</sub> * error</p>
+
+<p>雖然我們分析了這個演算法為何這樣設計，</p>
+<p>但為了更容易理解這個演算法設計的用意，</p>
+<p>讓我們<mark>用個比喻來理解這個演算法</mark>吧，</p>
+<p>假設有個<mark>機器人要直線前進</mark>，運送物資到達目的地，</p>
+<p>機器人體內有<mark>一個大齒輪與一個小齒輪</mark>，</p>
+<p>還有外接一個測距儀可以知道自己與目的地還差多少距離，</p>
+<p>機器人轉動一次大齒輪可以<mark>向前8個單位</mark>，</p>
+<p>機器人轉動一次小齒輪可以<mark>向前2個單位</mark>，</p>
+<p>而起初機器人<mark>與目的地的距離為50個單位</mark>，</p>
+<p>對應到我們先前學習到的類神經網路，</p>
+<p><mark>大齒輪與小齒輪</mark>轉動一次能夠前進的單位代表著輸入值，</p>
+<p><mark>也就是x<sub>1</sub>和x<sub>2</sub></mark>，而<mark>轉動的次數就是w<sub>1</sub>和w<sub>2</sub></mark>，</p>
+<p>最初起點與目的地的距離就是<mark>「期望輸出」</mark>，</p>
+<p>而機器人外接的測距儀，測量出<mark>與目的地之間的距離就是「誤差」</mark>。</p>
+<p>如果機器人一開始設定大齒輪轉動2次，小齒輪轉動1次，</p>
+<p>總共前進18個單位，誤差為32個單位，</p>
+<img src="{{ url_for('static', filename='images/ch6_gears1.png') }}" class="center" height="350">
+<p>我們先不將數字帶入學習演算法計算，</p>
+<p>在學習演算法中，觀察<mark>「𝛼 * x<sub>i</sub> * error」</mark>，</p>
+<p>這一項在學習演算法中，可以視為權重的<mark>調整項</mark>，</p>
+<p>而<mark>輸入值(x<sub>i</sub>)與學習率(𝛼)</mark>在整個學習過程都是<mark>固定不變的</mark>，</p>
+<p>那麼一個類神經網路<mark>依照「誤差」調整權重，進一步影響「誤差降低」</mark>，</p>
+<p>是不是就代表著，<mark>每次的學習都有可能讓調整項變小？</mark></p>
+<p>這其實就是學習演算法中，調整項的設計想法，</p>
+<p>每次調整就會越接近目的地，下一次對轉動次數的調整就會減少。</p>
+<img src="{{ url_for('static', filename='images/ch6_gears2.png') }}" class="center" height="380" style="margin-bottom: 100px;">
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下設定完成)</p>
+<div class="manipulate_zone">
+	<div class="jumpers_input">
+		<input type="text" name="jumper1_input" id="jumper1_input">
+		<input type="text" name="jumper2_input" id="jumper2_input">
+		<button style="font-size:18px; width: 100px; height: 50px; margin-top: 120px" onclick="jump()">設定完成</button>
+	</div>
+	<div class="output_zone1">
+		<div></div>
+		<img src="{{ url_for('static', filename='images/ch6_eight.png') }}" width="160" style="margin-top: auto; margin-bottom: 0px;">
+		<div></div>
+		<div></div>
+		<div></div>
+		<img src="{{ url_for('static', filename='images/ch6_eight.png') }}" width="160" style="margin-top: auto; margin-bottom: 0px;">
+		<div></div>
+		<div></div>
+		<div></div>
+		<img src="{{ url_for('static', filename='images/ch6_two.png') }}" width="40"  style="margin-top: auto; margin-bottom: 0px;">
+		<img src="{{ url_for('static', filename='images/ch6_robot.png') }}" width="300"  style="margin-top: auto; margin-bottom: 0px;">
+	</div>
+	<div class="output_zone2">
+		<div></div>
+		<img src="{{ url_for('static', filename='images/ch6_fifty.png') }}" width="1000"  style="margin-top: auto; margin-bottom: 0px;">
+	</div>
+	<div class="output_zone3">
+		<p>目標距離：50個單位｜機器人前進距離：<span id="sum">18個單位</span>｜誤差：<span id="error">32個單位</span></p>
+	</div>
+	
+</div>
+
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>你認為除了像學習演算法調整齒輪轉動次數，</p>
+			<p>有沒有其他策略也能夠成功地讓機器人正確走到目的地？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>依照學習演算法，試著計算看看調整後的權重。</p>
+			<p>若機器人距離目的地50個單位，</p>
+			<p>大齒輪轉動一次會前進8個單位，小齒輪轉動一次會前進2個單位，
+			<p>如果一開始大齒輪轉動1次，小齒輪轉動2次，</p>
+			<p>學習率一樣設定為0.01，</p>
+			<p>機器人偵測到誤差後，兩個齒輪應該各調整為轉動多少次數？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer2, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch6_manipulate_1.js') }}"></script>
+
+
+{% include 'ch6_buttom.html' %}
+{% endblock %}

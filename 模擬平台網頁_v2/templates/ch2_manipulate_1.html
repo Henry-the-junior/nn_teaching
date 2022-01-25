@@ -1,0 +1,441 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch2_top.html' %}
+<style type="text/css">
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px;
+	width: 60%;
+}
+
+.graph_block1 {
+	display: grid;
+  	grid-template-columns: 100px 10px 100px;
+  	grid-template-rows: 100px;
+  	width: 210px;
+  	margin-left: 155px;
+  	margin-top: 10px;
+  	border: 5px #2664E0 solid;
+}
+
+.graph_block2 {
+	display: grid;
+  	grid-template-columns: 100px 10px 100px 10px 100px;
+  	grid-template-rows: 100px;
+  	width: 320px;
+  	margin-left: 100px;
+  	margin-top: 10px;
+  	border: 5px #2664E0 solid;
+}
+
+.graph_block3 {
+	display: grid;
+  	grid-template-columns: 100px;
+  	grid-template-rows: 100px;
+  	width: 100px;
+  	border: #2664E0 solid;
+}
+
+.manipulate_zone {
+	display: grid;
+	grid-template-columns: 600px 250px 250px;
+  	grid-template-rows: 80px 50px 50px 460px;
+  	height: 640px;
+  	width: 1100px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+}
+
+.database_img {
+	display: block;
+	background-image: url("../static/images/ch2_folder.png");
+	background-size: 30%;
+	background-repeat:no-repeat;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.cloud {
+	display: block;
+	background-image: url("../static/images/ch2_cloud.png");
+	background-size: 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 5;
+}
+
+.train_data_title {
+	display: block;
+	margin: 0px;
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	border: black solid;
+	text-align: center;
+	line-height: 50px;
+}
+
+.train_data_title_dog {
+	display: block;
+	margin: 0px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	border-left-style: solid;
+	text-align: center;
+	line-height: 50px;
+	font-size: 24px;
+}
+
+.train_data_title_cat {
+	display: block;
+	margin: 0px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	border-right-style: solid;
+	border-left-style: solid;
+	text-align: center;
+	line-height: 50px;
+	font-size: 24px;
+}
+
+.train_data_dog {
+	display: block;
+	margin: 0px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	text-align: center;
+	line-height: 50px;
+	font-size: 24px;
+}
+
+.train_data_cat {
+	display: block;
+	margin: 0px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 4;
+	grid-row-end: 5;
+	border: black solid;
+	text-align: center;
+	line-height: 50px;
+	font-size: 24px;
+}
+
+.data_block {
+	display: grid;
+	grid-template-columns: 10px 100px 20px 100px 10px;
+  	grid-template-rows: 105px 105px 105px 105px;
+  	margin-top: 20px;
+}
+
+.empty {
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+	margin: 0px;
+	background-color: white;
+}
+
+.dog_empty {
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+	margin: 0px;
+	background-color: white;
+}
+
+.cat_empty {
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+	margin: 0px;
+	background-color: white;
+}
+
+.dog_fill {
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	height: 100px;
+	width: 100px;
+	cursor: pointer;
+}
+
+.cat_fill {
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	height: 100px;
+	width: 100px;
+	cursor: pointer;
+}
+
+.hold {
+	border: solid #ccc 4px;
+}
+
+.result_zone {
+	display: grid;
+	grid-template-columns: 350px;
+  	grid-template-rows: 60px 75px 75px;
+  	height: 210px;
+  	width: 350px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #2664E0 solid;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 750px;
+  	height: 800px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+
+
+<h2>資料搜集</h2>
+<p>在深入了解類神經網路之前，我們先概觀地了解後續會談論到概念。</p>
+<p><mark>類神經網路是需要依靠「資料」來建立的</mark>，它會依照資料的內容來學習分類，</p>
+<p>所以通常在訓練類神經網路之前，需要<mark>搜集資料</mark>給類神經網路以進行後續的訓練。</p>
+<p>在模擬2-1當中，我們先深入討論資料搜集這部分的概念，以及這個階段需要注意的問題。</p>
+<img src="{{ url_for('static', filename='images/ch2_colntrain.png') }}" class="center">
+<p style="text-align: center; margin-bottom: 0px;">(試著拖曳藍色框框中的圖片到訓練資料集，再往下點選資料搜集完成)</p>
+<p style="text-align: center; margin-bottom: 0px;">(如果拖曳的過程中有異狀，可以重新整理這個頁面)</p>
+<div class="manipulate_zone">
+	<div class="database_img"></div>
+	<div class="cloud">
+		<div class="graph_block1">
+			<div class="empty">
+				<div class="cat_fill" draggable="true" style="background-image: url(../static/images/cat1.jpg);"></div>
+			</div>
+			<div></div>
+			<div class="empty">
+				<div class="dog_fill" draggable="true" style="background-image: url(../static/images/dog1.jpg);"></div>
+			</div>
+		</div>
+		<div class="graph_block2">
+			<div class="empty">
+				<div class="cat_fill" draggable="true" style="background-image: url(../static/images/cat2.jpg);"></div>
+			</div>
+			<div></div>
+			<div class="empty">
+				<div class="dog_fill" draggable="true" style="background-image: url(../static/images/dog2.jpg);"></div>
+			</div>
+			<div></div>
+			<div class="empty">
+				<div class="cat_fill" draggable="true" style="background-image: url(../static/images/cat3.jpg);"></div>
+			</div>
+		</div>
+		<div class="graph_block1">
+			<div class="empty">
+				<div class="cat_fill" draggable="true" style="background-image: url(../static/images/cat4.jpg);"></div>
+			</div>
+			<div></div>
+			<div class="empty">
+				<div class="dog_fill" draggable="true" style="background-image: url(../static/images/dog3.jpg);"></div>
+			</div>
+		</div>
+		<div class="graph_block2">
+			<div class="empty">
+				<div class="cat_fill" draggable="true" style="background-image: url(../static/images/cat5.jpg);"></div>
+			</div>
+			<div></div>
+			<div class="empty">
+				<div class="dog_fill" draggable="true" style="background-image: url(../static/images/dog4.jpg);"></div>
+			</div>
+			<div></div>
+			<div class="empty">
+				<div class="dog_fill" draggable="true" style="background-image: url(../static/images/dog5.jpg);"></div>
+			</div>
+		</div>
+	</div>
+	<h2 class="train_data_title">訓練資料集</h2>
+	<p class="train_data_title_dog">狗</p>
+	<p class="train_data_title_cat">貓</p>
+	<div class="train_data_dog">
+		<div class="data_block">
+			<div></div>
+			<div class="graph_block3">
+				<div class="dog_empty">
+				</div>
+			</div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="dog_empty">
+				</div>
+			</div>
+			<div></div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="dog_empty">
+				</div>
+			</div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="dog_empty">
+				</div>
+			</div>
+			<div></div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="dog_empty">
+				</div>
+			</div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="dog_empty">
+				</div>
+			</div>
+			<div></div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="dog_empty">
+				</div>
+			</div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="dog_empty">
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+	<div class="train_data_cat">
+		<div class="data_block">
+			<div></div>
+			<div class="graph_block3">
+				<div class="cat_empty">
+				</div>
+			</div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="cat_empty">
+				</div>
+			</div>
+			<div></div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="cat_empty">
+				</div>
+			</div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="cat_empty">
+				</div>
+			</div>
+			<div></div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="cat_empty">
+				</div>
+			</div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="cat_empty">
+				</div>
+			</div>
+			<div></div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="cat_empty">
+				</div>
+			</div>
+			<div></div>
+			<div class="graph_block3">
+				<div class="cat_empty">
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</div>
+<div class="result_zone">
+	<button style="font-size:20px;" onclick="dataColres()">資料搜集完成</button>
+	<p id="result1" style="line-height: 55px;"></p>
+	<p id="result2" style="line-height: 55px;"></p>
+</div>
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>如果在資料搜集的過程中，資料搜集的人不小心把資料的類別寫錯，</p>
+			<p>會不會影響類神經網路的訓練成果？你覺得會怎麼樣影響？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>對於資料搜集的過程，思考看看搜集五張照片與十張照片之間的差別，</p>
+			<p>如果搜集更多照片，照片的數量會不會影響類神經網路分類的成果？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer2, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>另外，如果在資料搜集的過程中，不小心一直搜集到同一品種的狗狗圖片，</p>
+			<p>對於後續的類神經網路訓練，會有什麼影響嗎？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer3, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+<h2>重點總結</h2>
+<p>在<mark>資料搜集</mark>的過程中，我們除了取得資料，實際上還會遇到<mark>賦予資料「類別」</mark>的問題，</p>
+<p>這邊值得注意的是賦予「類別」這件事，在上述介紹的情況是由我們去賦予的，</p>
+<p>也就是說，<mark>當我今天收到一張狗的照片，卻在資料上不小心寫成貓的類別</mark>，</p>
+<p>這在後續訓練類神經網路的時候，就有可能造成類神經網路<mark>學習上出現錯誤</mark>，</p>
+<p>所以在建立類神經網路之前，<mark>資料的品質或是正確性</mark>，是值得注意的課題。</p>
+<script type="text/javascript" src="{{ url_for('static', filename='ch2_manipulate_1.js') }}"></script>
+{% include 'ch2_buttom.html' %}
+{% endblock %}

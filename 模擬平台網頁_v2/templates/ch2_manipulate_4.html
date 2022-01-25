@@ -1,0 +1,263 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch2_top.html' %}
+<style type="text/css">
+
+.manipulate_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 200px 500px;
+  	height: 700px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 80px;
+}
+
+.pattern_zone {
+	display: grid;
+	grid-template-columns: 200px 200px 200px;
+  	grid-template-rows: 200px;
+  	column-gap: 30px;
+  	height: 200px;
+  	width: 660px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+.input_blocks {
+	display: grid;
+	grid-template-columns: 50px 50px 50px 50px;
+  	grid-template-rows: 50px 50px 50px 50px;
+  	height: 200px;
+  	width: 200px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+.input_block {
+	display: block;
+	line-height: 50px;
+	text-align: center;
+	border-top-style: solid;
+	border-left-style: solid;
+}
+
+.algebra_blocks {
+	display: grid;
+	grid-template-columns: 50px 50px 50px 50px;
+  	grid-template-rows: 50px 50px 50px 50px;
+  	height: 200px;
+  	width: 200px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+.algebra_block {
+	display: block;
+	line-height: 50px;
+	text-align: center;
+	border-top-style: solid;
+	border-left-style: solid;
+}
+
+.pattern_blocks {
+	display: grid;
+	grid-template-columns: 50px 50px 50px 50px;
+  	grid-template-rows: 50px 50px 50px 50px;
+  	height: 200px;
+  	width: 200px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+.pattern_block {
+	display: block;
+	line-height: 50px;
+	text-align: center;
+	border-top-style: solid;
+	border-left-style: solid;
+}
+
+.neural_net {
+	display: block;
+	background-image: url(../static/images/ch2_pattern_neural.png);
+	background-repeat:no-repeat;
+	background-size: 80%;
+	background-position: center;
+}
+
+.input_nums {
+	display: grid;
+	grid-template-columns: 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px;
+  	grid-template-rows: 25px;
+  	column-gap: 23.5px;
+  	height: 25px;
+  	width: 752.5px;
+  	margin-top: 49px;
+	margin-left: 121px;
+}
+
+.input_num {
+	display: block;
+	line-height: 25px;
+	text-align: center;
+}
+
+.first_layer_nums {
+	display: grid;
+	grid-template-columns: 25px 25px;
+  	grid-template-rows: 25px;
+  	column-gap: 275px;
+  	height: 25px;
+  	width: 325px;
+  	margin-top: 121px;
+	margin-left: 335px;
+}
+
+.first_layer_num {
+	display: block;
+	line-height: 25px;
+	text-align: center;
+}
+
+.second_layer_num {
+	display: block;
+  	height: 25px;
+  	width: 25px;
+  	line-height: 25px;
+	text-align: center;
+  	margin-top: 61px;
+	margin-left: 485px;
+}
+
+.output_text {
+	display: block;
+  	height: 50px;
+  	width: 120px;
+  	font-size: 20px;
+  	line-height: 50px;
+	text-align: center;
+  	margin-top: 85px;
+	margin-left: 660px;
+	border: black solid;
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+
+<h2>應用類神經網路(2)</h2>
+<p>在上一個章節中，我們知道類神經網路訓練好之後，接著就會使用它來判斷輸入的資料，</p>
+<p>但<mark>事實上圖片的辨識相當複雜</mark>，圖片的像素數量越多，</p>
+<p>所需要的類神經元就越多。</p>
+<p>所以在本章節，我們將用一個簡化的例子，</p>
+<p>初步討論我們在應用一個類神經網路的時候，其中是如何運作的。</p>
+<p>假如訓練好的類神經網路，學會判斷了一隻貓身上的花紋，</p>
+<p>這個<mark>花紋即是右下方的圖案</mark>，而正當我們輸入一個新的圖片進入類神經網路，</p>
+<p style="display: block; margin-bottom: 50px;"><mark>類神經網路就會將輸入值與權重相乘以及加總，最後再利用運算出來的值判斷這個圖案是否與原圖相符</mark>。</p>
+
+
+<img src="{{ url_for('static', filename='images/ch2_cat_pattern.png') }}" height="200" style="display: block; margin-left: auto; margin-right: auto;">
+<p style="text-align: center; margin-bottom: 0px;">(試著點擊「左方」的4 x 4方格，並觀察下方的數值變化)</p>
+<div class="manipulate_zone">
+	<div class="pattern_zone">
+		<div class="input_blocks">
+			<div class="input_block" style="background-color: white;" id = "b1"></div>
+			<div class="input_block" style="background-color: white;" id = "b2"></div>
+			<div class="input_block" style="background-color: white;" id = "b3"></div>
+			<div class="input_block" style="border-right-style: solid; background-color: white;" id = "b4"></div>
+			<div class="input_block" style="background-color: white;" id = "b5"></div>
+			<div class="input_block" style="background-color: white;" id = "b6"></div>
+			<div class="input_block" style="background-color: white;" id = "b7"></div>
+			<div class="input_block" style="border-right-style: solid; background-color: white;" id = "b8"></div>
+			<div class="input_block" style="background-color: white;" id = "b9"></div>
+			<div class="input_block" style="background-color: white;" id = "b10"></div>
+			<div class="input_block" style="background-color: white;" id = "b11"></div>
+			<div class="input_block" style="border-right-style: solid; background-color: white;" id = "b12"></div>
+			<div class="input_block" style="border-bottom-style: solid; background-color: white;" id = "b13"></div>
+			<div class="input_block" style="border-bottom-style: solid; background-color: white;" id = "b14"></div>
+			<div class="input_block" style="border-bottom-style: solid; background-color: white;" id = "b15"></div>
+			<div class="input_block" style="border-right-style: solid; border-bottom-style: solid; background-color: white;" id = "b16"></div>
+		</div>
+		<div class="algebra_blocks">
+			<div class="algebra_block">x<sub>1</sub></div>
+			<div class="algebra_block">x<sub>2</sub></div>
+			<div class="algebra_block">x<sub>3</sub></div>
+			<div class="algebra_block" style="border-right-style: solid;">x<sub>4</sub></div>
+			<div class="algebra_block">x<sub>5</sub></div>
+			<div class="algebra_block">x<sub>6</sub></div>
+			<div class="algebra_block">x<sub>7</sub></div>
+			<div class="algebra_block" style="border-right-style: solid;">x<sub>8</sub></div>
+			<div class="algebra_block">x<sub>9</sub></div>
+			<div class="algebra_block">x<sub>10</sub></div>
+			<div class="algebra_block">x<sub>11</sub></div>
+			<div class="algebra_block" style="border-right-style: solid;">x<sub>12</sub></div>
+			<div class="algebra_block" style="border-bottom-style: solid;">x<sub>13</sub></div>
+			<div class="algebra_block" style="border-bottom-style: solid;">x<sub>14</sub></div>
+			<div class="algebra_block" style="border-bottom-style: solid;">x<sub>15</sub></div>
+			<div class="algebra_block" style="border-right-style: solid; border-bottom-style: solid;">x<sub>16</sub></div>
+		</div>
+		<div class="pattern_blocks">
+			<div class="pattern_block"></div>
+			<div class="pattern_block" style="background-color: black;"></div>
+			<div class="pattern_block"></div>
+			<div class="pattern_block" style="border-right-style: solid;"></div>
+			<div class="pattern_block" style="background-color: black;"></div>
+			<div class="pattern_block"></div>
+			<div class="pattern_block" style="background-color: black;"></div>
+			<div class="pattern_block" style="border-right-style: solid;"></div>
+			<div class="pattern_block"></div>
+			<div class="pattern_block" style="background-color: black;"></div>
+			<div class="pattern_block"></div>
+			<div class="pattern_block" style="border-right-style: solid; background-color: black;"></div>
+			<div class="pattern_block" style="border-bottom-style: solid;"></div>
+			<div class="pattern_block" style="border-bottom-style: solid;"></div>
+			<div class="pattern_block" style="border-bottom-style: solid; background-color: black;"></div>
+			<div class="pattern_block" style="border-right-style: solid; border-bottom-style: solid;"></div>
+		</div>
+	</div>
+	<div class="neural_net">
+		<div class="input_nums">
+			<div class="input_num" id="n1">0</div>
+			<div class="input_num" id="n2">0</div>
+			<div class="input_num" id="n3">0</div>
+			<div class="input_num" id="n4">0</div>
+			<div class="input_num" id="n5">0</div>
+			<div class="input_num" id="n6">0</div>
+			<div class="input_num" id="n7">0</div>
+			<div class="input_num" id="n8">0</div>
+			<div class="input_num" id="n9">0</div>
+			<div class="input_num" id="n10">0</div>
+			<div class="input_num" id="n11">0</div>
+			<div class="input_num" id="n12">0</div>
+			<div class="input_num" id="n13">0</div>
+			<div class="input_num" id="n14">0</div>
+			<div class="input_num" id="n15">0</div>
+			<div class="input_num" id="n16">0</div>
+		</div>
+		<div class="first_layer_nums">
+			<div class="first_layer_num">0</div>
+			<div class="first_layer_num">0</div>
+		</div>
+		<div class="second_layer_num">0</div>
+		<div class="output_text">不相符</div>
+	</div>
+</div>
+
+<h2>重點總結</h2>
+<p>以上是一個<mark>類神經網路如何判斷圖片是否與花紋相符的例子</mark>。</p>
+<p>當然，我們還是要強調這只是其中一種方式，也是一種比較簡化的方式，</p>
+<p>要能夠更精確判斷一張圖片是否符合，或是「是否符合一種類別」這個更抽象的課題，</p>
+<p>就需要學習更多數理方法，設計好一個學習方法後，再用程式設計的方式實現。</p>
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch2_manipulate_4.js') }}"></script>
+
+{% include 'ch2_buttom.html' %}
+{% endblock %}

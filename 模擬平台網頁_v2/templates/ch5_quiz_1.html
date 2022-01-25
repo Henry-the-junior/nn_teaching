@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% include 'ch5_top.html' %}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+<style type="text/css">
+
+.hint_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 300px;
+	height: 350px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.output_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 230px;
+	height: 280px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+code {
+	font-size: 20px;
+}
+
+</style>
+
+<h2>問題一</h2>
+<p>用Python程式撰寫步階函數、符號函數、S形函數，</p>
+<p>以及線性函數，請使用定義函數的方式，以下呈現步階函數的部分程式碼。</p>
+<p>請參照範例將此題完成。</p>
+
+<div class="hint_zone">
+	<h2>程式提示</h2>
+	<pre>
+	<code class="python">
+	def step(X):
+		if X >= 0:
+			________
+		else:
+			________
+	</code>
+	</pre>
+</div>
+
+<div class="output_zone">
+	<h2>輸出提示</h2>
+	<pre>
+	<code class="python">
+	print(step(5))
+	>>1
+	print(step(-7))
+	>>0
+	</code>
+	</pre>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+{% include 'ch5_buttom.html' %}
+{% endblock %}

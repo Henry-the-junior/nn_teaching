@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% include 'ch6_top.html' %}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+<style type="text/css">
+
+.hint_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 300px;
+	height: 350px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.output_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 230px;
+	height: 280px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+code {
+	font-size: 20px;
+}
+
+</style>
+
+<h2>問題二</h2>
+<p>撰寫完誤差函式後，再寫一個調整權重的函式，</p>
+<p>這個函式可以輸入學習率和期望輸出，</p>
+<p>執行後會依照Rosenblatt提出的方法調整權重，</p>
+<p>並且將新的權重更新到類神經網路物件上。請參照範例將此題完成。</p>
+
+<div class="hint_zone">
+	<h2>程式提示</h2>
+	<pre>
+	<code class="python">
+    class nn:
+        ...
+        ...
+        def new_w(self, alpha, yd, func):
+            ...
+
+	</code>
+	</pre>
+</div>
+
+<div class="output_zone">
+	<h2>輸出提示</h2>
+	<pre>
+	<code class="python">
+    print(nn(2, [3, 4], [3, 1], 2).new_w(0.2, 0, step))
+    >>[2.4, 0.2]
+    print(nn(3, [4, 3, 1], [2, 2, 5], 2).new_w(0.1, 10, linear))
+    >>[-0.8, -0.1, 4.3]
+	</code>
+	</pre>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+{% include 'ch6_buttom.html' %}
+{% endblock %}

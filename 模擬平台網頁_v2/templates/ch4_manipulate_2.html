@@ -1,0 +1,344 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch4_top.html' %}
+<style type="text/css">
+
+.center {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.emptynn1 {
+	display: grid;
+	grid-template-columns: 250px 140px 410px 200px;
+  	grid-template-rows: 200px 100px 200px;
+	background-image: url(../static/images/ch4_nn2.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 500px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn1_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 25px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 50px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 105px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 105px;
+	margin-top: 50px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 105px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: -13px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.nn1_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 15px;
+	margin-top: 100px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.emptynn2 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 50px 150px 200px;
+	background-image: url(../static/images/ch4_nn3.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+
+#nn2_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 155px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 50px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_x3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 30px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn2_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: -10px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_w2 {
+	background-color:rgba(255, 255, 255, 0.5);
+	border: 1px dashed;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 30px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_w3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: 0px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn2_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 125px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: 55px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.nn2_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 100px;
+	margin-top: 100px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 700px;
+  	height: 750px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>類神經元的運算</h2>
+<p>在本章節中，我們再次呈現<mark>Warren McCulloch和Walter Pitts的類神經元模型</mark>，</p>
+<p>這時候，你應該更加理解𝜃值的用意，以及符號函數的功能，</p>
+<p>試著操作下方的介面，讓自己更加熟悉這個概念吧。</p>
+<img src="{{ url_for('static', filename='images/ch4_math1.png') }}" height="100" class="center">
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn1">
+	<input type="text" name="nn1_x1" id="nn1_x1">
+	<input type="text" name="nn1_x2" id="nn1_x2">
+	<input type="text" name="nn1_w1" id="nn1_w1">
+	<input type="text" name="nn1_w2" id="nn1_w2">
+	<input type="text" name="nn1_theta" id="nn1_theta">
+	<p id="nn1_y">0</p>
+	<div class="nn1_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn1_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn2">
+	<input type="text" name="nn2_x1" id="nn2_x1">
+	<input type="text" name="nn2_x2" id="nn2_x2">
+	<input type="text" name="nn2_x3" id="nn2_x3">
+	<input type="text" name="nn2_w1" id="nn2_w1">
+	<input type="text" name="nn2_w2" id="nn2_w2">
+	<input type="text" name="nn2_w3" id="nn2_w3">
+	<input type="text" name="nn2_theta" id="nn2_theta">
+	<p id="nn2_y">0</p>
+	<div class="nn2_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn2_count()">計算</button>
+	</div>
+</div>
+
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>假設X = 3·x<sub>1</sub> + (-4)·x<sub>2</sub> - 2，</p>
+			<p>並且Y = sign(X)，</p>
+			<p>當x<sub>1</sub> = -2、x<sub>2</sub> = 3 時，</p>
+			<p>請問Y值為多少？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>假設X = (-0.5)·x<sub>1</sub> + 7·x<sub>2</sub> + 2·x<sub>3</sub> + 6，</p>
+			<p>並且Y = sign(X)，資料以(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>)表示，</p>
+			<p>請問(3, 1, 2)和(-1, 2, -1)這兩筆資料，</p>
+			<p>是否分為同一個類別？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer2, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<h2>重點總結</h2>
+<p>在本章節中，我們用圖像的方式再次深入認識類神經網路，</p>
+<p>在問答的過程中，相信你也體會到<mark>資料能夠在類神經網路處理過後被分類成某個類別</mark>，</p>
+<p>但我們還沒介紹到，我們到底<mark>如何讓類神經網路「學習」到這樣的分類方式</mark>，</p>
+<p>我們不只希望做出一套分類方式，還希望找到一個能夠精確分類的方式，</p>
+<p>沒辦法百分百正確的話，至少也不要頻繁地出差錯。</p>
+<p><mark>在下個章節中，我們將多補充一些激勵函數的概念</mark>，</p>
+<p><mark>在最後一個章節，我們就能夠介紹到類神經網路如何「學習」了</mark>，繼續加油吧。</p>
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch4_manipulate_2.js') }}"></script>
+
+{% include 'ch4_buttom.html' %}
+{% endblock %}

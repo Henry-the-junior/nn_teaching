@@ -37,19 +37,21 @@ code {
 </style>
 
 <h2>問題二</h2>
-<p>用Python程式撰寫步階函數、符號函數、S形函數，</p>
-<p>以及線性函數，請使用定義函數的方式，以下呈現步階函數的部分程式碼。</p>
-<p>請參照範例將此題完成。</p>
+<p>撰寫完誤差函式後，再寫一個調整權重的函式，</p>
+<p>這個函式可以輸入學習率和期望輸出，</p>
+<p>執行後會依照Rosenblatt提出的方法調整權重，</p>
+<p>並且將新的權重更新到類神經網路物件上。請參照範例將此題完成。</p>
 
 <div class="hint_zone">
 	<h2>程式提示</h2>
 	<pre>
 	<code class="python">
-	def step(X):
-		if X >= 0:
-			________
-		else:
-			________
+    class nn:
+        ...
+        ...
+        def new_w(self, alpha, yd, func):
+            ...
+
 	</code>
 	</pre>
 </div>
@@ -58,10 +60,10 @@ code {
 	<h2>輸出提示</h2>
 	<pre>
 	<code class="python">
-	print(step(5))
-	>>1
-	print(step(-7))
-	>>0
+    print(nn(2, [3, 4], [3, 1], 2).new_w(0.2, 0, step))
+    >>[2.4, 0.2]
+    print(nn(3, [4, 3, 1], [2, 2, 5], 2).new_w(0.1, 10, linear))
+    >>[-0.8, -0.1, 4.3]
 	</code>
 	</pre>
 </div>

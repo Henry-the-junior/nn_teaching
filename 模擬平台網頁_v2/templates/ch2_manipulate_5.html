@@ -1,0 +1,473 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch2_top.html' %}
+<style type="text/css">
+
+.emptynn1 {
+	display: grid;
+	grid-template-columns: 300px 250px 250px 200px;
+  	grid-template-rows: 160px 240px;
+	background-image: url(../static/images/ch2_emptynn1.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 400px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn1_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 220px;
+	margin-top: 105px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 220px;
+	margin-top: 90px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 140px;
+	margin-top: 105px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 140px;
+	margin-top: 90px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 115px;
+	margin-top: 17px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.nn1_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 50px;
+	margin-top: 150px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.emptynn2 {
+	display: grid;
+	grid-template-columns: 300px 250px 250px 200px;
+  	grid-template-rows: 200px 200px 200px;
+	background-image: url(../static/images/ch2_emptynn2.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn2_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 220px;
+	margin-top: 120px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 220px;
+	margin-top: 90px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_x3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 220px;
+	margin-top: 40px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 140px;
+	margin-top: 120px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 140px;
+	margin-top: 60px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_w3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 140px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 95px;
+	margin-top: 93px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.nn2_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 50px;
+	margin-top: 100px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.health_nn {
+	display: grid;
+	grid-template-columns: 300px 250px 250px 200px;
+  	grid-template-rows: 100px 160px 240px 100px;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+.health_nn_background {
+	background-image: url(../static/images/ch2_health_nn.png);
+	background-repeat:no-repeat;
+	background-size: 95%;
+	background-position: center;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 4;
+}
+
+#health_nn_x1 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 145px;
+	margin-top: 130px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#health_nn_x2 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 145px;
+	margin-top: 75px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#health_nn_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 180px;
+	margin-top: 18px;
+	font-size: 25px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.health_nn_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 165px;
+	margin-top: 150px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.blood_pressure {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	margin-left: 20px;
+	margin-top: 50px;
+}
+
+.blood_pressure_button_block {
+	height: 50px;
+	width: 80px;
+	margin-left: 140px;
+	margin-top: 100px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.blood_pressure_output {
+	height: 100px;
+	width: 300px;
+	margin-left: 200px;
+	margin-top: 70px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#blood_pressure_x1 {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 340px;
+	margin-top: 76px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#blood_pressure_x2 {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 340px;
+	margin-top: 115px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.heart_rate {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	margin-left: 10px;
+	margin-top: 180px;
+}
+
+.health_or_sick {
+	display: block;
+	height: 200px;
+	width: 200px;
+	background-image: url(../static/images/sick.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	margin-left: 0px;
+	margin-top: 100px;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 800px;
+  	height: 850px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+<!--
+之前模擬2-5與2-6是寫在一起的，
+後來因為不知道問答的表單怎麼分開送答案，
+才分開頁面。然後，因為開發時間關係，
+還沒修改CSS的部分。
+-->
+</style>
+
+<h2>類神經網路的數學方法</h2>
+<p>在本章節，我們將開始認識<mark>類神經網路在數學上是如何運作的</mark>。</p>
+<p>要了解<mark>類神經元與權重相乘、相加的過程</mark>，我們先初步了解一個簡單的例子，</p>
+<p>如果我有兩個輸入值，它們個別有權重，連結到神經元，然後我們設定w<sub>1</sub>=3、w<sub>2</sub>=2，</p>
+<p>則在輸入x<sub>1</sub>=1、x<sub>2</sub>=0的時候，就會輸出y=3，因為就整個設定來說，</p>
+<p>我們可以得到一個數學式<mark>y= x<sub>1</sub>w<sub>1</sub>+ x<sub>2</sub>w<sub>2</sub></mark>，決定好權重和輸入值，</p>
+<p>自然就會得出y這個輸出值。</p>
+<p><mark>試著操作看看下方的類神經網路，更清楚認識這個概念吧。</mark></p>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn1">
+	<input type="text" name="nn1_x1" id="nn1_x1">
+	<input type="text" name="nn1_x2" id="nn1_x2">
+	<input type="text" name="nn1_w1" id="nn1_w1">
+	<input type="text" name="nn1_w2" id="nn1_w2">
+	<p id="nn1_y">0</p>
+	<div class="nn1_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn1_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn2">
+	<input type="text" name="nn2_x1" id="nn2_x1">
+	<input type="text" name="nn2_x2" id="nn2_x2">
+	<input type="text" name="nn2_x3" id="nn2_x3">
+	<input type="text" name="nn2_w1" id="nn2_w1">
+	<input type="text" name="nn2_w2" id="nn2_w2">
+	<input type="text" name="nn2_w3" id="nn2_w3">
+	<p id="nn2_y">0</p>
+	<div class="nn2_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn2_count()">計算</button>
+	</div>
+</div>
+
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>假設y = x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub>，</p>
+			<p>當x<sub>1</sub> = 7、w<sub>1</sub> = 1、x<sub>2</sub> = 3、w<sub>2</sub> = 2 時，</p>
+			<p>請問y值為多少？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>假設y = x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub> + x<sub>3</sub>w<sub>3</sub>，</p>
+			<p>當x<sub>1</sub> = 4、w<sub>1</sub> = 2、x<sub>2</sub> = 1、w<sub>2</sub> = 0.5、x<sub>3</sub> = 4、w<sub>3</sub> = 0.1 時，</p>
+			<p>請問y值為多少？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer2, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>學到目前為止，你能否在重述一下類神經網路如何達成「分類」這個目的？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer3, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<h2>重點總結</h2>
+<p>在本章節中，我們圖像化了類神經網路，用簡單的情境認識它是如何運作的，</p>
+<p>有了這個概念，<mark>你可以再回過頭思考看看圖片資料是如何在類神經網路中運作的</mark>，</p>
+<p>圖片資料的每個<mark>像素可能都接著一個權重，與權重相乘，計算出的乘積再相加</mark>，</p>
+<p>最後的<mark>輸出值就能夠當作分類的依據</mark>。只是對於圖片資料來說，每個像素也許不只存放一個數字，</p>
+<p>這在你實際學習到如何處理圖片資料後，才會有更清晰的認識。</p>
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch2_manipulate_5.js') }}"></script>
+
+{% include 'ch2_buttom.html' %}
+{% endblock %}

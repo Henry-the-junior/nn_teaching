@@ -1,0 +1,793 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch6_top.html' %}
+<style type="text/css">
+
+.emptynn1 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 100px 100px 70px 130px;
+	background-image: url(../static/images/ch6_nn1.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn1_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 25px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 52px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 55px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 55px;
+	margin-top: 52px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 105px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_alpha {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 105px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: -10px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_expect {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 20px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn1_error {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 60px;
+	margin-top: 24px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn1_new_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 110px;
+	margin-top: 8px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+#nn1_new_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 57px;
+	margin-top: 8px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+.nn1_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 15px;
+	margin-top: 40px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.emptynn2 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 100px 100px 70px 130px;
+	background-image: url(../static/images/ch6_nn2.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn2_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 25px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 52px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 55px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 55px;
+	margin-top: 52px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 105px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_alpha {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 105px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: -10px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_expect {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 20px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn2_error {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 60px;
+	margin-top: 24px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn2_new_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 110px;
+	margin-top: 8px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+#nn2_new_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 57px;
+	margin-top: 8px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+.nn2_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 15px;
+	margin-top: 40px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.emptynn3 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 100px 100px 70px 130px;
+	background-image: url(../static/images/ch6_nn3.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn3_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 25px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn3_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 52px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn3_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 55px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn3_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 55px;
+	margin-top: 52px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn3_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 105px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn3_alpha {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 105px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn3_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: -10px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn3_expect {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 20px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn3_error {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 60px;
+	margin-top: 24px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn3_new_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 110px;
+	margin-top: 8px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+#nn3_new_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 57px;
+	margin-top: 8px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+.nn3_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 15px;
+	margin-top: 40px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.emptynn4 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 100px 100px 70px 130px;
+	background-image: url(../static/images/ch6_nn4.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn4_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 25px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn4_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 52px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn4_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 55px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn4_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 55px;
+	margin-top: 52px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn4_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 105px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn4_alpha {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 105px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn4_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: -10px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn4_expect {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 20px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn4_error {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 60px;
+	margin-top: 24px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn4_new_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 110px;
+	margin-top: 8px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+#nn4_new_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 57px;
+	margin-top: 8px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+.nn4_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 15px;
+	margin-top: 40px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 850px;
+  	height: 900px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>類神經網路如何學習分類？</h2>
+<p>在本章節中，我們<mark>將類神經網路套用不同的激勵函數</mark>，</p>
+<p>並且<mark>利用誤差去計算類神經網路應該如何調整權重</mark>，</p>
+<p>再次嘗試操作看看吧，讓你更加熟悉下方這個式子所代表的意義。</p>
+<p style="display: block; text-align: center; margin-bottom: 50px;">w<sub>new</sub> = w<sub>i</sub> + 𝛼 * x<sub>i</sub> * error</p>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<p style="text-align: center; margin-bottom: 0px;">(重點提醒：雖然可以任意輸入期望輸出，但在使用符號函數的情況下，合理的期望輸出只有+1或-1)</p>
+<div class="emptynn2">
+	<input type="text" name="nn2_x1" id="nn2_x1">
+	<input type="text" name="nn2_x2" id="nn2_x2">
+	<input type="text" name="nn2_w1" id="nn2_w1">
+	<input type="text" name="nn2_w2" id="nn2_w2">
+	<input type="text" name="nn2_theta" id="nn2_theta">
+	<input type="text" name="nn2_alpha" id="nn2_alpha">
+	<input type="text" name="nn2_expect" id="nn2_expect">
+	<p id="nn2_y">0</p>
+	<p id="nn2_error">0</p>
+	<p id="nn2_new_w1">0</p>
+	<p id="nn2_new_w2">0</p>
+	<div class="nn2_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn2_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<p style="text-align: center; margin-bottom: 0px;">(重點提醒：雖然可以任意輸入期望輸出，但在使用步階函數的情況下，合理的期望輸出只有+1或0)</p>
+<div class="emptynn1">
+	<input type="text" name="nn1_x1" id="nn1_x1">
+	<input type="text" name="nn1_x2" id="nn1_x2">
+	<input type="text" name="nn1_w1" id="nn1_w1">
+	<input type="text" name="nn1_w2" id="nn1_w2">
+	<input type="text" name="nn1_theta" id="nn1_theta">
+	<input type="text" name="nn1_alpha" id="nn1_alpha">
+	<input type="text" name="nn1_expect" id="nn1_expect">
+	<p id="nn1_y">0</p>
+	<p id="nn1_error">0</p>
+	<p id="nn1_new_w1">0</p>
+	<p id="nn1_new_w2">0</p>
+	<div class="nn1_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn1_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<p style="text-align: center; margin-bottom: 0px;">(重點提醒：雖然可以任意輸入期望輸出，但在使用符號函數的情況下，合理的期望輸出應該介在0和1之間)</p>
+<div class="emptynn3">
+	<input type="text" name="nn3_x1" id="nn3_x1">
+	<input type="text" name="nn3_x2" id="nn3_x2">
+	<input type="text" name="nn3_w1" id="nn3_w1">
+	<input type="text" name="nn3_w2" id="nn3_w2">
+	<input type="text" name="nn3_theta" id="nn3_theta">
+	<input type="text" name="nn3_alpha" id="nn3_alpha">
+	<input type="text" name="nn3_expect" id="nn3_expect">
+	<p id="nn3_y">0</p>
+	<p id="nn3_error">0</p>
+	<p id="nn3_new_w1">0</p>
+	<p id="nn3_new_w2">0</p>
+	<div class="nn3_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn3_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<p style="text-align: center; margin-bottom: 0px;">(重點提醒：雖然可以任意輸入期望輸出，但在使用斜坡函數的情況下，合理的期望輸出應該只有正數或0)</p>
+<div class="emptynn4">
+	<input type="text" name="nn4_x1" id="nn4_x1">
+	<input type="text" name="nn4_x2" id="nn4_x2">
+	<input type="text" name="nn4_w1" id="nn4_w1">
+	<input type="text" name="nn4_w2" id="nn4_w2">
+	<input type="text" name="nn4_theta" id="nn4_theta">
+	<input type="text" name="nn4_alpha" id="nn4_alpha">
+	<input type="text" name="nn4_expect" id="nn4_expect">
+	<p id="nn4_y">0</p>
+	<p id="nn4_error">0</p>
+	<p id="nn4_new_w1">0</p>
+	<p id="nn4_new_w2">0</p>
+	<div class="nn4_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn4_count()">計算</button>
+	</div>
+</div>
+
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>假設X = 3·x<sub>1</sub> + (-4)·x<sub>2</sub> - 2，</p>
+			<p>並且Y = sign(X)，</p>
+			<p>當x<sub>1</sub> = -2、x<sub>2</sub> = 3 ，</p>
+			<p>並且設定期望輸出為+1，學習率𝛼值為0.2，</p>
+			<p>請問w<sub>1</sub>和w<sub>2</sub>該如何調整？</p>
+			<p>(提示：誤差 = 期望輸出 - y值)</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<div style="margin-top: 40px;">
+			<p>假設X = 2·x<sub>1</sub> + (-1)·x<sub>2</sub> + 3·x<sub>3</sub> - 1，</p>
+			<p>並且Y = step(X)，</p>
+			<p>當x<sub>1</sub> = 7、x<sub>2</sub> = 2、x<sub>3</sub> = -5 ，</p>
+			<p>並且設定期望輸出為+1，學習率𝛼值為0.3，</p>
+			<p>請問w<sub>1</sub>、w<sub>2</sub>、w<sub>3</sub>該如何調整？</p>
+			<p>(提示：誤差 = 期望輸出 - y值)</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer2, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch6_manipulate_3.js') }}"></script>
+
+{% include 'ch6_buttom.html' %}
+{% endblock %}

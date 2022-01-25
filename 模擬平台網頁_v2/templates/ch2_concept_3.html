@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch2_top.html' %}
+<style type="text/css">
+
+.graph_block {
+	display: grid;
+  	grid-template-columns: 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px;
+  	grid-template-rows: 70px;
+  	width: 700px;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 0px;
+  	margin-bottom: 50px;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px;
+	width: 50%;
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>什麼是類神經網路？</h2>
+<p>讓我們再深入討論<mark>「數字手寫辨識」</mark>這個問題吧，</p>
+<p>在前一個章節我們有說過，圖片當中的白色可以當作數值1，黑色則為數值0，</p>
+<p>如此就能夠透過運算來區分每張圖片的類別，但<mark>事實上分類的方法有很多種</mark>，</p>
+<p>我們在此就再更深入介紹一種處理方法，<mark>有些人會針對「數字手寫辨識」這個問題</mark>，</p>
+<p>選擇在類神經網路<mark>輸出層的「前一層」設置10個類神經元</mark>，</p>
+<p>讓類神經網路計算出這張<mark>圖片是0的機率、1的機率、2的機率、…、9的機率</mark>，</p>
+<p id="anchor">最後在從機率最高的判斷圖片所對應的數字。</p>
+
+{% if session.option == 'ch2_nn0' %}
+<img src="{{ url_for('static', filename='images/ch2_nn0.png') }}" class="center">
+{% elif session.option == 'ch2_nn1' %}
+<img src="{{ url_for('static', filename='images/ch2_nn1.png') }}" class="center">
+{% elif session.option == 'ch2_nn2' %}
+<img src="{{ url_for('static', filename='images/ch2_nn2.png') }}" class="center">
+{% elif session.option == 'ch2_nn3' %}
+<img src="{{ url_for('static', filename='images/ch2_nn3.png') }}" class="center">
+{% elif session.option == 'ch2_nn4' %}
+<img src="{{ url_for('static', filename='images/ch2_nn4.png') }}" class="center">
+{% elif session.option == 'ch2_nn5' %}
+<img src="{{ url_for('static', filename='images/ch2_nn5.png') }}" class="center">
+{% elif session.option == 'ch2_nn6' %}
+<img src="{{ url_for('static', filename='images/ch2_nn6.png') }}" class="center">
+{% elif session.option == 'ch2_nn7' %}
+<img src="{{ url_for('static', filename='images/ch2_nn7.png') }}" class="center">
+{% elif session.option == 'ch2_nn8' %}
+<img src="{{ url_for('static', filename='images/ch2_nn8.png') }}" class="center">
+{% elif session.option == 'ch2_nn9' %}
+<img src="{{ url_for('static', filename='images/ch2_nn9.png') }}" class="center">
+{% endif %}
+
+<p style="text-align: center; margin-bottom: 0px;">(試著點擊下方的數字圖片)</p>
+<div class="graph_block">
+	<a href="/ch2_concept_3/ch2_nn0#anchor"><img src="{{ url_for('static', filename='images/0.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn1#anchor"><img src="{{ url_for('static', filename='images/1.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn2#anchor"><img src="{{ url_for('static', filename='images/2.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn3#anchor"><img src="{{ url_for('static', filename='images/3.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn4#anchor"><img src="{{ url_for('static', filename='images/4.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn5#anchor"><img src="{{ url_for('static', filename='images/5.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn6#anchor"><img src="{{ url_for('static', filename='images/6.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn7#anchor"><img src="{{ url_for('static', filename='images/7.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn8#anchor"><img src="{{ url_for('static', filename='images/8.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn9#anchor"><img src="{{ url_for('static', filename='images/9.jpg') }}" height="70" style="margin: auto;"></a>
+</div>
+
+{% include 'ch2_buttom.html' %}
+{% endblock %}

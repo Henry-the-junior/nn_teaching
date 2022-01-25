@@ -1,0 +1,596 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch5_top.html' %}
+<style type="text/css">
+
+.emptynn1 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 50px 150px 200px;
+	background-image: url(../static/images/ch5_nn1.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn1_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 155px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 50px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_x3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 30px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn1_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: -10px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_w2 {
+	background-color:rgba(255, 255, 255, 0.5);
+	border: 1px dashed;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 30px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_w3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: 0px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn1_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 125px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: 55px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.nn1_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 100px;
+	margin-top: 100px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.emptynn2 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 50px 150px 200px;
+	background-image: url(../static/images/ch5_nn2.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+
+#nn2_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 155px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 50px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_x3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 30px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn2_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: -10px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_w2 {
+	background-color:rgba(255, 255, 255, 0.5);
+	border: 1px dashed;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 30px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_w3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: 0px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn2_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 125px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: 55px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.nn2_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 100px;
+	margin-top: 100px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.emptynn3 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 50px 150px 200px;
+	background-image: url(../static/images/ch5_nn3.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+
+#nn3_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 155px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn3_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 50px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn3_x3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 30px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn3_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: -10px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn3_w2 {
+	background-color:rgba(255, 255, 255, 0.5);
+	border: 1px dashed;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 30px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn3_w3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: 0px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn3_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 125px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn3_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: 55px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.nn3_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 100px;
+	margin-top: 100px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.emptynn4 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 50px 150px 200px;
+	background-image: url(../static/images/ch5_nn4.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+
+#nn4_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 155px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn4_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 50px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn4_x3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 30px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn4_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: -10px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn4_w2 {
+	background-color:rgba(255, 255, 255, 0.5);
+	border: 1px dashed;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 30px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn4_w3 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 75px;
+	margin-top: 0px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn4_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 125px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn4_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: 55px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.nn4_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 100px;
+	margin-top: 100px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+
+<h2>符號函數是唯一的激勵函數嗎？</h2>
+<p>在模擬5-2中，我們<mark>替換不同的激勵函數來呈現類神經網路</mark>，</p>
+<p>讓你再次體會激勵函數在類神經網路中扮演的角色。</p>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn1">
+	<input type="text" name="nn1_x1" id="nn1_x1">
+	<input type="text" name="nn1_x2" id="nn1_x2">
+	<input type="text" name="nn1_x3" id="nn1_x3">
+	<input type="text" name="nn1_w1" id="nn1_w1">
+	<input type="text" name="nn1_w2" id="nn1_w2">
+	<input type="text" name="nn1_w3" id="nn1_w3">
+	<input type="text" name="nn1_theta" id="nn1_theta">
+	<p id="nn1_y">0</p>
+	<div class="nn1_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn1_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn2">
+	<input type="text" name="nn2_x1" id="nn2_x1">
+	<input type="text" name="nn2_x2" id="nn2_x2">
+	<input type="text" name="nn2_x3" id="nn2_x3">
+	<input type="text" name="nn2_w1" id="nn2_w1">
+	<input type="text" name="nn2_w2" id="nn2_w2">
+	<input type="text" name="nn2_w3" id="nn2_w3">
+	<input type="text" name="nn2_theta" id="nn2_theta">
+	<p id="nn2_y">0</p>
+	<div class="nn2_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn2_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn3">
+	<input type="text" name="nn3_x1" id="nn3_x1">
+	<input type="text" name="nn3_x2" id="nn3_x2">
+	<input type="text" name="nn3_x3" id="nn3_x3">
+	<input type="text" name="nn3_w1" id="nn3_w1">
+	<input type="text" name="nn3_w2" id="nn3_w2">
+	<input type="text" name="nn3_w3" id="nn3_w3">
+	<input type="text" name="nn3_theta" id="nn3_theta">
+	<p id="nn3_y">0</p>
+	<div class="nn3_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn3_count()">計算</button>
+	</div>
+</div>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn4">
+	<input type="text" name="nn4_x1" id="nn4_x1">
+	<input type="text" name="nn4_x2" id="nn4_x2">
+	<input type="text" name="nn4_x3" id="nn4_x3">
+	<input type="text" name="nn4_w1" id="nn4_w1">
+	<input type="text" name="nn4_w2" id="nn4_w2">
+	<input type="text" name="nn4_w3" id="nn4_w3">
+	<input type="text" name="nn4_theta" id="nn4_theta">
+	<p id="nn4_y">0</p>
+	<div class="nn4_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn4_count()">計算</button>
+	</div>
+</div>
+
+
+<h2>重點總結</h2>
+<p>在模擬5-2中，我們在類神經網路中替換不同的激勵函數，</p>
+<p>雖然在模擬5-1中，我們已經一再重述每個激勵函數的使用目的，</p>
+<p>但在本章節的最後，還是希望你能夠<mark>重新回想一下每個激勵函數的功用</mark>，</p>
+<p><mark>清楚地了解它們在類神經網路中扮演的角色</mark>。</p>
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch5_manipulate_2.js') }}"></script>
+
+{% include 'ch5_buttom.html' %}
+{% endblock %}

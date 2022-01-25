@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch5_top.html' %}
+<style type="text/css">
+
+.center {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>符號函數是唯一的激勵函數嗎？</h2>
+<p>除了<mark>符號函數</mark>以外，當然還有其他適用的激勵函數，</p>
+<p>像是<mark>步階函數、S形函數、斜坡函數</mark>，甚至是可以自己設計，</p>
+<p>在第二章，識別貓花紋的例子中，最後判斷計算的y值是否等於6，</p>
+<p>其實就是一種自行設計的激勵函數。</p>
+<img src="{{ url_for('static', filename='images/ch5_activations.png') }}" class="center" height="400">
+<p><mark>「步階函數」與「符號函數」，通常是用來做資料的分類</mark>，</p>
+<p>就像我們之前介紹符號函數，它能夠將資料分為+1和-1這兩個類別，</p>
+<p>步階函數不同的地方在於它是將資料分為+1和0這兩個類別。</p>
+<p>至於「S形函數」，還記得我們在貓狗圖片辨識的章節，曾經說過分類問題，</p>
+<p><mark>有些人會使用「機率」來處理，S形函數能夠將資料轉換成0~1之間的數值</mark>，</p>
+<p>這正好符合機率是介於0~1的數值。</p>
+<p><mark>「斜坡函數」則是將負數的資料專換為0，正數或零則維持原本的數值</mark>。</p>
+
+{% include 'ch5_buttom.html' %}
+{% endblock %}

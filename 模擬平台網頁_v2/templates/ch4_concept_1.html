@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch4_top.html' %}
+<style type="text/css">
+
+.center {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>類神經元的運算</h2>
+<p>在本章之前，其實我們已經介紹過<mark>類神經元的運算</mark>，</p>
+<p>但是，在這個章節裡面，<mark>我們將介紹一個更通用的表示方式</mark>，</p>
+<p>會介紹這個表示方式，是因為在類神經網路的知識領域中，</p>
+<p>還有一個很重要的觀念是<mark>「激勵函數」，它在下一章會介紹到</mark>，</p>
+<p><mark>激勵函數有許多種類</mark>，可以在你建立類神經網路時替換，</p>
+<p>其實<mark>建立類神經網路有時候就像你在玩角色扮演，有許多的配件可以替換</mark>，</p>
+<p>然而，在能夠替換「激勵函數」之前，我們就需要學習以下的表示方式，</p>
+<p>才能夠方便地描述你選擇了哪種激勵函數。</p>
+
+<h2>Warren McCulloch和Walter Pitts的類神經元模型</h2>
+<p><mark>Warren McCulloch和Walter Pitts</mark>在1943年提出一個非常簡單的想法，</p>
+<p>表示神經元的運作行為，這個想法至今仍然是<mark>類神經網路的重要基礎</mark>。</p>
+<img src="{{ url_for('static', filename='images/ch4_nn1.png') }}" height="400" class="center">
+<img src="{{ url_for('static', filename='images/ch4_math1.png') }}" height="100" class="center">
+<p>數學式子的表示方式，可能讓你覺得有點難以理解，但先不用緊張，</p>
+<p>這個章節的模擬操作會有更詳細的解說。</p>
+<p>在Warren McCulloch和Walter Pitts的<mark>類神經元模型中</mark>，我們可以看到，</p>
+<p>類神經元在運算時，會<mark>將輸入信號與對應的權重相乘，然後將相乘的結果相加起來</mark>，</p>
+<p>再與臨界值𝜃比較，如果<mark>比臨界值低，神經元輸出−1，相反地則輸出+1</mark>。</p>
+<p>其中，<mark>將X轉換為Y的過程，我們可以視為一個函數</mark>，</p>
+<p>這個函數在類神經網路中扮演著<mark>「激勵函數」</mark>的角色，而且在上述的式子中，</p>
+<p>因為我們介紹的是<mark>Warren McCulloch和Walter Pitts的類神經元模型</mark>，</p>
+<p>在此<mark>模型中使用的激勵函數為「符號函數(sign)」</mark>。</p>
+
+{% include 'ch4_buttom.html' %}
+{% endblock %}

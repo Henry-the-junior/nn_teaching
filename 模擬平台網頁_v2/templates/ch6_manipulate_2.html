@@ -1,0 +1,1029 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch6_top.html' %}
+<style type="text/css">
+
+.center {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.manipulate_axis {
+	display: grid;
+	grid-template-columns: 200px 500px;
+  	grid-template-rows: 400px;
+	height: 400px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	border: blue solid;
+}
+
+.input_zone {
+	display: grid;
+	grid-template-columns: 200px;
+  	grid-template-rows: 100px 50px 50px 50px 50px;
+	height: 300px;
+	width: 200px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.axis {
+	display: block;
+	background-image: url(../static/images/ch6_axis.png);
+	background-repeat:no-repeat;
+	background-size: 100%;
+	background-position: center;
+	height: 400px;
+	width: 500px;
+	margin-right: auto;
+	margin-left: auto;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.length_block {
+	display: block;
+	height: 50px;
+	width: 130px;
+	margin-right: auto;
+	margin-left: auto;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#length {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+}
+
+.width_block {
+	display: block;
+	height: 50px;
+	width: 130px;
+	margin-right: auto;
+	margin-left: auto;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#width {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+}
+
+.bugs_block {
+	display: block;
+	height: 50px;
+	width: 200px;
+	margin-top: 10px;
+	margin-left: 10px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.input_image {
+	display: block;
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+
+.emptynn1 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 100px 100px 70px 130px;
+	background-image: url(../static/images/ch6_nn1.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn1_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 25px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 52px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 55px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 55px;
+	margin-top: 52px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 105px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_alpha {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 105px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: -10px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_expect {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 20px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn1_error {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 60px;
+	margin-top: 24px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn1_new_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 110px;
+	margin-top: 8px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+#nn1_new_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 57px;
+	margin-top: 8px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+.nn1_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 15px;
+	margin-top: 40px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.emptynn2 {
+	display: grid;
+	grid-template-columns: 300px 300px 200px 200px;
+  	grid-template-rows: 200px 100px 100px 70px 130px;
+	background-image: url(../static/images/ch6_nn1.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn2_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 32px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 190px;
+	margin-top: 58px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 53px;
+	margin-left: 53px;
+	margin-top: 32px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn2_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 53px;
+	margin-left: 55px;
+	margin-top: 56px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_theta {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 185px;
+	margin-top: 112px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_alpha {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 95px;
+	margin-top: 112px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn2_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 105px;
+	margin-top: -10px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn2_expect {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 90px;
+	margin-top: 23px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn2_error {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 60px;
+	margin-top: 24px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+#nn2_new_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 110px;
+	margin-top: 8px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+#nn2_new_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 60px;
+	margin-left: 57px;
+	margin-top: 8px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+.nn2_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 15px;
+	margin-top: 40px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.data_block {
+	display: grid;
+	grid-template-columns: 50px 320px;
+  	grid-template-rows: 65px 24px 24px 24px 24px 19px;
+	height: 180px;
+	width: 370px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	margin-left: 20px;
+}
+
+.table_block {
+	background-image: url(../static/images/ch6_table.png);
+	background-repeat:no-repeat;
+	background-size: 100%;
+	background-position: center;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 7;
+}
+
+.read_sign_block {
+	display: block;
+	height: 24px;
+	width: 50px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+
+.read_sign {
+	background-image: url(../static/images/ch6_arrow.png);
+	background-repeat:no-repeat;
+	background-size: 100%;
+	background-position: center;
+	height: 24px;
+	width: 50px;
+}
+
+.manipulate_zone {
+	display: grid;
+	grid-template-columns: 70px 110px 110px 110px 150px 110px 60px 110px 60px 110px 20px;
+  	grid-template-rows: 30px 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px;
+  	height: 730px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 50px;
+}
+
+.num_title {
+	display: block;
+	height: 30px;
+	width: 70px;
+	border-top-style: solid;
+	border-left-style: solid;
+	line-height: 30px;
+	text-align: center;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.num {
+	display: block;
+	height: 70px;
+	width: 70px;
+	border-top-style: solid;
+	border-left-style: solid;
+	line-height: 70px;
+	text-align: center;
+}
+
+.graph_title {
+	display: block;
+	height: 30px;
+	width: 110px;
+	border-top-style: solid;
+	border-left-style: solid;
+	line-height: 30px;
+	text-align: center;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.graph_empty {
+	display: flex;
+	height: 70px;
+	width: 110px;
+	border-top-style: solid;
+	border-left-style: solid;
+}
+
+.graph_fill {
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 60px;
+	width: 100px;
+	margin: 4px auto;
+}
+
+.category_title {
+	display: block;
+	height: 30px;
+	width: 110px;
+	border-top-style: solid;
+	border-left-style: solid;
+	line-height: 30px;
+	text-align: center;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.category {
+	display: block;
+	height: 70px;
+	width: 110px;
+	border-top-style: solid;
+	border-left-style: solid;
+	line-height: 70px;
+	text-align: center;
+}
+
+.read_title {
+	display: block;
+	height: 30px;
+	width: 110px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-right-style: solid;
+	line-height: 30px;
+	text-align: center;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.read_empty {
+	display: flex;
+	height: 70px;
+	width: 110px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-right-style: solid;
+}
+
+.read_fill {
+	background-image: url(../static/images/ch2_read.png);
+	background-repeat:no-repeat;
+	background-size: 30%;
+	background-position: center;
+	height: 60px;
+	width: 100px;
+	margin: 4px auto;
+}
+
+.arrow1 {
+	background-image: url(../static/images/ch2_arrow1.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	grid-column-start: 5;
+	grid-column-end: 6;
+	grid-row-start: 5;
+	grid-row-end: 7;
+}
+
+.button_empty {
+	display: flex;
+	grid-column-start: 5;
+	grid-column-end: 6;
+	grid-row-start: 8;
+	grid-row-end: 9;
+}
+
+.button_fill {
+	margin: 4px auto;
+}
+
+.neural_net {
+	display: block;
+	background-image: url(../static/images/ch2_neuralnet.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	grid-column-start: 6;
+	grid-column-end: 12;
+	grid-row-start: 4;
+	grid-row-end: 9;
+}
+
+.arrow2 {
+	display: block;
+	background-image: url(../static/images/ch2_arrow2.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+}
+
+.read_text {
+	display: block;
+	border: black solid;
+	font-size: 16px;
+	line-height: 35px;
+	text-align: center;
+	grid-column-start: 6;
+	grid-column-end: 7;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.justify_text {
+	display: block;
+	border: black solid;
+	font-size: 20px;
+	line-height: 70px;
+	text-align: center;
+	grid-column-start: 8;
+	grid-column-end: 9;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.output_text {
+	display: block;
+	border: black solid;
+	font-size: 16px;
+	line-height: 35px;
+	text-align: center;
+	grid-column-start: 10;
+	grid-column-end: 11;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.weights1 {
+	display: grid;
+	grid-template-columns: 50px 40px;
+  	grid-template-rows: 50px 50px 50px 50px 50px 50px;
+	height: 300px;
+	width: 90px;
+	margin-top: 40px;
+	margin-left: 135px;
+	background-color: rgba(38, 193, 224, 0.6);
+	float:left;
+}
+
+.weights2 {
+	display: grid;
+	grid-template-columns: 50px 40px;
+  	grid-template-rows: 50px 50px 50px 50px 50px;
+	height: 250px;
+	width: 90px;
+	margin-top: 70px;
+	margin-left: 290px;
+	background-color: rgba(38, 193, 224, 0.6);
+}
+
+.weight_text {
+	flex-basis: 45px;
+	flex-grow: 1;
+	text-align: center;
+	line-height: 45px;
+	font-size: 20px;
+}
+
+.weight_num {
+	flex-basis: 45px;
+	flex-grow: 1;
+	text-align: center;
+	line-height: 45px;
+	font-size: 20px;
+}
+
+.weight_none {
+	flex-basis: 45px;
+	flex-grow: 1;
+	text-align: center;
+	line-height: 45px;
+	font-size: 20px;
+}
+
+.dog_p_text {
+	display: block;
+	grid-column-start: 7;
+	grid-column-end: 11;
+	grid-row-start: 9;
+	grid-row-end: 10;
+	font-size: 20px;
+	line-height: 70px;
+}
+
+.cat_p_text {
+	display: block;
+	grid-column-start: 7;
+	grid-column-end: 11;
+	grid-row-start: 10;
+	grid-row-end: 11;
+	font-size: 20px;
+	line-height: 70px;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 800px;
+  	height: 850px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>類神經網路如何學習分類？</h2>
+<p>在本章節中，我們將<mark>呈現類神經網路如何「自動」調整權重</mark>，</p>
+<p>最後學習到<mark>如何分類毛毛蟲與瓢蟲的資料</mark>。</p>
+<p>當然，這是一個非常簡單的案例，實際的分類問題還是複雜許多，</p>
+<p>但我們仍然可以<mark>透過簡單的案例，理解類神經網路的運作過程</mark>。</p>
+<p>首先，我們準備毛毛蟲與瓢蟲的資料：</p>
+
+<img src="{{ url_for('static', filename='images/ch6_table.png') }}" class="center" height="190">
+
+<p>如果將資料呈現在二維平面上，會像下圖：</p>
+
+<img src="{{ url_for('static', filename='images/ch6_bugs.png') }}" class="center" height="350">
+
+<div class="manipulate_axis">
+	<div class="input_zone">
+		<img src="{{ url_for('static', filename='images/length_and_width.png') }}" height="100">
+		<div class="length_block">
+			<label for="length" style="font-size: 25px;">長度：</label>
+			<input type="text" name="length" id="length">
+		</div>
+		<div class="width_block">
+			<label for="width" style="font-size: 25px;">寬度：</label>
+			<input type="text" name="width" id="width">
+		</div>
+		<div class="bugs_block">
+			<input type="radio" id="ladybug" name="bugs" value="ladybug">
+			<label for="ladybug" style="font-size: 25px;">瓢蟲</label>
+			<input type="radio" id="caterpillar" name="bugs" value="caterpillar">
+			<label for="caterpillar" style="font-size: 25px;">毛毛蟲</label>
+		</div>
+		<div style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 5; grid-row-end: 6;">
+			<button style="font-size:18px; width: 100px; height: 30px; margin-left: 50px; margin-right: 50px; margin-top: 10px;" onclick="putAxis()">輸出</button>
+		</div>
+	</div>
+	<div class="axis">
+	</div>
+</div>
+
+<p><mark>還記得我們在第二章提到類神經網路如何學習嗎？</mark></p>
+<p>我們在第二章節，就希望你熟悉並且牢記這個概念，</p>
+<p>因為我們接下來要介紹類神經網路如何「自動」調整權重，</p>
+<p>也是同樣的概念，只不過我們更深入到數學的運算當中，</p>
+<p>然而，<mark>為何要使用數學去建立類神經網路呢？</mark></p>
+<p>以電腦科學的角度來看，是因為這整個過程我們希望「自動化」、「程式化」，</p>
+<p><mark>用數學的表示方式，才方便我們透過電腦執行這件事情</mark>。</p>
+<div class="manipulate_zone">
+	<div class="num_title">編號</div>
+	<div class="num" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 2; grid-row-end: 3;">1</div>
+	<div class="num" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 3; grid-row-end: 4;">2</div>
+	<div class="num" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 4; grid-row-end: 5;">3</div>
+	<div class="num" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 5; grid-row-end: 6;">4</div>
+	<div class="num" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 6; grid-row-end: 7;">5</div>
+	<div class="num" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 7; grid-row-end: 8;">6</div>
+	<div class="num" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 8; grid-row-end: 9;">7</div>
+	<div class="num" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 9; grid-row-end: 10;">8</div>
+	<div class="num" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 10; grid-row-end: 11;">9</div>
+	<div class="num" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 11; grid-row-end: 12; border-bottom-style: solid;">10</div>
+	<div class="graph_title">圖片</div>
+	<div class="graph_empty" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3;">
+		<div class="graph_fill" style="background-image: url(../static/images/cat1.jpg);"></div>
+	</div>
+	<div class="graph_empty" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 3; grid-row-end: 4;">
+		<div class="graph_fill" style="background-image: url(../static/images/cat2.jpg);"></div>
+	</div>
+	<div class="graph_empty" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 4; grid-row-end: 5;">
+		<div class="graph_fill" style="background-image: url(../static/images/cat3.jpg);"></div>
+	</div>
+	<div class="graph_empty" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 5; grid-row-end: 6;">
+		<div class="graph_fill" style="background-image: url(../static/images/cat4.jpg);"></div>
+	</div>
+	<div class="graph_empty" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 6; grid-row-end: 7;">
+		<div class="graph_fill" style="background-image: url(../static/images/cat5.jpg);"></div>
+	</div>
+	<div class="graph_empty" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 7; grid-row-end: 8;">
+		<div class="graph_fill" style="background-image: url(../static/images/dog1.jpg);"></div>
+	</div>
+	<div class="graph_empty" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 8; grid-row-end: 9;">
+		<div class="graph_fill" style="background-image: url(../static/images/dog2.jpg);"></div>
+	</div>
+	<div class="graph_empty" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 9; grid-row-end: 10;">
+		<div class="graph_fill" style="background-image: url(../static/images/dog3.jpg);"></div>
+	</div>
+	<div class="graph_empty" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 10; grid-row-end: 11;">
+		<div class="graph_fill" style="background-image: url(../static/images/dog4.jpg);"></div>
+	</div>
+	<div class="graph_empty" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 11; grid-row-end: 12; border-bottom-style: solid;">
+		<div class="graph_fill" style="background-image: url(../static/images/dog5.jpg);"></div>
+	</div>
+	<div class="category_title">類別</div>
+	<div class="category" style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 2; grid-row-end: 3;">貓</div>
+	<div class="category" style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 3; grid-row-end: 4;">貓</div>
+	<div class="category" style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 4; grid-row-end: 5;">貓</div>
+	<div class="category" style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 5; grid-row-end: 6;">貓</div>
+	<div class="category" style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 6; grid-row-end: 7;">貓</div>
+	<div class="category" style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 7; grid-row-end: 8;">狗</div>
+	<div class="category" style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 8; grid-row-end: 9;">狗</div>
+	<div class="category" style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 9; grid-row-end: 10;">狗</div>
+	<div class="category" style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 10; grid-row-end: 11;">狗</div>
+	<div class="category" style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 11; grid-row-end: 12; border-bottom-style: solid;">狗</div>
+	<div class="read_title">讀取</div>
+	<div class="read_empty" style="grid-column-start: 4; grid-column-end: 5; grid-row-start: 2; grid-row-end: 3;">
+	</div>
+	<div class="read_empty" style="grid-column-start: 4; grid-column-end: 5; grid-row-start: 3; grid-row-end: 4;">
+	</div>
+	<div class="read_empty" style="grid-column-start: 4; grid-column-end: 5; grid-row-start: 4; grid-row-end: 5;">
+	</div>
+	<div class="read_empty" style="grid-column-start: 4; grid-column-end: 5; grid-row-start: 5; grid-row-end: 6;">
+	</div>
+	<div class="read_empty" style="grid-column-start: 4; grid-column-end: 5; grid-row-start: 6; grid-row-end: 7;">
+	</div>
+	<div class="read_empty" style="grid-column-start: 4; grid-column-end: 5; grid-row-start: 7; grid-row-end: 8;">
+	</div>
+	<div class="read_empty" style="grid-column-start: 4; grid-column-end: 5; grid-row-start: 8; grid-row-end: 9;">
+	</div>
+	<div class="read_empty" style="grid-column-start: 4; grid-column-end: 5; grid-row-start: 9; grid-row-end: 10;">
+	</div>
+	<div class="read_empty" style="grid-column-start: 4; grid-column-end: 5; grid-row-start: 10; grid-row-end: 11;">
+	</div>
+	<div class="read_empty" style="grid-column-start: 4; grid-column-end: 5; grid-row-start: 11; grid-row-end: 12; border-bottom-style: solid;">
+	</div>
+	<div class="arrow1"></div>
+	<div class="button_empty">
+		<div class="button_fill">
+			<button id="start_iteration" style="font-size:15px;" onclick="start_iteration()">進行第一次迭代</button>
+		</div>
+	</div>
+	<div class="read_text">讀取圖片<br>並計算輸出值</div>
+	<div class="justify_text">調整權重</div>
+	<div class="output_text">重新<br>計算輸出值</div>
+	<div class="arrow2" style="grid-column-start: 7; grid-column-end: 8; grid-row-start: 2; grid-row-end: 3;"></div>
+	<div class="arrow2" style="grid-column-start: 9; grid-column-end: 10; grid-row-start: 2; grid-row-end: 3;"></div>
+	<div class="neural_net">
+		<div class="weights1">
+			<div class="weight_text">w<sub>11</sub>:</div>
+			<div class="weight_num">0.2</div>
+			<div class="weight_text">w<sub>12</sub>:</div>
+			<div class="weight_num">0.4</div>
+			<div class="weight_text">w<sub>13</sub>:</div>
+			<div class="weight_num">0.6</div>
+			<div class="weight_none">...</div>
+			<div class="weight_none"></div>
+			<div class="weight_none">...</div>
+			<div class="weight_none"></div>
+			<div class="weight_text">w<sub>nn</sub>:</div>
+			<div class="weight_num">0.2</div>
+		</div>
+		<div class="weights2">
+			<div class="weight_text">w<sub>11</sub>:</div>
+			<div class="weight_num">0.5</div>
+			<div class="weight_text">w<sub>12</sub>:</div>
+			<div class="weight_num">0.4</div>
+			<div class="weight_text">w<sub>13</sub>:</div>
+			<div class="weight_num">0.1</div>
+			<div class="weight_none">...</div>
+			<div class="weight_none"></div>
+			<div class="weight_text">w<sub>nn</sub>:</div>
+			<div class="weight_num">0.1</div>
+		</div>
+	</div>
+	<div class="dog_p_text">此張圖片是狗的機率y<sub>1</sub> : <span class="dog_p_num">0.31</span></div>
+	<div class="cat_p_text">此張圖片是貓的機率y<sub>1</sub> : <span class="cat_p_num">0.31</span></div>
+</div>
+
+<p>我們先說明一下類神經網路的訓練過程，讓你更加理解下方呈現的訓練過程，</p>
+<p>在<mark>每次迭代中</mark>，類神經網路會<mark>讀取每一筆資料，計算出一個輸出值，再與期望輸出比較</mark>，</p>
+<p>最後再<mark>透過誤差來調整權重</mark>，而調整權重的方式就是依照我們本章介紹的方式。</p>
+<p>另外，在此我們必須要多說明的還有四件事情：</p>
+<p>第一、在這個問題情境中，我們設定<mark>𝜃值為0.2，是為了簡化討論</mark>，你在實際使用類神經網路時可以任意調整𝜃值。</p>
+<p>第二、我們設定<mark>𝛼值為0.2，也是為了簡化討論</mark>，你在實際使用類神經網路時可以任意調整𝛼值。</p>
+<p>第三、我們設定類神經網路的起始權重為(w<sub>1</sub>, w<sub>2</sub>) = (0.3, 0.1)，這也是為了簡化討論，</p>
+<p>實際上在應用類神經網路時，<mark>初始權重通常是亂數產生的</mark>。</p>
+<p>第四、在這個問題情境中，我們挑選的<mark>激勵函數</mark>是步階函數，並且設定毛毛蟲為+1，瓢蟲為0，</p>
+<p>同樣地，這在你<mark>實際使用類神經網路時，也都是可以任意調整的</mark>。</p>
+
+<p style="text-align: center; margin-bottom: 0px;">(按下進行迭代後，請仔細觀察訓練類神經網路的過程)</p>
+<div class="emptynn2">
+	<div class="data_block">
+		<div class="table_block"></div>
+		<div class="read_sign_block" style="grid-row-start: 2; grid-row-end: 3;">
+		</div>
+		<div class="read_sign_block" style="grid-row-start: 3; grid-row-end: 4;"></div>
+		<div class="read_sign_block" style="grid-row-start: 4; grid-row-end: 5;"></div>
+		<div class="read_sign_block" style="grid-row-start: 5; grid-row-end: 6;"></div>
+	</div>
+	<p id="nn2_x1">0</p>
+	<p id="nn2_x2">0</p>
+	<p id="nn2_w1">0.3</p>
+	<p id="nn2_w2">0.1</p>
+	<p id="nn2_theta">0.2</p>
+	<p id="nn2_alpha">0.2</p>
+	<p id="nn2_expect">0</p>
+	<p id="nn2_y">0</p>
+	<p id="nn2_error">0</p>
+	<p id="nn2_new_w1">0</p>
+	<p id="nn2_new_w2">0</p>
+	<div class="nn2_button_block">
+		<button style="font-size:18px; width: 100%; height: 100%;" onclick="nn2_count()">進行第一次迭代</button>
+	</div>
+</div>
+
+<p>我們將<mark>訓練的過程，用表格的方式呈現在下方</mark>，</p>
+<p>希望你體會過類神經網路的訓練過程後，可以再自己動動腦筋演算看看這個訓練過程，</p>
+<p><mark>雖然我們通常是撰寫程式交給電腦執行這整個過程，但自己動腦筋演算，</mark></p>
+<p><mark>對於熟悉這個概念是有幫助的</mark>，試試看吧。</p>
+<p style="margin-bottom: 40px;">(附上前個章節介紹的學習演算法：w<sub>new</sub> = w<sub>i</sub> + 𝛼 * x<sub>i</sub> * error)</p>
+
+<img src="{{ url_for('static', filename='images/ch6_train1.png') }}" class="center" width="600">
+<img src="{{ url_for('static', filename='images/ch6_train2.png') }}" class="center" width="600">
+<img src="{{ url_for('static', filename='images/ch6_train3.png') }}" class="center" width="600">
+
+
+<p style="display: block; margin-top: 50px;">最後，我們再次呈現這個大家已經熟悉的頁面，</p>
+<p>這個類神經網路與先前章節不同的就是，它多了一個修正權重的部分，</p>
+<p><mark>你可以一邊操作看看，一邊動動腦筋再演算幾次這個章節介紹的概念。</mark></p>
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<p style="text-align: center; margin-bottom: 0px;">(重點提醒：雖然可以任意輸入期望輸出，但在使用步階函數的情況下，合理的期望輸出只有+1或0)</p>
+<div class="emptynn1">
+	<input type="text" name="nn1_x1" id="nn1_x1">
+	<input type="text" name="nn1_x2" id="nn1_x2">
+	<input type="text" name="nn1_w1" id="nn1_w1">
+	<input type="text" name="nn1_w2" id="nn1_w2">
+	<input type="text" name="nn1_theta" id="nn1_theta">
+	<input type="text" name="nn1_alpha" id="nn1_alpha">
+	<input type="text" name="nn1_expect" id="nn1_expect">
+	<p id="nn1_y">0</p>
+	<p id="nn1_error">0</p>
+	<p id="nn1_new_w1">0</p>
+	<p id="nn1_new_w2">0</p>
+	<div class="nn1_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn1_count()">計算</button>
+	</div>
+</div>
+
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>假設X = (0.2)·x<sub>1</sub> + (0.3)·x<sub>2</sub> - 2，</p>
+			<p>並且Y = step(X)，</p>
+			<p>設定學習率𝛼值為0.2。</p>
+			<p>(提示：誤差 = 期望輸出 - y值)</p>
+			<p>(提示：w<sub>new</sub> = w<sub>i</sub> + 𝛼 * x<sub>i</sub> * error)</p>
+			<img src="{{ url_for('static', filename='images/ch6_q_table.png') }}" class="center" width="700" style="margin-bottom: 50px;">
+			<p>試著算出表格中，A~P所代表的數字，</p>
+			<p>你可以試著自己計算看看，也可以試著使用上方的類神經網路計算。</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch6_manipulate_2.js') }}"></script>
+
+{% include 'ch6_buttom.html' %}
+{% endblock %}

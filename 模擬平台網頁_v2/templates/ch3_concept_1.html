@@ -1,0 +1,204 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch3_top.html' %}
+<style type="text/css">
+
+.review_block {
+	display: block;
+	height: 210px;
+	width: 900px;
+	margin-left: 40px;
+	border: #26C1E0 solid;
+}
+
+.emptynn1 {
+	display: grid;
+	grid-template-columns: 300px 210px 220px 270px;
+  	grid-template-rows: 160px 55px 185px;
+	background-image: url(../static/images/ch3_emptynn1.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 400px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn1_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 115px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 25px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 85px;
+	margin-top: 115px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 85px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 60px;
+	margin-top: 20px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_expect {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 150px;
+	margin-top: -5px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_error {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 95px;
+	margin-top: 90px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.nn1_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 0px;
+	margin-top: 100px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 300px;
+  	height: 350px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>類神經網路如何調整權重？</h2>
+<p>典型的<mark>類神經網路是分層的結構</mark>，網路中的類神經元排列在這些分層中。</p>
+<p>那麼，類神經網路該<mark>如何學習？如何調整權重呢？</mark>類神經網路會與資料連接，</p>
+<p>而這些連接資料的類神經元就是輸入/輸出層，<mark>類神經網路會依照資料來調整權重</mark>，</p>
+<p>調整各個神經元的輸入/輸出行為來與資料適配，使它的行為與資料一致。</p>
+<div class="review_block">
+	<h3>重點回顧</h3>
+	<p>在第二章節中，我們認識到「數字手寫辨識」和「貓狗辨識」的案例，</p>
+	<p>就是將「圖片」連接到類神經網路的輸入層，以及將「類別」連接到類神經網路的輸出層，</p>
+	<p>如此一來，類神經網路就會依照資料來調整權重，學習到如何分類這些圖片。</p>
+</div>
+<p>要完整了解到類神經網路如何「自動」調整權重，首先我們要先了解到<mark>「期望輸出」</mark>，</p>
+<p style="display: block; margin-bottom: 50px;">以及<mark>「誤差」</mark>的概念，以下我們透過實際操作來深入了解吧。</p>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn1">
+	<input type="text" name="nn1_x1" id="nn1_x1">
+	<input type="text" name="nn1_x2" id="nn1_x2">
+	<input type="text" name="nn1_w1" id="nn1_w1">
+	<input type="text" name="nn1_w2" id="nn1_w2">
+	<p id="nn1_y">0</p>
+	<input type="text" name="nn1_expect" id="nn1_expect">
+	<p id="nn1_error">0</p>
+	<div class="nn1_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn1_count()">計算</button>
+	</div>
+</div>
+
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>在剛剛的觀察中，你認為誤差是如何計算出來的？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch3_concept_1.js') }}"></script>
+
+{% include 'ch3_buttom.html' %}
+{% endblock %}

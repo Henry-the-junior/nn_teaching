@@ -37,19 +37,21 @@ code {
 </style>
 
 <h2>問題一</h2>
-<p>用Python程式撰寫步階函數、符號函數、S形函數，</p>
-<p>以及線性函數，請使用定義函數的方式，以下呈現步階函數的部分程式碼。</p>
-<p>請參照範例將此題完成。</p>
+<p>用先前課程寫好的類神經網路物件，</p>
+<p>繼續撰寫完它的誤差函式，</p>
+<p>這個函式可以輸入期望輸出，</p>
+<p>執行後會將期望輸出減去類神經網路計算好的輸出，</p>
+<p>並且回傳。請參照範例將此題完成。</p>
 
 <div class="hint_zone">
 	<h2>程式提示</h2>
 	<pre>
 	<code class="python">
-	def step(X):
-		if X >= 0:
-			________
-		else:
-			________
+    class nn:
+        ...
+        ...
+        def error(self, yd, func):
+            ...
 	</code>
 	</pre>
 </div>
@@ -58,10 +60,10 @@ code {
 	<h2>輸出提示</h2>
 	<pre>
 	<code class="python">
-	print(step(5))
-	>>1
-	print(step(-7))
-	>>0
+    print(nn(2, [3, 4], [3, 1], 3).error(0, linear))
+    >>-10
+    print(nn(4, [3, 2, 4, 5], [1, 2, 3, 6], 10).error(10, sigmoid))
+    >>9.0
 	</code>
 	</pre>
 </div>

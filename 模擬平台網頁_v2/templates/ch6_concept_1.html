@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch6_top.html' %}
+<style type="text/css">
+
+.center {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  	grid-template-rows: 50px 270px;
+  	height: 320px;
+  	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 20px;
+  	border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+</style>
+
+<h2>類神經網路如何學習分類？</h2>
+<p>在先前的單元中，我們認識到<mark>類神經網路以及它的應用</mark>，</p>
+<p>我們也深入介紹了<mark>類神經網路中的概念</mark>，像是<mark>「權重」</mark>、<mark>「誤差」</mark>、<mark>「激勵函數」</mark>等，</p>
+<p>還記得我們一開始「手動」調整權重嗎？</p>
+<p>在這個章節，我們將開始介紹<mark>類神經網路如何「自動」調整權重</mark>。</p>
+<p>這時候，先回想一下「調整權重」的目的是什麼？</p>
+
+<div class="questions_zone">
+	<h2>思考一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>「調整權重」的目的是什麼？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<p>清楚知道調整權重的目的後，我們來正式開始介紹如何「自動」調整權重吧。</p>
+<p>在先前的課程，我們將「誤差」定義為「期望輸出」減去「輸出」，</p>
+<p>而如果誤差為正，就需要增加類神經網路的輸出；如果誤差為負，就需要減少類神經網路的輸出，</p>
+<p>依照這個想法，<mark>在1958年時，Frank Rosenblatt提出了一種學習演算法</mark>：</p>
+<p style="text-align: center; margin-bottom: 0px;">w<sub>new</sub> = w<sub>i</sub> + 𝛼 * x<sub>i</sub> * error</p>
+
+<p>讓我們來分析一下為什麼這個演算法合理，會有四種狀況要討論，</p>
+<p>其中的<mark>𝛼值是「學習率」</mark>，它是一個介在0和1的正數(它通常不會是0)，</p>
+<p>它代表什麼意思，讓我們在分析完這四種狀況後再介紹，</p>
+<p>下方的圖片呈現我們要討論的四種情況，讓你能夠更清楚我們在討論什麼。</p>
+
+<img src="{{ url_for('static', filename='images/ch6_tree.png') }}" class="center" height="400">
+
+<p>在<mark>狀況一</mark>中，如果類神經網路的誤差是正的，權重對應的輸入值也是正的，</p>
+<p>我們應該要「調高」這個權重，所以會有正的誤差與正的輸入值相乘，</p>
+<p><mark>正數的乘積與原本的權重相加，就達到「調高權重」的目的</mark>；</p>
+<p>相反地，在<mark>狀況二</mark>中，如果權重對應的輸入值是負的，正的誤差與負的輸入值相乘，</p>
+<p><mark>負數的乘積與原本的權重相加，就達到「調低權重」的目的</mark>。</p>
+<p>在<mark>狀況三</mark>中，如果類神經網路的誤差是負的，權重對應的輸入值卻是正的，</p>
+<p>我們就應該「調低」這個權重，所以會有負的誤差與正的輸入值相乘，</p>
+<p><mark>負數的乘積與原本的權重相加，就達到「調低權重」的目的</mark>；</p>
+<p>相反地，在<mark>狀況四</mark>中，如果權重對應的輸入值是負的，負的誤差與負的輸入值相乘，</p>
+<p><mark>正數的乘積與原本的權重相加，就達到「調高權重」的目的</mark>。</p>
+<p>最後，讓我們來說明<mark>「學習率」</mark>是什麼吧，</p>
+<p>學習率表示的是類神經網路每次調整權重的幅度，</p>
+<p>學習率越高的話，每次調整的幅度就越高，</p>
+<p>那麽，<mark>學習率要調高比較好？還是調低呢？</mark></p>
+<p>這其實有點難定論，<mark>調高的話，可能權重一次修正過頭</mark>，</p>
+<p><mark>調低的話，類神經網路要適配到資料的學習次數可能就要比較多次</mark>。</p>
+
+<h2>重點總結</h2>
+<p>在本章節中，我們介紹了一種學習演算法，理解它可能要花費一些心思，</p>
+<p>在下個章節中，我們會用更簡單的比喻來說明這個演算法，</p>
+<p>並且在本章的模擬操作中，我們會再用更實際的案例來運用這個學習演算法，</p>
+<p>讓你能夠更加熟悉這個概念。</p>
+
+{% include 'ch6_buttom.html' %}
+{% endblock %}

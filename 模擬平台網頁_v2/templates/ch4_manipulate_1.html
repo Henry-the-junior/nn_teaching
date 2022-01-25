@@ -1,0 +1,342 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'ch4_top.html' %}
+<style type="text/css">
+
+.center {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.sign {
+	display: grid;
+	grid-template-columns: 250px 200px 250px;
+  	grid-template-rows: 400px;
+	background-image: url(../static/images/ch4_sign.png);
+	background-repeat:no-repeat;
+	background-size: 80%;
+	background-position: center;
+	height: 400px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#x {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 130px;
+	margin-top: 195px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 125px;
+	margin-top: 200px;
+	font-size: 25px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.nn1_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 25px;
+	margin-top: 310px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+.health_nn {
+	display: grid;
+	grid-template-columns: 300px 250px 250px 200px;
+  	grid-template-rows: 100px 160px 240px 100px;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+.health_nn_background {
+	background-image: url(../static/images/ch2_health_nn.png);
+	background-repeat:no-repeat;
+	background-size: 95%;
+	background-position: center;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 4;
+}
+
+#health_nn_x1 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 145px;
+	margin-top: 130px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#health_nn_x2 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 145px;
+	margin-top: 75px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#health_nn_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 180px;
+	margin-top: 18px;
+	font-size: 25px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.health_nn_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 165px;
+	margin-top: 150px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.blood_pressure {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	margin-left: 20px;
+	margin-top: 200px;
+}
+
+.blood_pressure_button_block {
+	height: 50px;
+	width: 80px;
+	margin-left: 140px;
+	margin-top: 250px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.blood_pressure_output {
+	height: 100px;
+	width: 300px;
+	margin-left: 200px;
+	margin-top: 220px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#blood_pressure_x1 {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 340px;
+	margin-top: 226px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#blood_pressure_x2 {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 340px;
+	margin-top: 265px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.heart_rate {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	margin-left: 10px;
+	margin-top: 50px;
+}
+
+.health_or_sick {
+	display: block;
+	height: 200px;
+	width: 200px;
+	background-image: url(../static/images/sick.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	margin-left: 0px;
+	margin-top: 100px;
+}
+
+.questions_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+  grid-template-rows: 50px 380px;
+  height: 430px;
+  width: 1000px;
+	margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border: 5px #7426E0 solid;
+}
+
+.form-group {
+	display: block;
+	margin-left: 40px;
+}
+
+textarea {
+	height: 90px;
+	width: 800px;
+	resize: none;
+	font-size: 20px
+}
+
+</style>
+
+
+<h2>類神經元的運算</h2>
+<p>在本章節中，我們先介紹<mark>「符號函數」，它是其中一種「激勵函數」</mark>，</p>
+<p>這個函數可以<mark>將大於0的數字歸類在+1的類別，小於0的數字歸類在-1的類別</mark>，</p>
+<p>以數線來視覺化的話，會像是下圖的樣子。假設綠點是屬於+1的類別，黃點是屬於-1的類別。</p>
+<img src="{{ url_for('static', filename='images/ch4_mathline1.png') }}" width="800" class="center">
+<p>這時候，我們再深入討論一件事，<mark>如果我想比較的值不是0，而是另外一個數值𝜃</mark>，</p>
+<p><mark>那我該怎麼辦呢？</mark></p>
+<img src="{{ url_for('static', filename='images/ch4_mathline2.png') }}" width="800" class="center">
+<p>雖然這在類神經網路中，並不是交給「激勵函數」處理，我們也在模擬4-2才會看到它，</p>
+<p>但在這裡討論，我們認為這樣才能夠更清楚了解這樣的處理方法。</p>
+<p><mark>當你想要比較的值不是0，卻還是想將數值分類成+1和-1時</mark>，</p>
+<p>事實上就只要簡單地<mark>將這些數值「平移」，全部減去𝜃即可</mark>。</p>
+
+<img src="{{ url_for('static', filename='images/ch4_mathline3.png') }}" width="800" class="center">
+
+<h2>符號函數</h2>
+<p>正式進入到本章的重點吧，以下就是我們的主角「符號函數」。</p>
+<p>這個函數的運作非常簡單，不過它達成「分類」這件事，算是類神經網路中的重要角色呦。</p>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="sign">
+	<input type="text" name="x" id="x">
+	<p id="y"></p>
+	<div class="nn1_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="count()">計算</button>
+	</div>
+</div>
+
+<div class="questions_zone">
+	<h2>討論一下，回答問題</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style="margin-top: 10px;">
+		<div style="margin-top: 40px;">
+			<p>底下重新附上我們在第二章所說的健康評分系統，</p>
+			<p>這個系統是設定70分以上為健康，70分以下則為不健康，</p>
+			<p>若套用符號函數來看，+1定義為健康，-1則為不健康，</p>
+			<p>那麼這個系統的𝜃值應該設定為多少？</p>
+		</div>
+		<div class="form-group">
+			{{render_field(form.answer1, class_="form-control")}}
+		</div>
+		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
+    </form>
+</div>
+
+<div class="health_nn">
+	<div class="health_nn_background"></div>
+	<input type="text" name="health_nn_x1" id="health_nn_x1">
+	<input type="text" name="health_nn_x2" id="health_nn_x2">
+	<p id="health_nn_y">0</p>
+
+	<div class="blood_pressure">
+		<img src="{{ url_for('static', filename='images/blood-pressure.png') }}" height="100">
+	</div>
+	<div class="blood_pressure_button_block">
+		<button style="font-size:15px; width: 100%; height: 100%;" onclick="blood_pressure_count()">測量血壓</button>
+	</div>
+	<div class="blood_pressure_output">
+		<p>收縮壓為_______mmHg</p>
+		<p>舒張壓為_______mmHg</p>
+	</div>
+
+	<p id="blood_pressure_x1"></p>
+	<p id="blood_pressure_x2"></p>
+
+	<div class="heart_rate">
+		<img id="heartBTN" src="{{ url_for('static', filename='images/heart-rate.png') }}" height="100" style="display:block; margin-left: 100px" onclick="heartSound()">
+		<p style="text-align: center; margin-bottom: 0px;">(試著打開聲音並點擊心臟)</p>
+		<audio id="audio">
+			<source src="{{ url_for('static', filename='images/heartbeat-01a.mp3') }}" type="audio/mpeg">
+		</audio>
+	</div>
+
+	<div class="health_nn_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="health_nn_count()">計算</button>
+	</div>
+	
+</div>
+
+
+
+<h2>重點總結</h2>
+<p>在本章節中，我們認識到<mark>符號函數</mark>，並且認識到我們如何將比較值更改為𝜃，</p>
+<p>在本章的最後，我們還是想提醒你，<mark>符號函數的用意之一，是「分類」</mark>，</p>
+<p>它能夠將你想處理的資料或數值，轉換成+1或-1，</p>
+<p>在<mark>後續的章節，我們會介紹更多激勵函數</mark>，希望你在學習的過程中，</p>
+<p>都能理解到，<mark>挑選某種激勵函數都是有其用意的</mark>，我們並不會隨機選取一種激勵函數作為運用。</p>
+
+<script type="text/javascript" src="{{ url_for('static', filename='ch4_manipulate_1.js') }}"></script>
+
+{% include 'ch4_buttom.html' %}
+{% endblock %}
