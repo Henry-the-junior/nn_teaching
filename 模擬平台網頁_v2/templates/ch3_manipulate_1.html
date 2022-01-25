@@ -122,8 +122,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 440px;
-  	height: 490px;
+  	grid-template-rows: 50px 270px;
+  	height: 320px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -150,7 +150,7 @@ mark {
 
 </style>
 
-<h2>類神經網路如何調整權重？</h2>
+<h2>權重與誤差(1)</h2>
 <p>在本章節，我們將用一個實際的例子來討論<mark>「誤差」如何影響「權重」的調整</mark>。</p>
 <p>假設今天在早餐店只有供應兩個品項：一杯25元的紅茶、一個30元的三明治，</p>
 <p>你在早餐店買3杯紅茶、4個三明治後，開始計算早餐花費，知道應該付195元，</p>
@@ -184,22 +184,12 @@ mark {
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>在調整權重的過程中，你有思考出調整權重的目的嗎？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+			<h3>問題二</h3>
 			<p>試著找出其他價錢組合也能讓誤差值為0，並寫下這些價錢組合。</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <h2>重點總結</h2>

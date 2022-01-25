@@ -52,128 +52,29 @@ def ch2_concept_3_option(option):
 	session['option'] = option
 	return render_template('ch2_concept_3.html')
 
-# ch2_manipulate_1 Questions Form Class
-class ch2_QuestionsForm_1(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-    answer3 = TextAreaField('answer3')
-
-@app.route('/ch2_manipulate_1', methods=['GET', 'POST'])
+@app.route('/ch2_manipulate_1')
 def ch2_manipulate_1():
-	form = ch2_QuestionsForm_1(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
-		answer3 = form.answer3.data
+	return render_template('ch2_manipulate_1.html')
 
-		print(answer1)
-		print(answer2)
-		print(answer3)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch2_manipulate_1'))
-	return render_template('ch2_manipulate_1.html', form = form)
-
-# ch2_manipulate_2 Questions Form Class
-class ch2_QuestionsForm_2(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-    answer3 = TextAreaField('answer3')
-    answer4 = TextAreaField('answer4')
-    answer5 = TextAreaField('answer5')
-
-@app.route('/ch2_manipulate_2', methods=['GET', 'POST'])
+@app.route('/ch2_manipulate_2')
 def ch2_manipulate_2():
-	form = ch2_QuestionsForm_2(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
-		answer3 = form.answer3.data
-		answer4 = form.answer4.data
-		answer5 = form.answer5.data
+	return render_template('ch2_manipulate_2.html')
 
-		print(answer1)
-		print(answer2)
-		print(answer3)
-		print(answer4)
-		print(answer5)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch2_manipulate_2'))
-	return render_template('ch2_manipulate_2.html', form = form)
-
-# ch2_manipulate_3 Questions Form Class
-class ch2_QuestionsForm_3(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-    answer3 = TextAreaField('answer3')
-
-@app.route('/ch2_manipulate_3', methods=['GET', 'POST'])
+@app.route('/ch2_manipulate_3')
 def ch2_manipulate_3():
-	form = ch2_QuestionsForm_3(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
-		answer3 = form.answer3.data
-
-		print(answer1)
-		print(answer2)
-		print(answer3)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch2_manipulate_3'))
-	return render_template('ch2_manipulate_3.html', form = form)
+	return render_template('ch2_manipulate_3.html')
 
 @app.route('/ch2_manipulate_4')
 def ch2_manipulate_4():
 	return render_template('ch2_manipulate_4.html')
 
-
-# ch2_manipulate_5 Questions Form Class
-class ch2_QuestionsForm_5(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-    answer3 = TextAreaField('answer3')
-
-@app.route('/ch2_manipulate_5', methods=['GET', 'POST'])
+@app.route('/ch2_manipulate_5')
 def ch2_manipulate_5():
-	form = ch2_QuestionsForm_5(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
-		answer3 = form.answer3.data
+	return render_template('ch2_manipulate_5.html')
 
-		print(answer1)
-		print(answer2)
-		print(answer3)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch2_manipulate_5'))
-	return render_template('ch2_manipulate_5.html', form = form)
-
-# ch2_manipulate_6 Questions Form Class
-class ch2_QuestionsForm_6(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-
-@app.route('/ch2_manipulate_6', methods=['GET', 'POST'])
+@app.route('/ch2_manipulate_6')
 def ch2_manipulate_6():
-	form = ch2_QuestionsForm_6(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
-
-		print(answer1)
-		print(answer2)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch2_manipulate_6'))
-	return render_template('ch2_manipulate_6.html', form = form)
+	return render_template('ch2_manipulate_6.html')
 
 @app.route('/ch2_quiz_1')
 def ch2_quiz_1():
@@ -183,65 +84,17 @@ def ch2_quiz_1():
 def ch2_quiz_2():
 	return render_template('ch2_quiz_2.html')
 
-# ch3_concept_1 Questions Form Class
-class ch3_QuestionsForm_1(Form):
-    answer1 = TextAreaField('answer1')
-
-@app.route('/ch3_concept_1', methods=['GET', 'POST'])
+@app.route('/ch3_concept_1')
 def ch3_concept_1():
-	form = ch3_QuestionsForm_1(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
+	return render_template('ch3_concept_1.html')
 
-		print(answer1)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch3_concept_1'))
-	return render_template('ch3_concept_1.html', form = form)
-
-# ch3_manipulate_1 Questions Form Class
-class ch3_QuestionsForm_2(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-
-@app.route('/ch3_manipulate_1', methods=['GET', 'POST'])
+@app.route('/ch3_manipulate_1')
 def ch3_manipulate_1():
-	form = ch3_QuestionsForm_2(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
+	return render_template('ch3_manipulate_1.html')
 
-		print(answer1)
-		print(answer2)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch3_manipulate_1'))
-	return render_template('ch3_manipulate_1.html', form = form)
-
-# ch3_manipulate_2 Questions Form Class
-class ch3_QuestionsForm_3(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-    answer3 = TextAreaField('answer3')
-
-@app.route('/ch3_manipulate_2', methods=['GET', 'POST'])
+@app.route('/ch3_manipulate_2')
 def ch3_manipulate_2():
-	form = ch3_QuestionsForm_3(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
-		answer3 = form.answer3.data
-
-		print(answer1)
-		print(answer2)
-		print(answer3)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch3_manipulate_2'))
-	return render_template('ch3_manipulate_2.html', form = form)
+	return render_template('ch3_manipulate_2.html')
 
 @app.route('/ch3_quiz_1')
 def ch3_quiz_1():
@@ -255,42 +108,13 @@ def ch3_quiz_2():
 def ch4_concept_1():
 	return render_template('ch4_concept_1.html')
 
-# ch4_manipulate_1 Questions Form Class
-class ch4_QuestionsForm_0(Form):
-    answer1 = TextAreaField('answer1')
-
 @app.route('/ch4_manipulate_1')
 def ch4_manipulate_1():
-	form = ch4_QuestionsForm_0(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
+	return render_template('ch4_manipulate_1.html')
 
-		print(answer1)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch4_manipulate_1'))
-	return render_template('ch4_manipulate_1.html', form = form)
-
-# ch4_manipulate_2 Questions Form Class
-class ch4_QuestionsForm_1(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-
-@app.route('/ch4_manipulate_2', methods=['GET', 'POST'])
+@app.route('/ch4_manipulate_2')
 def ch4_manipulate_2():
-	form = ch4_QuestionsForm_1(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
-
-		print(answer1)
-		print(answer2)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch4_manipulate_2'))
-	return render_template('ch4_manipulate_2.html', form = form)
+	return render_template('ch4_manipulate_2.html')
 
 @app.route('/ch4_quiz_1')
 def ch4_quiz_1():
@@ -304,25 +128,9 @@ def ch4_quiz_2():
 def ch5_concept_1():
 	return render_template('ch5_concept_1.html')
 
-# ch5_manipulate_1 Questions Form Class
-class ch5_QuestionsForm_1(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-
-@app.route('/ch5_manipulate_1', methods=['GET', 'POST'])
+@app.route('/ch5_manipulate_1')
 def ch5_manipulate_1():
-	form = ch5_QuestionsForm_1(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
-
-		print(answer1)
-		print(answer2)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch5_manipulate_1'))
-	return render_template('ch5_manipulate_1.html', form = form)
+	return render_template('ch5_manipulate_1.html')
 
 @app.route('/ch5_manipulate_2')
 def ch5_manipulate_2():

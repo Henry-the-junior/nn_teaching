@@ -297,8 +297,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 1750px;
-  	height: 1800px;
+  	grid-template-rows: 50px 1300px;
+  	height: 1350px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -327,7 +327,7 @@ mark {
 
 <h2>訓練類神經網路</h2>
 <img src="{{ url_for('static', filename='images/ch2_colntrain.png') }}" class="center">
-<p>在模擬2-1，我們學習到資料搜集，以及討論它會牽涉的問題，</p>
+<p>在上個章節，我們學習到資料搜集，以及討論它會牽涉的問題，</p>
 <p>接著，讓我們進入到<mark>訓練類神經網路</mark>的階段，概觀地了解訓練時會經歷哪些流程。
 </p>
 <p style="display: block; margin-bottom: 50px;">在訓練完類神經網路之後，我們會在下個章節介紹如何應用類神經網路。</p>
@@ -465,45 +465,23 @@ mark {
 </div>
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>觀察類神經網路訓練的過程後，說說看每次迭代有經歷哪些流程吧。</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+		  <h3>問題二</h3>
 			<p>雖然在上述的內容當中，沒有提到類神經網路是依據什麼調整權重，</p>
 			<p>但試著想看看，類神經網路會在每次迭代中依照什麼調整權重？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<img src="{{ url_for('static', filename='images/ch2_question_graph1.png') }}" height="300" style="margin-top: 40px; margin-left: 40px;">
-		<div>
+			<h3>問題三</h3>
+		  <img src="{{ url_for('static', filename='images/ch2_question_graph1.png') }}" height="300" style="margin-left: 40px;">
 			<p>觀察類神經網路訓練的過程，在每次迭代中，連續讀取貓咪圖片的時候，</p>
 			<p>輸出值有什麼樣的變化呢？為什麼會有這樣的變化呢？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer3, class_="form-control")}}
-		</div>
-		<img src="{{ url_for('static', filename='images/ch2_question_graph2.png') }}" height="300" style="margin-top: 40px; margin-left: 40px;">
-		<div>
+			<h3>問題四</h3>
+		  <img src="{{ url_for('static', filename='images/ch2_question_graph2.png') }}" height="300" style="margin-left: 40px;">
 			<p>觀察每張圖片經過數次迭代之後，輸出值有什麼變化？為什麼有這樣的變化呢？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer4, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+		  <h3>問題五</h3>
 			<p>如果類神經網路訓練的結果不如預期，像是貓狗的類別一直判斷錯誤，</p>
 			<p>可能是哪裡出現問題呢？</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer5, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 <h2>重點總結</h2>
 <p>在這個章節中，我們了解到<mark>類神經網路的訓練過程</mark>，這個過程包含，</p>

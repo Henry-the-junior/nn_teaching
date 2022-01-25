@@ -240,8 +240,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 700px;
-  	height: 750px;
+  	grid-template-rows: 50px 550px;
+  	height: 600px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -268,7 +268,7 @@ mark {
 
 </style>
 
-<h2>類神經元的運算</h2>
+<h2>類神經元模型</h2>
 <p>在本章節中，我們再次呈現<mark>Warren McCulloch和Walter Pitts的類神經元模型</mark>，</p>
 <p>這時候，你應該更加理解𝜃值的用意，以及符號函數的功能，</p>
 <p>試著操作下方的介面，讓自己更加熟悉這個概念吧。</p>
@@ -304,28 +304,18 @@ mark {
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>假設X = 3·x<sub>1</sub> + (-4)·x<sub>2</sub> - 2，</p>
 			<p>並且Y = sign(X)，</p>
 			<p>當x<sub>1</sub> = -2、x<sub>2</sub> = 3 時，</p>
 			<p>請問Y值為多少？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+			<h3>問題二</h3>
 			<p>假設X = (-0.5)·x<sub>1</sub> + 7·x<sub>2</sub> + 2·x<sub>3</sub> + 6，</p>
 			<p>並且Y = sign(X)，資料以(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>)表示，</p>
 			<p>請問(3, 1, 2)和(-1, 2, -1)這兩筆資料，</p>
 			<p>是否分為同一個類別？</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <h2>重點總結</h2>

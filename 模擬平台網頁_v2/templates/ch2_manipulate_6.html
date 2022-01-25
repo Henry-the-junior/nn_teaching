@@ -361,8 +361,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 500px;
-  	height: 550px;
+  	grid-template-rows: 50px 320px;
+  	height: 370px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -461,23 +461,13 @@ mark {
 
 <div class="questions_zone">
 	<h2>討論一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>看過上述的健康評斷系統，你覺得這樣的設計有何問題？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+		  <h3>問題二</h3>
 			<p>結合第二章學習到的概念，</p>
 			<p>你認為如何更合理地利用類神經網路建立健康評斷系統？</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <script type="text/javascript" src="{{ url_for('static', filename='ch2_manipulate_5.js') }}"></script>

@@ -361,8 +361,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 800px;
-  	height: 850px;
+  	grid-template-rows: 50px 550px;
+  	height: 600px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -432,32 +432,18 @@ mark {
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>假設y = x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub>，</p>
 			<p>當x<sub>1</sub> = 7、w<sub>1</sub> = 1、x<sub>2</sub> = 3、w<sub>2</sub> = 2 時，</p>
 			<p>請問y值為多少？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+		  <h3>問題二</h3>
 			<p>假設y = x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub> + x<sub>3</sub>w<sub>3</sub>，</p>
 			<p>當x<sub>1</sub> = 4、w<sub>1</sub> = 2、x<sub>2</sub> = 1、w<sub>2</sub> = 0.5、x<sub>3</sub> = 4、w<sub>3</sub> = 0.1 時，</p>
 			<p>請問y值為多少？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+			<h3>問題三</h3>
 			<p>學到目前為止，你能否在重述一下類神經網路如何達成「分類」這個目的？</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer3, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <h2>重點總結</h2>

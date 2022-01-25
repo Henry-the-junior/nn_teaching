@@ -158,8 +158,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 1020px;
-  	height: 1070px;
+  	grid-template-rows: 50px 820px;
+  	height: 870px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -273,34 +273,20 @@ mark {
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>在測試類神經網路的中，有些圖片輸出的機率值，似乎無法明確地分類，</p>
 			<p>為什麼這些圖片所輸出的機率會這樣呢？是這些圖片有什麼特色嗎？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+		  <h3>問題二</h3>
 			<p>如果回到資料搜集的步驟或是類神經網路訓練的步驟，</p>
 			<p>你覺得可以做什麼調整(例如：圖片數量、圖片代表性、迭代次數等)，</p>
 			<p>讓類神經網路的判斷更加精確？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+		  <h3>問題三</h3>
 			<p>剛剛所訓練的類神經網路，是在分類貓的圖片與狗的圖片，</p>
 			<p>如果我們在資料搜集的時候，放入了一個不是貓也不是狗的圖片，</p>
 			<p>對類神經網路會有什麼影響嗎？(假設我們丟一張天竺鼠的照片)</p>
+		  <img src="{{ url_for('static', filename='images/ch2_guinea.jpg') }}" height="200" style="margin-top: 0px; margin-left: 300px;">
 		</div>
-		<img src="{{ url_for('static', filename='images/ch2_guinea.jpg') }}" height="200" style="margin-top: 0px; margin-left: 300px;">
-		<div class="form-group">
-			{{render_field(form.answer3, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <h2>重點總結</h2>

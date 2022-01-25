@@ -215,8 +215,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 570px;
-  	height: 620px;
+  	grid-template-rows: 50px 420px;
+  	height: 470px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -244,7 +244,7 @@ mark {
 </style>
 
 <h2>符號函數是唯一的激勵函數嗎？</h2>
-<p>在模擬5-1中，我們先熟悉以下<mark>四種激勵函數</mark>，</p>
+<p>在本章節中，我們先熟悉以下<mark>四種激勵函數</mark>，</p>
 <p>它們的運作方式其實並不難，所以希望你在操作過程中熟悉它們以外，</p>
 <p>還是要記得激勵函數<mark>在類神經網路中扮演的角色</mark>，</p>
 <p>以及它們個別的使用目的。</p>
@@ -287,29 +287,19 @@ mark {
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>雖然我們在第五章的開頭，就介紹了上述四種激勵函數的功用，</p>
 			<p>但在操作上方的函數過後，請你再重述一下這些函數的使用目的？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+			<h3>問題二</h3>
 			<p>這是標題上一直出現的問題，「符號函數是唯一的激勵函數嗎？」</p>
 			<p>你現在認為它是唯一的嗎？</p>
 			<p>另外，上述四種激勵函數，是所有的激勵函數嗎？</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <h2>重點總結</h2>
-<p>在模擬5-1中，我們認識到更多不同的激勵函數，也希望你了解到，</p>
+<p>在本章節中，我們認識到更多不同的激勵函數，也希望你了解到，</p>
 <p><mark>每個激勵函數使用的時機或目的都有所不同</mark>，上述的激勵函數，也不是所有的激勵函數，</p>
 <p>在<mark>類神經網路中，是可以依照自己的想法設計激勵函數的</mark>，今天你可能不想要資料只有分兩類，</p>
 <p>你也能夠自己設計一個函數將資料分成更多類別。</p>

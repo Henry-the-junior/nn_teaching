@@ -211,8 +211,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 750px;
-  	height: 800px;
+  	grid-template-rows: 50px 500px;
+  	height: 550px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -404,31 +404,17 @@ mark {
 </div>
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>如果在資料搜集的過程中，資料搜集的人不小心把資料的類別寫錯，</p>
 			<p>會不會影響類神經網路的訓練成果？你覺得會怎麼樣影響？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+		  <h3>問題二</h3>
 			<p>對於資料搜集的過程，思考看看搜集五張照片與十張照片之間的差別，</p>
 			<p>如果搜集更多照片，照片的數量會不會影響類神經網路分類的成果？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+		  <h3>問題三</h3>
 			<p>另外，如果在資料搜集的過程中，不小心一直搜集到同一品種的狗狗圖片，</p>
 			<p>對於後續的類神經網路訓練，會有什麼影響嗎？</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer3, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 <h2>重點總結</h2>
 <p>在<mark>資料搜集</mark>的過程中，我們除了取得資料，實際上還會遇到<mark>賦予資料「類別」</mark>的問題，</p>

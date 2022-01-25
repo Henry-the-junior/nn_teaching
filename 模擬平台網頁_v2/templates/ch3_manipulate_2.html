@@ -258,8 +258,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  grid-template-rows: 50px 1270px;
-  height: 1320px;
+  grid-template-rows: 50px 1170px;
+  height: 1120px;
   width: 1000px;
 	margin-left: auto;
   margin-right: auto;
@@ -286,8 +286,7 @@ mark {
 
 </style>
 
-<h2>類神經網路如何調整權重？</h2>
-
+<h2>權重與誤差(2)</h2>
 <p><mark>在本章節中，我們再用以下的操作介面熟悉權重、誤差的概念。</mark></p>
 
 <p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
@@ -322,28 +321,19 @@ mark {
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>假設y = x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub>，</p>
 			<p>當x<sub>1</sub> = 2、w<sub>1</sub> = 4、x<sub>2</sub> = 6、w<sub>2</sub> = 1 時，</p>
 			<p>請問y值為多少？在期望輸出為10的時候，誤差為多少？</p>
 			<p>(提示：誤差 = 期望輸出 - y值)</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+			<h3>問題二</h3>
 			<p>假設y = x<sub>1</sub>w<sub>1</sub> + x<sub>2</sub>w<sub>2</sub> + x<sub>3</sub>w<sub>3</sub>，</p>
 			<p>當x<sub>1</sub> = 3、w<sub>1</sub> = 4、x<sub>2</sub> = 2、w<sub>2</sub> = 0.5、x<sub>3</sub> = 1、w<sub>3</sub> = 0.3 時，</p>
 			<p>請問y值為多少？在期望輸出為5的時候，誤差為多少？</p>
 			<p>(提示：誤差 = 期望輸出 - y值)</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
-			<p>還記得在模擬2-6中，亨利想做的健康評分系統嗎？</p>
+		  <h3>問題三</h3>
+			<p>還記得在第二章中，亨利想做的健康評分系統嗎？</p>
 			<p>如果依照亨利搜集到的資料，
 			<p>他將平均心跳的權重設置為0.7，</p>
 			<p>平均血壓的權重設置為0.5，</p>
@@ -352,11 +342,6 @@ mark {
 			<p>健康評分系統所得出的誤差分別是多少？</p>
 			<p>(提示：誤差 = 期望輸出 - y值)</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer3, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <h2>重點總結</h2>
