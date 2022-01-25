@@ -144,79 +144,21 @@ def ch5_quiz_1():
 def ch5_quiz_2():
 	return render_template('ch5_quiz_2.html')
 
-# ch6_concept_1 Questions Form Class
-class ch6_QuestionsForm_1(Form):
-    answer1 = TextAreaField('answer1')
-
-@app.route('/ch6_concept_1', methods=['GET', 'POST'])
+@app.route('/ch6_concept_1')
 def ch6_concept_1():
-	form = ch6_QuestionsForm_1(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
+	return render_template('ch6_concept_1.html')
 
-		print(answer1)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch6_concept_1'))
-	return render_template('ch6_concept_1.html', form = form)
-
-# ch6_manipulate_1 Questions Form Class
-class ch6_QuestionsForm_2(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-
-@app.route('/ch6_manipulate_1', methods=['GET', 'POST'])
+@app.route('/ch6_manipulate_1')
 def ch6_manipulate_1():
-	form = ch6_QuestionsForm_2(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
+	return render_template('ch6_manipulate_1.html')
 
-		print(answer1)
-		print(answer2)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch6_manipulate_1'))
-	return render_template('ch6_manipulate_1.html', form = form)
-
-# ch6_manipulate_2 Questions Form Class
-class ch6_QuestionsForm_3(Form):
-    answer1 = TextAreaField('answer1')
-
-@app.route('/ch6_manipulate_2', methods=['GET', 'POST'])
+@app.route('/ch6_manipulate_2')
 def ch6_manipulate_2():
-	form = ch6_QuestionsForm_3(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
+	return render_template('ch6_manipulate_2.html')
 
-		print(answer1)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch6_manipulate_2'))
-	return render_template('ch6_manipulate_2.html', form = form)
-
-# ch6_manipulate_3 Questions Form Class
-class ch6_QuestionsForm_4(Form):
-    answer1 = TextAreaField('answer1')
-    answer2 = TextAreaField('answer2')
-
-@app.route('/ch6_manipulate_3', methods=['GET', 'POST'])
+@app.route('/ch6_manipulate_3')
 def ch6_manipulate_3():
-	form = ch6_QuestionsForm_4(request.form)
-	if request.method == 'POST' and form.validate():
-		answer1 = form.answer1.data
-		answer2 = form.answer2.data
-
-		print(answer1)
-		print(answer2)
-
-		flash('你送出你的回答了！真是太好了！', 'success')
-
-		return redirect(url_for('ch6_manipulate_3'))
-	return render_template('ch6_manipulate_3.html', form = form)
+	return render_template('ch6_manipulate_3.html')
 
 @app.route('/ch6_quiz_1')
 def ch6_quiz_1():

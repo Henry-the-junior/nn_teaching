@@ -647,8 +647,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 850px;
-  	height: 900px;
+  	grid-template-rows: 50px 730px;
+  	height: 780px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -675,7 +675,7 @@ mark {
 
 </style>
 
-<h2>類神經網路如何學習分類？</h2>
+<h2>應用學習演算法(2)</h2>
 <p>在本章節中，我們<mark>將類神經網路套用不同的激勵函數</mark>，</p>
 <p>並且<mark>利用誤差去計算類神經網路應該如何調整權重</mark>，</p>
 <p>再次嘗試操作看看吧，讓你更加熟悉下方這個式子所代表的意義。</p>
@@ -759,20 +759,15 @@ mark {
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>假設X = 3·x<sub>1</sub> + (-4)·x<sub>2</sub> - 2，</p>
 			<p>並且Y = sign(X)，</p>
 			<p>當x<sub>1</sub> = -2、x<sub>2</sub> = 3 ，</p>
 			<p>並且設定期望輸出為+1，學習率𝛼值為0.2，</p>
 			<p>請問w<sub>1</sub>和w<sub>2</sub>該如何調整？</p>
 			<p>(提示：誤差 = 期望輸出 - y值)</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+		  <h3>問題二</h3>
 			<p>假設X = 2·x<sub>1</sub> + (-1)·x<sub>2</sub> + 3·x<sub>3</sub> - 1，</p>
 			<p>並且Y = step(X)，</p>
 			<p>當x<sub>1</sub> = 7、x<sub>2</sub> = 2、x<sub>3</sub> = -5 ，</p>
@@ -780,11 +775,6 @@ mark {
 			<p>請問w<sub>1</sub>、w<sub>2</sub>、w<sub>3</sub>該如何調整？</p>
 			<p>(提示：誤差 = 期望輸出 - y值)</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <script type="text/javascript" src="{{ url_for('static', filename='ch6_manipulate_3.js') }}"></script>

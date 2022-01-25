@@ -741,8 +741,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 800px;
-  	height: 850px;
+  	grid-template-rows: 50px 750px;
+  	height: 800px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -769,7 +769,7 @@ mark {
 
 </style>
 
-<h2>類神經網路如何學習分類？</h2>
+<h2>應用學習演算法(1)</h2>
 <p>在本章節中，我們將<mark>呈現類神經網路如何「自動」調整權重</mark>，</p>
 <p>最後學習到<mark>如何分類毛毛蟲與瓢蟲的資料</mark>。</p>
 <p>當然，這是一個非常簡單的案例，實際的分類問題還是複雜許多，</p>
@@ -1004,9 +1004,8 @@ mark {
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>假設X = (0.2)·x<sub>1</sub> + (0.3)·x<sub>2</sub> - 2，</p>
 			<p>並且Y = step(X)，</p>
 			<p>設定學習率𝛼值為0.2。</p>
@@ -1016,11 +1015,6 @@ mark {
 			<p>試著算出表格中，A~P所代表的數字，</p>
 			<p>你可以試著自己計算看看，也可以試著使用上方的類神經網路計算。</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <script type="text/javascript" src="{{ url_for('static', filename='ch6_manipulate_2.js') }}"></script>

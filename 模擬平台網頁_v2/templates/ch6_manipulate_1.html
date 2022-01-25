@@ -124,8 +124,8 @@ mark {
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  grid-template-rows: 50px 670px;
-  height: 720px;
+  grid-template-rows: 50px 550px;
+  height: 600px;
   width: 1000px;
 	margin-left: auto;
   margin-right: auto;
@@ -136,7 +136,7 @@ mark {
 
 </style>
 
-<h2>類神經網路如何學習分類？</h2>
+<h2>誤差與學習演算法</h2>
 <p>在1958年時，<mark>Frank Rosenblatt提出的學習演算法</mark>：</p>
 <p style="text-align: center; margin-bottom: 0px;">w<sub>new</sub> = w<sub>i</sub> + 𝛼 * x<sub>i</sub> * error</p>
 
@@ -199,16 +199,11 @@ mark {
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>你認為除了像學習演算法調整齒輪轉動次數，</p>
 			<p>有沒有其他策略也能夠成功地讓機器人正確走到目的地？</p>
-		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<div style="margin-top: 40px;">
+		  <h3>問題二</h3>
 			<p>依照學習演算法，試著計算看看調整後的權重。</p>
 			<p>若機器人距離目的地50個單位，</p>
 			<p>大齒輪轉動一次會前進8個單位，小齒輪轉動一次會前進2個單位，
@@ -216,11 +211,6 @@ mark {
 			<p>學習率一樣設定為0.01，</p>
 			<p>機器人偵測到誤差後，兩個齒輪應該各調整為轉動多少次數？</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer2, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <script type="text/javascript" src="{{ url_for('static', filename='ch6_manipulate_1.js') }}"></script>

@@ -13,8 +13,8 @@
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  	grid-template-rows: 50px 270px;
-  	height: 320px;
+  	grid-template-rows: 50px 200px;
+  	height: 250px;
   	width: 1000px;
 	margin-left: auto;
   	margin-right: auto;
@@ -41,7 +41,7 @@ mark {
 
 </style>
 
-<h2>類神經網路如何學習分類？</h2>
+<h2>類神經網路如何學習分類？——初探學習演算法</h2>
 <p>在先前的單元中，我們認識到<mark>類神經網路以及它的應用</mark>，</p>
 <p>我們也深入介紹了<mark>類神經網路中的概念</mark>，像是<mark>「權重」</mark>、<mark>「誤差」</mark>、<mark>「激勵函數」</mark>等，</p>
 <p>還記得我們一開始「手動」調整權重嗎？</p>
@@ -50,16 +50,10 @@ mark {
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
-	{% from "includes/_formhelpers.html" import render_field %}
-	<form method="POST" action="" style="margin-top: 10px;">
 		<div style="margin-top: 40px;">
+			<h3>問題一</h3>
 			<p>「調整權重」的目的是什麼？</p>
 		</div>
-		<div class="form-group">
-			{{render_field(form.answer1, class_="form-control")}}
-		</div>
-		<p><input type="submit" style="font-size:20px;" value="將回答內容送出"></p>
-    </form>
 </div>
 
 <p>清楚知道調整權重的目的後，我們來正式開始介紹如何「自動」調整權重吧。</p>
