@@ -67,15 +67,15 @@ mark {
 }
 
 #jumper1_input {
-	margin-top: 120px;
-	margin-left: 275px;
+	margin-top: 145px;
+	margin-left: 265px;
 	font-size: 25px;
 	height: 40px;
 	width: 40px;
 }
 
 #jumper2_input {
-	margin-top: 120px;
+	margin-top: 145px;
 	margin-left: 115px;
 	font-size: 25px;
 	height: 40px;
@@ -124,8 +124,8 @@ mark {
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  grid-template-rows: 50px 550px;
-  height: 600px;
+  grid-template-rows: 50px 650px;
+  height: 700px;
   width: 1000px;
 	margin-left: auto;
   margin-right: auto;
@@ -144,17 +144,17 @@ mark {
 <p>但為了更容易理解這個演算法設計的用意，</p>
 <p>讓我們<mark>用個比喻來理解這個演算法</mark>吧，</p>
 <p>假設有個<mark>機器人要直線前進</mark>，運送物資到達目的地，</p>
-<p>機器人體內有<mark>一個大齒輪與一個小齒輪</mark>，</p>
+<p>機器人體內有<mark>一個大齒輪組與一個小齒輪組</mark>，</p>
 <p>還有外接一個測距儀可以知道自己與目的地還差多少距離，</p>
-<p>機器人轉動一次大齒輪可以<mark>向前8個單位</mark>，</p>
-<p>機器人轉動一次小齒輪可以<mark>向前2個單位</mark>，</p>
+<p>大齒輪組運作一次可以讓機器人<mark>向前8個單位</mark>，</p>
+<p>小齒輪組運作一次可以讓機器人<mark>向前2個單位</mark>，</p>
 <p>而起初機器人<mark>與目的地的距離為50個單位</mark>，</p>
 <p>對應到我們先前學習到的類神經網路，</p>
-<p><mark>大齒輪與小齒輪</mark>轉動一次能夠前進的單位代表著輸入值，</p>
-<p><mark>也就是x<sub>1</sub>和x<sub>2</sub></mark>，而<mark>轉動的次數就是w<sub>1</sub>和w<sub>2</sub></mark>，</p>
+<p><mark>大齒輪組與小齒輪組</mark>運作一次能夠前進的單位代表著輸入值，</p>
+<p><mark>也就是x<sub>1</sub>和x<sub>2</sub></mark>，而<mark>運作的次數就是w<sub>1</sub>和w<sub>2</sub></mark>，</p>
 <p>最初起點與目的地的距離就是<mark>「期望輸出」</mark>，</p>
 <p>而機器人外接的測距儀，測量出<mark>與目的地之間的距離就是「誤差」</mark>。</p>
-<p>如果機器人一開始設定大齒輪轉動2次，小齒輪轉動1次，</p>
+<p>如果機器人一開始設定大齒輪組運作2次，小齒輪組運作1次，</p>
 <p>總共前進18個單位，誤差為32個單位，</p>
 <img src="{{ url_for('static', filename='images/ch6_gears1.png') }}" class="center" height="350">
 <p>我們先不將數字帶入學習演算法計算，</p>
@@ -164,10 +164,12 @@ mark {
 <p>那麼一個類神經網路<mark>依照「誤差」調整權重，進一步影響「誤差降低」</mark>，</p>
 <p>是不是就代表著，<mark>每次的學習都有可能讓調整項變小？</mark></p>
 <p>這其實就是學習演算法中，調整項的設計想法，</p>
-<p>每次調整就會越接近目的地，下一次對轉動次數的調整就會減少。</p>
+<p>每次調整就會越接近目的地，下一次對運作次數的調整就會減少。</p>
 <img src="{{ url_for('static', filename='images/ch6_gears2.png') }}" class="center" height="380" style="margin-bottom: 50px;">
 <p>我們也可以這樣理解調整項越來越小的趨勢：</p>
 <img src="{{ url_for('static', filename='images/ch6_gears4.png') }}" class="center" height="380" style="margin-bottom: 50px;">
+
+<video src="{{ url_for('static', filename='images/ch6_animation.mp4') }}" controls width="1000" style="margin-left: 100px;"></video>
 
 <p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下設定完成)</p>
 <div class="manipulate_zone">
@@ -203,15 +205,18 @@ mark {
 	<h2>思考一下，回答問題</h2>
 		<div style="margin-top: 40px;">
 			<h3>問題一</h3>
-			<p>你認為除了像學習演算法調整齒輪轉動次數，</p>
+			<p>你認為除了像學習演算法調整齒輪組運作的次數，</p>
 			<p>有沒有其他策略也能夠成功地讓機器人正確走到目的地？</p>
-		  <h3>問題二</h3>
+			<h3>問題二</h3>
+			<p>在學習率與輸入值不變的情況下，</p>
+			<p>依照學習演算法，越小的誤差會如何影響權重調整的幅度？</p>
+		  <h3>問題三</h3>
 			<p>依照學習演算法，試著計算看看調整後的權重。</p>
 			<p>若機器人距離目的地50個單位，</p>
-			<p>大齒輪轉動一次會前進8個單位，小齒輪轉動一次會前進2個單位，
-			<p>如果一開始大齒輪轉動1次，小齒輪轉動2次，</p>
+			<p>大齒輪組運作一次會前進8個單位，小齒輪組運作一次會前進2個單位，
+			<p>如果一開始大齒輪組運作1次，小齒輪組運作2次，</p>
 			<p>學習率一樣設定為0.01，</p>
-			<p>機器人偵測到誤差後，兩個齒輪應該各調整為轉動多少次數？</p>
+			<p>機器人偵測到誤差後，兩個齒輪組應該各調整為運作多少次數？</p>
 		</div>
 </div>
 
