@@ -119,6 +119,185 @@
 	grid-row-end: 4;
 }
 
+
+.health_nn {
+	display: grid;
+	grid-template-columns: 300px 250px 250px 200px;
+  	grid-template-rows: 100px 160px 240px 100px;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+.health_nn_background {
+	background-image: url(../static/images/ch3_health_nn.png);
+	background-repeat:no-repeat;
+	background-size: 95%;
+	background-position: center;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 4;
+}
+
+#health_nn_x1 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 145px;
+	margin-top: 130px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#health_nn_x2 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 145px;
+	margin-top: 75px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#health_nn_w1 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 5px;
+	margin-top: 130px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#health_nn_w2 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 5px;
+	margin-top: 75px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#health_nn_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 180px;
+	margin-top: 18px;
+	font-size: 25px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.health_nn_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 165px;
+	margin-top: 150px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.blood_pressure {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	margin-left: 20px;
+	margin-top: 200px;
+}
+
+.blood_pressure_button_block {
+	height: 50px;
+	width: 80px;
+	margin-left: 140px;
+	margin-top: 250px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.blood_pressure_output {
+	height: 100px;
+	width: 300px;
+	margin-left: 200px;
+	margin-top: 220px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#blood_pressure_x1 {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 340px;
+	margin-top: 226px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#blood_pressure_x2 {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 340px;
+	margin-top: 265px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.heart_rate {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	margin-left: 10px;
+	margin-top: 50px;
+}
+
+.health_or_sick {
+	display: block;
+	height: 200px;
+	width: 200px;
+	background-image: url(../static/images/sick.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	margin-left: 0px;
+	margin-top: 100px;
+}
+
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
@@ -239,49 +418,44 @@ mark {
 </style>
 
 <h2>權重調整的目的</h2>
-<p>在本章節，我們將用一個實際的例子來討論<mark>「誤差」如何影響「權重」的調整</mark>。</p>
-<p>假設有個<mark>機器人要直線前進</mark>，運送物資到達目的地，</p>
-<p>機器人體內有<mark>一個大齒輪與一個小齒輪</mark>，</p>
-<p>還有外接一個測距儀可以知道自己與目的地還差多少距離，</p>
-<p>機器人轉動一次大齒輪可以<mark>向前8個單位</mark>，</p>
-<p>機器人轉動一次小齒輪可以<mark>向前2個單位</mark>，</p>
-<p>而起初機器人<mark>與目的地的距離為50個單位</mark>，</p>
-<p>對應到我們先前學習到的類神經網路，</p>
-<p><mark>大齒輪與小齒輪</mark>轉動一次能夠前進的單位代表著輸入值，</p>
-<p><mark>也就是x<sub>1</sub>和x<sub>2</sub></mark>，而<mark>轉動的次數就是w<sub>1</sub>和w<sub>2</sub></mark>，</p>
-<p>最初起點與目的地的距離就是<mark>「期望輸出」</mark>，</p>
-<p>而機器人外接的測距儀，測量出<mark>與目的地之間的距離就是「誤差」</mark>。</p>
-<p>如果機器人一開始設定大齒輪轉動2次，小齒輪轉動1次，</p>
-<p>總共前進18個單位，誤差為32個單位。</p>
-<img src="{{ url_for('static', filename='images/ch6_gears1.png') }}" class="center" height="350" style="margin-bottom: 100px">
+<p>在第二章節中，亨利使用朋友們的健康資料建立類神經網路。</p>
+<img src="{{ url_for('static', filename='images/health_score.png') }}" height="150" style="display: block; margin-left: auto; margin-right: auto;">
+<p>如果依照上方的資料，將心跳的權重設定為0.8，血壓的權重設定為0.7，</p>
+<p>則小恩的健康分數為121分，很明顯與資料上的97分有差距，</p>
+<p>我們試著思考看看，如何調整權重比較合理？</p>
 
-<p><mark>以這樣的情境來看，你可以思考看看該如何調整權重。</mark></p>
-<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下設定完成)</p>
-<div class="manipulate_zone">
-	<div class="jumpers_input">
-		<input type="text" name="jumper1_input" id="jumper1_input">
-		<input type="text" name="jumper2_input" id="jumper2_input">
-		<button style="font-size:18px; width: 100px; height: 50px; margin-top: 120px" onclick="jump()">設定完成</button>
+<div class="health_nn">
+	<div class="health_nn_background"></div>
+	<input type="text" name="health_nn_x1" id="health_nn_x1">
+	<input type="text" name="health_nn_x2" id="health_nn_x2">
+	<input type="text" name="health_nn_w1" id="health_nn_w1">
+	<input type="text" name="health_nn_w2" id="health_nn_w2">
+	<p id="health_nn_y">121</p>
+
+	<div class="blood_pressure">
+		<img src="{{ url_for('static', filename='images/blood-pressure.png') }}" height="100">
 	</div>
-	<div class="output_zone1">
-		<div></div>
-		<img src="{{ url_for('static', filename='images/ch6_eight.png') }}" width="160" style="margin-top: auto; margin-bottom: 0px;">
-		<div></div>
-		<div></div>
-		<div></div>
-		<img src="{{ url_for('static', filename='images/ch6_eight.png') }}" width="160" style="margin-top: auto; margin-bottom: 0px;">
-		<div></div>
-		<div></div>
-		<div></div>
-		<img src="{{ url_for('static', filename='images/ch6_two.png') }}" width="40"  style="margin-top: auto; margin-bottom: 0px;">
-		<img src="{{ url_for('static', filename='images/ch6_robot.png') }}" width="300"  style="margin-top: auto; margin-bottom: 0px;">
+	<div class="blood_pressure_button_block">
+		<button style="font-size:15px; width: 100%; height: 100%;" onclick="blood_pressure_count()">測量血壓</button>
 	</div>
-	<div class="output_zone2">
-		<div></div>
-		<img src="{{ url_for('static', filename='images/ch6_fifty.png') }}" width="1000"  style="margin-top: auto; margin-bottom: 0px;">
+	<div class="blood_pressure_output">
+		<p>收縮壓為_______mmHg</p>
+		<p>舒張壓為_______mmHg</p>
 	</div>
-	<div class="output_zone3">
-		<p>目標距離：50個單位｜機器人前進距離：<span id="sum">18個單位</span>｜誤差：<span id="error">32個單位</span></p>
+
+	<p id="blood_pressure_x1"></p>
+	<p id="blood_pressure_x2"></p>
+
+	<div class="heart_rate">
+		<img id="heartBTN" src="{{ url_for('static', filename='images/heart-rate.png') }}" height="100" style="display:block; margin-left: 100px" onclick="heartSound()">
+		<p style="text-align: center; margin-bottom: 0px;">(試著打開聲音並點擊心臟)</p>
+		<audio id="audio">
+			<source src="{{ url_for('static', filename='images/heartbeat-01a.mp3') }}" type="audio/mpeg">
+		</audio>
+	</div>
+
+	<div class="health_nn_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="health_nn_count()">計算</button>
 	</div>
 	
 </div>
@@ -295,8 +469,8 @@ mark {
 </div>
 
 <h2>重點總結</h2>
-<p>在本章節中，我們用更貼近日常的例子理解類神經網路的「期望輸出」和「誤差」，</p>
-<p>並且在問題討論中探討調整權重的目的，事實上就是「降低誤差」，</p>
+<p>在本章節中，我們用健康照護的例子理解<mark>類神經網路的「期望輸出」和「誤差」，</mark></p>
+<p>並且在問題討論中探討<mark>調整權重的目的，事實上就是「降低誤差」</mark>，</p>
 <p>現階段我們以「手動」調整來了解調整權重的目的，等到後續的章節，</p>
 <p>我們認識到類神經網路如何「自動」調整權重時，還是別忘記這個目的，</p>
 <p>類神經網路就是依賴這個目的去適配它所連接的資料。</p>
