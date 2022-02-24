@@ -4,6 +4,119 @@
 {% include 'ch6_top.html' %}
 <style type="text/css">
 
+.emptynn1 {
+	display: grid;
+	grid-template-columns: 300px 210px 220px 270px;
+  	grid-template-rows: 160px 55px 185px;
+	background-image: url(../static/images/ch3_emptynn1.png);
+	background-repeat:no-repeat;
+	background-size: 90%;
+	background-position: center;
+	height: 400px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+#nn1_x1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 115px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_x2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 195px;
+	margin-top: 25px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_w1 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 85px;
+	margin-top: 115px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+#nn1_w2 {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 85px;
+	margin-top: 25px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 60px;
+	margin-top: 20px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#nn1_expect {
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	margin-left: 150px;
+	margin-top: -5px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#nn1_error {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 95px;
+	margin-top: 90px;
+	font-size: 25px;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.nn1_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 0px;
+	margin-top: 100px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
 .center {
 	display: block;
   	margin-left: auto;
@@ -121,11 +234,189 @@ mark {
 	background-color: yellow;
 }
 
+.health_nn {
+	display: grid;
+	grid-template-columns: 300px 250px 250px 200px;
+  	grid-template-rows: 100px 160px 240px 100px;
+	height: 600px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	border: #26C1E0 solid;
+}
+
+.health_nn_background {
+	background-image: url(../static/images/ch3_health_nn.png);
+	background-repeat:no-repeat;
+	background-size: 95%;
+	background-position: center;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 4;
+}
+
+#health_nn_x1 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 145px;
+	margin-top: 130px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#health_nn_x2 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 145px;
+	margin-top: 75px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#health_nn_w1 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 5px;
+	margin-top: 130px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#health_nn_w2 {
+	font-size: 20px;
+	height: 30px;
+	width: 30px;
+	margin-left: 5px;
+	margin-top: 75px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#health_nn_y {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 180px;
+	margin-top: 18px;
+	font-size: 25px;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.health_nn_button_block {
+	height: 80px;
+	width: 150px;
+	margin-left: 165px;
+	margin-top: 150px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.blood_pressure {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	margin-left: 20px;
+	margin-top: 200px;
+}
+
+.blood_pressure_button_block {
+	height: 50px;
+	width: 80px;
+	margin-left: 140px;
+	margin-top: 250px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.blood_pressure_output {
+	height: 100px;
+	width: 300px;
+	margin-left: 200px;
+	margin-top: 220px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#blood_pressure_x1 {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 340px;
+	margin-top: 226px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+#blood_pressure_x2 {
+	display: block;
+	height: 40px;
+	width: 60px;
+	margin-left: 340px;
+	margin-top: 265px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.heart_rate {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	margin-left: 10px;
+	margin-top: 50px;
+}
+
+.health_or_sick {
+	display: block;
+	height: 200px;
+	width: 200px;
+	background-image: url(../static/images/sick.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	margin-left: 0px;
+	margin-top: 100px;
+}
+
 .questions_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-  grid-template-rows: 50px 650px;
-  height: 700px;
+  grid-template-rows: 50px 400px;
+  height: 450px;
   width: 1000px;
 	margin-left: auto;
   margin-right: auto;
@@ -137,93 +428,89 @@ mark {
 </style>
 
 <h2>誤差與學習演算法</h2>
+<p>學習演算法是透過誤差進行權重的調整，</p>
+<p>我們在理解學習演算法之前，先回顧一下誤差的概念吧。</p>
+
+<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<div class="emptynn1">
+	<input type="text" name="nn1_x1" id="nn1_x1">
+	<input type="text" name="nn1_x2" id="nn1_x2">
+	<input type="text" name="nn1_w1" id="nn1_w1">
+	<input type="text" name="nn1_w2" id="nn1_w2">
+	<p id="nn1_y">0</p>
+	<input type="text" name="nn1_expect" id="nn1_expect">
+	<p id="nn1_error">0</p>
+	<div class="nn1_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="nn1_count()">計算</button>
+	</div>
+</div>
+
 <p>在1958年時，<mark>Frank Rosenblatt提出的學習演算法</mark>：</p>
-<p style="text-align: center; margin-bottom: 0px;">w<sub>new</sub> = w<sub>i</sub> + 𝛼 * x<sub>i</sub> * error</p>
+<p style="text-align: center; margin-bottom: 0px;">w<sub>i</sub><sup>t+1</sup> = w<sub>i</sub><sup>t</sup> + 𝛼 * x<sub>i</sub> * error<sup>t</sup></p>
 <p style="text-align: center; margin-bottom: 0px;">(演算法中的「error」即為「誤差」)</p>
 
 <p>雖然我們分析了這個演算法為何這樣設計，</p>
 <p>但為了更容易理解這個演算法設計的用意，</p>
-<p>讓我們<mark>用個比喻來理解這個演算法</mark>吧，</p>
-<p>假設有個<mark>機器人要直線前進</mark>，運送物資到達目的地，</p>
-<p>機器人體內有<mark>一個大齒輪組與一個小齒輪組</mark>，</p>
-<p>還有外接一個測距儀可以知道自己與目的地還差多少距離，</p>
-<p>大齒輪組運作一次可以讓機器人<mark>向前8個單位</mark>，</p>
-<p>小齒輪組運作一次可以讓機器人<mark>向前2個單位</mark>，</p>
-<p>而起初機器人<mark>與目的地的距離為50個單位</mark>，</p>
-<p>對應到我們先前學習到的類神經網路，</p>
-<p><mark>大齒輪組與小齒輪組</mark>運作一次能夠前進的單位代表著輸入值，</p>
-<p><mark>也就是x<sub>1</sub>和x<sub>2</sub></mark>，而<mark>運作的次數就是w<sub>1</sub>和w<sub>2</sub></mark>，</p>
-<p>最初起點與目的地的距離就是<mark>「期望輸出」</mark>，</p>
-<p>而機器人外接的測距儀，測量出<mark>與目的地之間的距離就是「誤差」</mark>。</p>
-<p>如果機器人一開始設定大齒輪組運作2次，小齒輪組運作1次，</p>
-<p>總共前進18個單位，誤差為32個單位，</p>
-<img src="{{ url_for('static', filename='images/ch6_gears1.png') }}" class="center" height="350">
-<p>我們先不將數字帶入學習演算法計算，</p>
-<p>在學習演算法中，觀察<mark>「𝛼 * x<sub>i</sub> * error」</mark>，</p>
-<p>這一項在學習演算法中，可以視為權重的<mark>調整項</mark>，</p>
-<p>而<mark>輸入值(x<sub>i</sub>)與學習率(𝛼)</mark>在整個學習過程都是<mark>固定不變的</mark>，</p>
-<p>那麼一個類神經網路<mark>依照「誤差」調整權重，進一步影響「誤差降低」</mark>，</p>
-<p>是不是就代表著，<mark>每次的學習都有可能讓調整項變小？</mark></p>
-<p>這其實就是學習演算法中，調整項的設計想法，</p>
-<p>每次調整就會越接近目的地，下一次對運作次數的調整就會減少。</p>
-<img src="{{ url_for('static', filename='images/ch6_gears2.png') }}" class="center" height="380" style="margin-bottom: 50px;">
-<p>我們也可以這樣理解調整項越來越小的趨勢：</p>
-<img src="{{ url_for('static', filename='images/ch6_gears4.png') }}" class="center" height="380" style="margin-bottom: 50px;">
+<p>讓我們<mark>用個先前健康照護的例子來理解這個演算法</mark>吧。</p>
+<img src="{{ url_for('static', filename='images/health_score.png') }}" height="150" style="display: block; margin-left: auto; margin-right: auto;">
+<div class="health_nn">
+	<div class="health_nn_background"></div>
+	<input type="text" name="health_nn_x1" id="health_nn_x1">
+	<input type="text" name="health_nn_x2" id="health_nn_x2">
+	<input type="text" name="health_nn_w1" id="health_nn_w1">
+	<input type="text" name="health_nn_w2" id="health_nn_w2">
+	<p id="health_nn_y">0</p>
 
-<p>依照演算法依序運算，會像是影片中呈現的：</p>
-<video src="{{ url_for('static', filename='images/ch6_animation.mp4') }}" controls width="1000" style="margin-left: 100px;"></video>
+	<div class="blood_pressure">
+		<img src="{{ url_for('static', filename='images/blood-pressure.png') }}" height="100">
+	</div>
+	<div class="blood_pressure_button_block">
+		<button style="font-size:15px; width: 100%; height: 100%;" onclick="blood_pressure_count()">測量血壓</button>
+	</div>
+	<div class="blood_pressure_output">
+		<p>收縮壓為_______mmHg</p>
+		<p>舒張壓為_______mmHg</p>
+	</div>
 
-<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下設定完成)</p>
-<div class="manipulate_zone">
-	<div class="jumpers_input">
-		<input type="text" name="jumper1_input" id="jumper1_input">
-		<input type="text" name="jumper2_input" id="jumper2_input">
-		<button style="font-size:18px; width: 100px; height: 50px; margin-top: 120px" onclick="jump()">設定完成</button>
+	<p id="blood_pressure_x1"></p>
+	<p id="blood_pressure_x2"></p>
+
+	<div class="heart_rate">
+		<img id="heartBTN" src="{{ url_for('static', filename='images/heart-rate.png') }}" height="100" style="display:block; margin-left: 100px" onclick="heartSound()">
+		<p style="text-align: center; margin-bottom: 0px;">(試著打開聲音並點擊心臟)</p>
+		<audio id="audio">
+			<source src="{{ url_for('static', filename='images/heartbeat-01a.mp3') }}" type="audio/mpeg">
+		</audio>
 	</div>
-	<div class="output_zone1">
-		<div></div>
-		<img src="{{ url_for('static', filename='images/ch6_eight.png') }}" width="160" style="margin-top: auto; margin-bottom: 0px;">
-		<div></div>
-		<div></div>
-		<div></div>
-		<img src="{{ url_for('static', filename='images/ch6_eight.png') }}" width="160" style="margin-top: auto; margin-bottom: 0px;">
-		<div></div>
-		<div></div>
-		<div></div>
-		<img src="{{ url_for('static', filename='images/ch6_two.png') }}" width="40"  style="margin-top: auto; margin-bottom: 0px;">
-		<img src="{{ url_for('static', filename='images/ch6_robot.png') }}" width="300"  style="margin-top: auto; margin-bottom: 0px;">
-	</div>
-	<div class="output_zone2">
-		<div></div>
-		<img src="{{ url_for('static', filename='images/ch6_fifty.png') }}" width="1000"  style="margin-top: auto; margin-bottom: 0px;">
-	</div>
-	<div class="output_zone3">
-		<p>目標距離：50個單位｜機器人前進距離：<span id="sum">18個單位</span>｜誤差：<span id="error">32個單位</span></p>
+
+	<div class="health_nn_button_block">
+		<button style="font-size:20px; width: 100%; height: 100%;" onclick="health_nn_count()">計算</button>
 	</div>
 	
 </div>
+<p>我們以小恩的健康資料來看，</p>
+<p><mark>起初類神經網路的權重皆為0</mark>的時候，</p>
+<p><mark>誤差即為97分</mark>，此時調整權重的算法會如下圖：</p>
+<img src="{{ url_for('static', filename='images/ch6_w_modify1.png') }}" height="300" style="display: block; margin-left: auto; margin-right: auto;">
+<p>此時，<mark>我們可以看到𝛼值，也就是「學習率」是沒有設定好的</mark>，</p>
+<p>不過這樣也更能看出「學習率」的用意，</p>
+<p><mark>如果𝛼值設定為1，則權重就會被調整太多，</mark></p>
+<p><mark>依照資料當中的數值，我們應該將𝛼值設定小一些。</mark></p>
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
 		<div style="margin-top: 40px;">
 			<h3>問題一</h3>
-			<p>你認為除了像學習演算法調整齒輪組運作的次數，</p>
-			<p>有沒有其他策略也能夠成功地讓機器人正確走到目的地？</p>
+			<p>你認為除了像學習演算法調整類神經網路的權重，</p>
+			<p>有沒有其他策略也能夠調整好權重，讓類神經網路有正確的輸出？</p>
 			<h3>問題二</h3>
 			<p>在學習率與輸入值不變的情況下，</p>
 			<p>依照學習演算法，越小的誤差會如何影響權重調整的幅度？</p>
-		  <h3>問題三</h3>
-			<p>依照學習演算法，試著計算看看調整後的權重。</p>
-			<p>若機器人距離目的地50個單位，</p>
-			<p>大齒輪組運作一次會前進8個單位，小齒輪組運作一次會前進2個單位，
-			<p>如果一開始大齒輪組運作1次，小齒輪組運作2次，</p>
-			<p>學習率一樣設定為0.01，</p>
-			<p>機器人偵測到誤差後，兩個齒輪組應該各調整為運作多少次數？</p>
 		</div>
 </div>
 
 <script type="text/javascript" src="{{ url_for('static', filename='ch6_manipulate_1.js') }}"></script>
-
+<script type="text/javascript" src="{{ url_for('static', filename='ch3_manipulate_2.js') }}"></script>
 
 {% include 'ch6_buttom.html' %}
 {% endblock %}
