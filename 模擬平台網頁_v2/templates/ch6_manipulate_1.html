@@ -491,11 +491,28 @@ mark {
 <p>我們以小恩的健康資料來看，</p>
 <p><mark>起初類神經網路的權重皆為0</mark>的時候，</p>
 <p><mark>誤差即為97分</mark>，此時調整權重的算法會如下圖：</p>
-<img src="{{ url_for('static', filename='images/ch6_w_modify1.png') }}" height="300" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="{{ url_for('static', filename='images/ch6_w_modify1.png') }}" width="500" style="display: block; margin-left: auto; margin-right: auto;">
 <p>此時，<mark>我們可以看到𝛼值，也就是「學習率」是沒有設定好的</mark>，</p>
 <p>不過這樣也更能看出「學習率」的用意，</p>
 <p><mark>如果𝛼值設定為1，則權重就會被調整太多，</mark></p>
 <p><mark>依照資料當中的數值，我們應該將𝛼值設定小一些。</mark></p>
+<p>假如我們將<mark>𝛼值設定為0.0001</mark>則權重的調整就會如下：</p>
+<img src="{{ url_for('static', filename='images/ch6_w_modify2.png') }}" width="500" style="display: block; margin-left: auto; margin-right: auto;">
+<p>此時，<mark>類神經網路計算第二次迭代的健康分數(y值)</mark>：</p>
+<img src="{{ url_for('static', filename='images/ch6_w_modify3.png') }}" width="500" style="display: block; margin-left: auto; margin-right: auto;">
+<p><mark>以及第二次迭代的誤差</mark>：</p>
+<img src="{{ url_for('static', filename='images/ch6_w_modify4.png') }}" width="500" style="display: block; margin-left: auto; margin-right: auto;">
+<p><mark>接著再計算第三次迭代的權重</mark>：</p>
+<img src="{{ url_for('static', filename='images/ch6_w_modify5.png') }}" width="500" style="display: block; margin-left: auto; margin-right: auto;">
+<p><mark>而第三次迭代的健康分數(y值)</mark>：</p>
+<img src="{{ url_for('static', filename='images/ch6_w_modify6.png') }}" width="500" style="display: block; margin-left: auto; margin-right: auto;">
+<p>而在上述的運算過程當中，</p>
+<p>值得注意的是<mark>「誤差」的大小以及正負對於權重調整的影響</mark>，</p>
+<p>起初類神經網路的誤差較大(97分)，在第二次迭代誤差較小(-29.1分)，</p>
+<p>所以在<mark>計算第二次迭代的權重時，調整幅度較大</mark>。</p>
+<p>而因為正負的不同，也讓<mark>計算第二次迭代的權重時，是往正方向調整</mark>；</p>
+<p><mark>計算第三次迭代的權重時，則是往負方向調整</mark>。</p>
+<img src="{{ url_for('static', filename='images/ch6_w_modify7.png') }}" width="800" style="display: block; margin-left: auto; margin-right: auto;">
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
