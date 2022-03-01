@@ -424,6 +424,28 @@ mark {
   border: 5px #7426E0 solid;
 }
 
+.modify_zone {
+	display: grid;
+	grid-template-columns: 400px 600px;
+  grid-template-rows: 400px 80px 150px;
+  height: 630px;
+  width: 1000px;
+	margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+	border: #26C1E0 solid;
+}
+
+.algo {
+	display: block;
+	height: 80px;
+	width: 1000px;
+	font-size: 20px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
 
 </style>
 
@@ -513,6 +535,19 @@ mark {
 <p>而因為正負的不同，也讓<mark>計算第二次迭代的權重時，是往正方向調整</mark>；</p>
 <p><mark>計算第三次迭代的權重時，則是往負方向調整</mark>。</p>
 <img src="{{ url_for('static', filename='images/ch6_w_modify7.png') }}" width="800" style="display: block; margin-left: auto; margin-right: auto;">
+<p><mark>我們以動畫回顧上述的過程</mark>：</p>
+<video width="1000" controls style="display: block; margin-left: auto; margin-right: auto;">
+  <source src="{{ url_for('static', filename='images/ch6_animation2.mp4') }}" type="video/mp4">
+</video>
+<p>不過，在此例需要注意一個小細節，</p>
+<p><mark>權重調整的方向，是同時受到輸入值(x<sub>i</sub>)以及誤差(error<sup>t</sup>)影響，</mark></p>
+<p><mark>若將上述算式的輸入值改為負值，權重的調整方向則會相反。</mark></p>
+
+<div class="modify_zone">
+	<div class="algo">
+		<p style="text-align: center; margin-bottom: 0px; font-size: 30px;">w<sub>i</sub><sup>t+1</sup> = w<sub>i</sub><sup>t</sup> + 𝛼 * x<sub>i</sub> * error<sup>t</sup></p>
+	</div>
+</div>
 
 <div class="questions_zone">
 	<h2>思考一下，回答問題</h2>
