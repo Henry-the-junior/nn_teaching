@@ -427,8 +427,8 @@ mark {
 .modify_zone {
 	display: grid;
 	grid-template-columns: 400px 600px;
-  grid-template-rows: 400px 80px 150px;
-  height: 630px;
+  grid-template-rows: 400px 100px 250px;
+  height: 750px;
   width: 1000px;
 	margin-left: auto;
   margin-right: auto;
@@ -438,13 +438,42 @@ mark {
 
 .algo {
 	display: block;
-	height: 80px;
+	height: 100px;
 	width: 1000px;
-	font-size: 20px;
 	grid-column-start: 1;
 	grid-column-end: 3;
 	grid-row-start: 2;
 	grid-row-end: 3;
+}
+
+.error_text {
+	display: block;
+	height: 400px;
+	width: 400px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.error_list {
+	display: block;
+	height: 400px;
+	width: 600px;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.error_m {
+	display: block;
+	height: 250px;
+	width: 1000px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
 }
 
 </style>
@@ -544,8 +573,23 @@ mark {
 <p><mark>若將上述算式的輸入值改為負值，權重的調整方向則會相反。</mark></p>
 
 <div class="modify_zone">
+	<div class="error_text">
+		<p style="font-size: 30px; margin-left: 280px; margin-top: 160px">error<sup>t</sup>：</p>
+	</div>
+	<div class="error_list">
+		<form style="margin-top: 20px">
+			<input type="radio" name="error_sele" value="error1" onclick="check(this.value)"> <img src="{{ url_for('static', filename='images/ch6_error1.png') }}" width="300"><br>
+			<input type="radio" name="error_sele" value="error2" onclick="check(this.value)"> <img src="{{ url_for('static', filename='images/ch6_error2.png') }}" width="300"><br>
+			<input type="radio" name="error_sele" value="error3" onclick="check(this.value)"> <img src="{{ url_for('static', filename='images/ch6_error3.png') }}" width="300"><br>
+			<input type="radio" name="error_sele" value="error4" onclick="check(this.value)"> <img src="{{ url_for('static', filename='images/ch6_error4.png') }}" width="300"><br>
+		</form>
+	</div>
 	<div class="algo">
 		<p style="text-align: center; margin-bottom: 0px; font-size: 30px;">w<sub>i</sub><sup>t+1</sup> = w<sub>i</sub><sup>t</sup> + 𝛼 * x<sub>i</sub> * error<sup>t</sup></p>
+		<p style="text-align: center"><mark>(考慮x<sub>i</sub>為正的情況)</mark></p>
+	</div>
+	<div class="error_m">
+		<img id="error_modify" src="" height="250" style="display: block; margin-left: auto; margin-right: auto;">
 	</div>
 </div>
 

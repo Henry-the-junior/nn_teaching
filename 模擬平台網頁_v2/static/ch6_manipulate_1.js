@@ -156,3 +156,15 @@ var audio = document.getElementById("audio");
 function heartSound() {
 	audio.play();
 }
+
+function check(error) {
+	if (error == 'error1') {
+		document.getElementById("error_modify").setAttribute("src", '/static/images/ch6_error_m1.png');
+	} else if (error == 'error2') {
+		document.getElementById("error_modify").setAttribute("src", '/static/images/ch6_error_m2.png');
+	} else if (error == 'error3') {
+		document.getElementById("error_modify").setAttribute("src", '/static/images/ch6_error_m3.png');
+	} else if (error == 'error4') {
+		document.getElementById("error_modify").setAttribute("src", '/static/images/ch6_error_m4.png');
+	}
+}
