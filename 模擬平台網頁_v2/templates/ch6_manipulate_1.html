@@ -592,8 +592,14 @@ mark {
 		<img id="error_modify" src="" height="250" style="display: block; margin-left: auto; margin-right: auto;">
 	</div>
 </div>
+<p>權重調整後，也會改變類神經網路的輸出值，</p>
+<p>而<mark>每次的調整都可能讓誤差降低</mark>，</p>
+<p><mark>誤差越小，權重調整的幅度就越小</mark>，</p>
+<p>這也影響著類神經網路每次逼近期望輸出的幅度，</p>
+<p>隨著<mark>類神經網路的輸出值越靠近期望輸出，類神經網路下一次逼近的幅度就會越小</mark>。</p>
+<img src="{{ url_for('static', filename='images/ch6_w_m.png') }}" width="800" style="display: block; margin-left: auto; margin-right: auto;">
 
-<div class="questions_zone">
+<div class="questions_zone" style="margin-top: 40px;">
 	<h2>思考一下，回答問題</h2>
 		<div style="margin-top: 40px;">
 			<h3>問題一</h3>
