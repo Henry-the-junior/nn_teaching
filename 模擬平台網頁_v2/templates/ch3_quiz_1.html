@@ -6,7 +6,31 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
 <style type="text/css">
 
-.hint_zone {
+.c_hint_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 370px;
+	height: 420px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.c_output_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 650px;
+	height: 700px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.p_hint_zone {
 	display: grid;
 	grid-template-columns: 1000px;
 	grid-template-rows: 50px 250px;
@@ -18,7 +42,7 @@
 	border: 5px #7426E0 solid;
 }
 
-.output_zone {
+.p_output_zone {
 	display: grid;
 	grid-template-columns: 1000px;
 	grid-template-rows: 50px 230px;
@@ -37,15 +61,64 @@ code {
 </style>
 
 <h2>三輸入值計算誤差實作</h2>
-<p>用Python程式撰寫類神經網路，</p>
+<p>用程式撰寫類神經網路，</p>
 <p>其中能夠輸入三個數值(x1, x2, x3)與三個權重(w1, w2, w3)，</p>
 <p>以及它的期望輸出(yd)，類神經網路會將三個數值與三個權重相乘後加總，</p>
 <p>最後相加得到輸出(y)，還會將yd減去y得到誤差(error)，</p>
 <p>底下為部分程式的參考與程式撰寫後的輸出範例。請參照範例，試著將缺少的部分撰寫完成。</p>
 
 
+<h2>C語言</h2>
+<div class="c_hint_zone">
+	<h2>程式提示</h2>
+	<pre>
+	<code class="c">
+	#include &lt;stdio.h&gt;
 
-<div class="hint_zone">
+	float nn(float x1, float x2, float x3, float w1, float w2, float w3, float yd, float *y, float *error){
+		________________________________
+		____________________
+	}
+
+	int main() {
+		return 0;
+	}
+	</code>
+	</pre>
+</div>
+
+<div class="c_output_zone">
+	<h2>輸出提示</h2>
+	<pre>
+	<code class="c">
+	#include &lt;stdio.h&gt;
+
+	float nn(float x1, float x2, float x3, float w1, float w2, float w3, float yd, float *y, float *error){
+		________________________________
+		____________________
+	}
+
+	int main() {
+
+		float y;
+		float error;
+		nn(1,2,3,1,1,1,2,&y,&error);
+		printf("%f ,%f\n",y,error);
+		nn(2,3,4,3,2,7,3,&y,&error);
+		printf("%f ,%f\n",y,error);
+
+		return 0;
+	}
+
+	>> 6.000000 ,-4.000000
+	>> 40.000000 ,-37.000000
+	</code>
+	</pre>
+</div>
+
+
+<h2>Python</h2>
+<div class="p_hint_zone">
 	<h2>程式提示</h2>
 	<pre>
 	<code class="python">
@@ -57,7 +130,7 @@ code {
 	</pre>
 </div>
 
-<div class="output_zone">
+<div class="p_output_zone">
 	<h2>輸出提示</h2>
 	<pre>
 	<code class="python">
