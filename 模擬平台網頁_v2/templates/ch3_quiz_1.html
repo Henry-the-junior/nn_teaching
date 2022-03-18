@@ -102,16 +102,16 @@ code {
 
 		float y;
 		float error;
-		nn(1,2,3,1,1,1,2,&y,&error);
-		printf("%f ,%f\n",y,error);
-		nn(2,3,4,3,2,7,3,&y,&error);
-		printf("%f ,%f\n",y,error);
+		nn(1, 2, 3, 1, 1, 1, 2, &y, &error);
+		printf("%f, %f\n", y, error);
+		nn(2,3,4,3,2,7,3, &y, &error);
+		printf("%f, %f\n", y, error);
 
 		return 0;
 	}
 
-	>> 6.000000 ,-4.000000
-	>> 40.000000 ,-37.000000
+	>> 6.000000, -4.000000
+	>> 40.000000, -37.000000
 	</code>
 	</pre>
 </div>
@@ -135,9 +135,9 @@ code {
 	<pre>
 	<code class="python">
 	print(nn(1, 2, 3, 1, 1, 1, 6))
-	>>(6, 0)
+	>> (6, 0)
 	print(nn(3, 4, 5, 2, 1, 3, 7))
-	>>(25, -18)
+	>> (25, -18)
 	</code>
 	</pre>
 </div>

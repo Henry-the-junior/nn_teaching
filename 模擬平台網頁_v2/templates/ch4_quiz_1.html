@@ -6,7 +6,31 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
 <style type="text/css">
 
-.hint_zone {
+.c_hint_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 450px;
+	height: 500px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.c_output_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 550px;
+	height: 600px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.p_hint_zone {
 	display: grid;
 	grid-template-columns: 1000px;
 	grid-template-rows: 50px 300px;
@@ -18,7 +42,7 @@
 	border: 5px #7426E0 solid;
 }
 
-.output_zone {
+.p_output_zone {
 	display: grid;
 	grid-template-columns: 1000px;
 	grid-template-rows: 50px 230px;
@@ -37,14 +61,63 @@ code {
 </style>
 
 <h2>二輸入值搭配符號函數實作</h2>
-<p>用Python程式撰寫類神經網路，</p>
+<p>用程式撰寫類神經網路，</p>
 <p>其中能夠輸入兩個數值(x1, x2)與兩個權重(w1, w2)，</p>
 <p>以及一個𝜃，類神經網路會將兩個數值與兩個權重相乘後加總，</p>
 <p>最後減去𝜃得到輸出X，然後將X值透過「符號函數」轉換為y，</p>
 <p>底下為部分程式的參考與程式撰寫後的輸出範例。</p>
 <p>請參照範例，試著將缺少的部分撰寫完成。</p>
 
-<div class="hint_zone">
+<h2>C語言</h2>
+<div class="c_hint_zone">
+	<h2>程式提示</h2>
+	<pre>
+	<code class="c">
+	#include &lt;stdio.h&gt;
+
+	float nn(float x1, float x2, float w1, float w2, float theta){
+  		float X = _______________________
+		if (________)
+			return 1;
+		else
+			return -1;
+	}
+
+	int main() {
+		return 0;
+	}
+	</code>
+	</pre>
+</div>
+
+<div class="c_output_zone">
+	<h2>輸出提示</h2>
+	<pre>
+	<code class="c">
+	#include &lt;stdio.h&gt;
+
+	float nn(float x1, float x2, float w1, float w2, float theta){
+  		float X = _______________________
+		if (________)
+			return 1;
+		else
+			return -1;
+	}
+
+	int main() {
+		printf("%f\n",nn(1, 2, 3, 2, 10));
+		printf("%f\n",nn(4, 2, 3, 3, 2));
+		return 0;
+	}
+
+	>> -1.000000
+	>> 1.000000
+	</code>
+	</pre>
+</div>
+
+<h2>Python</h2>
+<div class="p_hint_zone">
 	<h2>程式提示</h2>
 	<pre>
 	<code class="python">
@@ -58,14 +131,14 @@ code {
 	</pre>
 </div>
 
-<div class="output_zone">
+<div class="p_output_zone">
 	<h2>輸出提示</h2>
 	<pre>
 	<code class="python">
 	print(nn(3, 4, 1, 2, 5))
-	>>1
+	>> 1
 	print(nn(7, 2, 2, 3, 25))
-	>>-1
+	>> -1
 	</code>
 	</pre>
 </div>
