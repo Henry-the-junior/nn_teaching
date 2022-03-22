@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
 <style type="text/css">
 
-.hint_zone {
+.c_hint_zone {
 	display: grid;
 	grid-template-columns: 1000px;
 	grid-template-rows: 50px 300px;
@@ -18,11 +18,35 @@
 	border: 5px #7426E0 solid;
 }
 
-.output_zone {
+.c_output_zone {
 	display: grid;
 	grid-template-columns: 1000px;
 	grid-template-rows: 50px 230px;
 	height: 280px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.p_hint_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 720px;
+	height: 770px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.p_output_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 750px;
+	height: 800px;
 	width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
@@ -36,17 +60,17 @@ code {
 
 </style>
 
-<h2>類神經網路誤差計算實作</h2>
-<p>用先前課程寫好的類神經網路物件，</p>
-<p>繼續撰寫完它的誤差函式，</p>
-<p>這個函式可以輸入期望輸出，</p>
-<p>執行後會將期望輸出減去類神經網路計算好的輸出，</p>
-<p>並且回傳。請參照範例將此題完成。</p>
+<h2>訓練類神經網路實作</h2>
+<p>在這個章節中，我們學習到「學習演算法」，</p>
+<p>也透過「學習分類昆蟲資料」的例子了解到訓練類神經網路的過程，</p>
+<p>請依照下面的程式提示，實作「學習分類昆蟲資料」的訓練過程。</p>
 
-<div class="hint_zone">
+
+<h2>C語言</h2>
+<div class="c_hint_zone">
 	<h2>程式提示</h2>
 	<pre>
-	<code class="python">
+	<code class="c">
     class nn:
         ...
         ...
@@ -56,14 +80,82 @@ code {
 	</pre>
 </div>
 
-<div class="output_zone">
+<div class="c_output_zone">
 	<h2>輸出提示</h2>
 	<pre>
-	<code class="python">
+	<code class="c">
     print(nn(2, [3, 4], [3, 1], 3).error(0, linear))
     >>-10
     print(nn(4, [3, 2, 4, 5], [1, 2, 3, 6], 10).error(10, sigmoid))
     >>9.0
+	</code>
+	</pre>
+</div>
+
+<h2>Python</h2>
+<div class="p_hint_zone">
+	<h2>程式提示</h2>
+	<pre>
+	<code class="python">
+	X = [[5, 2], [4.5, 2.5], [3, 4], [2.5, 3]]
+	Yd = [1, 1, 0, 0]
+	w = [0.3, 0.1]
+
+	def nn(x, w, n, theta):
+		X = 0
+		for _____________:
+			X += _____________
+		X = _________
+		return X
+
+	def step(X):
+		if _________:
+			return 1
+		else:
+			return 0
+
+	def nn_step(x, w, n, theta):
+		return ________________________
+
+	def new_w(x, w, n, y, yd, alpha):
+		error = _________
+		for _________:
+			w[i] = ___________________________
+		return w
+	</code>
+	</pre>
+</div>
+
+<div class="p_output_zone">
+	<h2>輸出提示</h2>
+	<pre>
+	<code class="python">
+	for i in range(5):
+		for j in range(4):
+			y = nn_step(X[j], w, 2, 0.2)
+			w = new_w(X[j], w, 2, y, Yd[j], 0.2)
+			print(w)
+
+	>> [0.3, 0.1]
+	   [0.3, 0.1]
+	   [-0.3000000000000001, -0.7000000000000001]
+	   [-0.3000000000000001, -0.7000000000000001]
+	   [0.7, -0.30000000000000004]
+	   [0.7, -0.30000000000000004]
+	   [0.09999999999999987, -1.1]
+	   [0.09999999999999987, -1.1]
+	   [1.0999999999999999, -0.7000000000000001]
+	   [1.0999999999999999, -0.7000000000000001]
+	   [0.4999999999999998, -1.5]
+	   [0.4999999999999998, -1.5]
+	   [1.4999999999999998, -1.1]
+	   [1.4999999999999998, -1.1]
+	   [1.4999999999999998, -1.1]
+	   [0.9999999999999998, -1.7000000000000002]
+	   [0.9999999999999998, -1.7000000000000002]
+	   [0.9999999999999998, -1.7000000000000002]
+	   [0.9999999999999998, -1.7000000000000002]
+	   [0.9999999999999998, -1.7000000000000002]
 	</code>
 	</pre>
 </div>
