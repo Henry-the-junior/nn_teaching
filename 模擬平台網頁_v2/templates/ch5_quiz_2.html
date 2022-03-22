@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
 <style type="text/css">
 
-.hint_zone {
+.c_hint_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-	grid-template-rows: 50px 300px;
-	height: 350px;
+	grid-template-rows: 50px 750px;
+	height: 800px;
 	width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
@@ -18,11 +18,35 @@
 	border: 5px #7426E0 solid;
 }
 
-.output_zone {
+.c_output_zone {
 	display: grid;
 	grid-template-columns: 1000px;
-	grid-template-rows: 50px 230px;
-	height: 280px;
+	grid-template-rows: 50px 850px;
+	height: 900px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.p_hint_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 500px;
+	height: 550px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 5px #7426E0 solid;
+}
+
+.p_output_zone {
+	display: grid;
+	grid-template-columns: 1000px;
+	grid-template-rows: 50px 200px;
+	height: 250px;
 	width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
@@ -37,40 +61,114 @@ code {
 </style>
 
 <h2>類神經網路搭配激勵函數實作</h2>
-<p>承上題，撰寫完各種激勵函式後，</p>
-<p>請用物件的概念撰寫類神經網路，</p>
-<p>其中類神經網路這個物件包含「神經元個數」、</p>
-<p>「輸入」、「權重」、「臨界值」，</p>
-<p>此物件要在呼叫compute()這個函式時，</p>
-<p>能夠回傳這個類神經網路的運算結果，</p>
-<p>底下為部分程式的參考與程式撰寫後的輸出範例，</p>
-<p>範例當中，已經協助你將物件定義完整了，</p>
-<p>請參照範例，試著將缺少的部分撰寫完成。</p>
+<p>在第四單元，我們撰寫了多輸入值搭配符號函數的類神經網路，</p>
+<p>而在前一題，我們實作的各式的激勵函數，</p>
+<p>請運用程式提示的撰寫架構，重新實作多輸入值搭配符號函數的類神經網路。</p>
 
-<div class="hint_zone">
+
+<h2>C語言</h2>
+<div class="c_hint_zone">
 	<h2>程式提示</h2>
 	<pre>
-	<code class="python">
-	class nn:
-		def __init__(self, n_num, x, w, theta):
-			self.n_num = n_num
-			self.x = x
-			self.w = w
-			self.theta = theta
-		def compute(self, func):
-			...
+	<code class="c">
+	#include &lt;stdio.h&gt;
+
+	int nn(float x[], float w[], int n ,int theta){
+		float X = 0;
+		for(__________){
+			__________________
+		}
+		______________
+		return X;
+	}
+
+	int sign(int X){
+		if (_________)
+			return 1;
+		else
+			return -1;   
+	}
+
+	int nn_sign(float x[], float w[], int n ,int theta){
+		return ________________________
+	}
+
+	int main() {
+		return 0;
+	}
 	</code>
 	</pre>
 </div>
 
-<div class="output_zone">
+<div class="c_output_zone">
+	<h2>輸出提示</h2>
+	<pre>
+	<code class="c">
+	#include &lt;stdio.h&gt;
+
+	int nn(float x[], float w[], int n ,int theta){
+		float X = 0;
+		for(__________){
+			__________________
+		}
+		______________
+		return X;
+	}
+
+	int sign(int X){
+		if (_________)
+			return 1;
+		else
+			return -1;   
+	}
+
+	int nn_sign(float x[], float w[], int n ,int theta){
+		return ________________________
+	}
+
+	int main() {
+		float a[]={1, 2};
+		float b[]={3, 4};
+
+		printf("%i\n",nn_sign(a,b,2,5));
+		return 0;
+	}
+
+	>> 1 
+	</code>
+	</pre>
+</div>
+
+<h2>Python</h2>
+<div class="p_hint_zone">
+	<h2>程式提示</h2>
+	<pre>
+	<code class="python">
+	def nn(x, w, n, theta):
+		X = 0
+		for _____________:
+			X += _____________
+		X = _________
+		return X
+
+	def sign(X):
+		if _________:
+			return 1
+		else:
+			return -1
+
+	def nn_sign(x, w, n, theta):
+		return ________________________
+	</code>
+	</pre>
+</div>
+
+<div class="p_output_zone">
 	<h2>輸出提示</h2>
 	<pre>
 	<code class="python">
-	print(nn(3, [4, 3, 1], [2, 2, 5], 8).compute(step))
-	>>1
-	print(nn(4, [1, 2, 3, 2], [4, 1, 3, 6], 10).compute(linear))
-	>>17
+	print(nn_sign([1, 2], [3, 4], 2, 5))
+	>> 1
 	</code>
 	</pre>
 </div>
