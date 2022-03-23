@@ -482,7 +482,7 @@ mark {
 <p>學習演算法是透過誤差進行權重的調整，</p>
 <p>我們在理解學習演算法之前，先回顧一下誤差的概念吧。</p>
 
-<p style="text-align: center; margin-bottom: 0px;">(試著在方格中輸入數字，並按下計算)</p>
+<p style="text-align: center; margin-bottom: 0px;">(<img src="{{ url_for('static', filename='images/tap.png') }}" height="50">試著在方格中輸入數字，並按下計算)</p>
 <div class="emptynn1">
 	<input type="text" name="nn1_x1" id="nn1_x1">
 	<input type="text" name="nn1_x2" id="nn1_x2">
@@ -498,12 +498,14 @@ mark {
 
 <p>在1958年時，<mark>Frank Rosenblatt提出的學習演算法</mark>：</p>
 <p style="text-align: center; margin-bottom: 0px;">w<sub>i</sub><sup>t+1</sup> = w<sub>i</sub><sup>t</sup> + 𝛼 * x<sub>i</sub> * error<sup>t</sup></p>
-<p style="text-align: center; margin-bottom: 0px;">(演算法中的「error」即為「誤差」)</p>
+<p style="text-align: center; margin-bottom: 0px;">(<img src="{{ url_for('static', filename='images/tap.png') }}" height="50">演算法中的「error」即為「誤差」)</p>
 
 <p>雖然我們分析了這個演算法為何這樣設計，</p>
 <p>但為了更容易理解這個演算法設計的用意，</p>
 <p>讓我們<mark>用個先前健康照護的例子來理解這個演算法</mark>吧。</p>
 <img src="{{ url_for('static', filename='images/health_score.png') }}" height="150" style="display: block; margin-left: auto; margin-right: auto;">
+
+<p style="text-align: center; margin-bottom: 0px;">(<img src="{{ url_for('static', filename='images/tap.png') }}" height="50">試著在方格中輸入數字，並按下計算)</p>
 <div class="health_nn">
 	<div class="health_nn_background"></div>
 	<input type="text" name="health_nn_x1" id="health_nn_x1">
@@ -572,6 +574,7 @@ mark {
 <p><mark>權重調整的方向，是同時受到輸入值(x<sub>i</sub>)以及誤差(error<sup>t</sup>)影響，</mark></p>
 <p><mark>若將上述算式的輸入值改為負值，權重的調整方向則會相反。</mark></p>
 
+<p style="text-align: center; margin-bottom: 0px;">(<img src="{{ url_for('static', filename='images/tap.png') }}" height="50">試著勾選選單，並觀察權重調整的情況)</p>
 <div class="modify_zone">
 	<div class="error_text">
 		<p style="font-size: 30px; margin-left: 280px; margin-top: 160px">error<sup>t</sup>：</p>
