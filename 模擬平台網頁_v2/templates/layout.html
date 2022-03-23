@@ -121,19 +121,18 @@ p {
 	{% endwith %}
 	<main>
 		<div class="sidebar">
-			<div class="side_block"><a href="/chapters">0.學習單元</a></div>
-			<div class="side_block"><a href="/ch1">1.神經網路</a></div>
-			<div class="side_block"><a href="/ch2_concept_1">2.類神經網路</a></div>
-			<div class="side_block"><a href="/ch3_concept_1">3.權重的調整</a></div>
-			<div class="side_block"><a href="/ch4_concept_1">4.類神經元模型</a></div>
-			<div class="side_block"><a href="/ch5_concept_1">5.激勵函數</a></div>
-			<div class="side_block"><a href="/ch6_concept_1">6.類神經網路學習分類</a></div>
+			<div class="side_block" style="background-color: {{ color0 }};"><a href="/chapters">0.學習單元</a></div>
+			<div class="side_block" style="background-color: {{ color1 }};"><a href="/ch1">1.神經網路</a></div>
+			<div class="side_block" style="background-color: {{ color2 }};"><a href="/ch2_concept_1">2.類神經網路</a></div>
+			<div class="side_block" style="background-color: {{ color3 }};"><a href="/ch3_concept_1">3.權重的調整</a></div>
+			<div class="side_block" style="background-color: {{ color4 }};"><a href="/ch4_concept_1">4.類神經元模型</a></div>
+			<div class="side_block" style="background-color: {{ color5 }};"><a href="/ch5_concept_1">5.激勵函數</a></div>
+			<div class="side_block" style="background-color: {{ color6 }};"><a href="/ch6_concept_1">6.類神經網路學習分類</a></div>
 			
 		</div>
 		<div class="content">
 			{% block body %}{% endblock %}
 		</div>
 	</main>
-
 </body>
 </html>
