@@ -39,6 +39,20 @@ mark {
 <p>讓類神經網路計算出這張<mark>圖片是0的機率、1的機率、2的機率、…、9的機率</mark>，</p>
 <p id="anchor">最後在從機率最高的判斷圖片所對應的數字。</p>
 
+<p style="text-align: center; margin-bottom: 0px; margin-top: 40px">(<img src="{{ url_for('static', filename='images/tap.png') }}" height="50">試著點擊下方的數字圖片)</p>
+<div class="graph_block">
+	<a href="/ch2_concept_3/ch2_nn0#anchor"><img src="{{ url_for('static', filename='images/0.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn1#anchor"><img src="{{ url_for('static', filename='images/1.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn2#anchor"><img src="{{ url_for('static', filename='images/2.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn3#anchor"><img src="{{ url_for('static', filename='images/3.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn4#anchor"><img src="{{ url_for('static', filename='images/4.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn5#anchor"><img src="{{ url_for('static', filename='images/5.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn6#anchor"><img src="{{ url_for('static', filename='images/6.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn7#anchor"><img src="{{ url_for('static', filename='images/7.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn8#anchor"><img src="{{ url_for('static', filename='images/8.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_3/ch2_nn9#anchor"><img src="{{ url_for('static', filename='images/9.jpg') }}" height="70" style="margin: auto;"></a>
+</div>
+
 {% if session.option == 'ch2_nn0' %}
 <img src="{{ url_for('static', filename='images/ch2_nn0.png') }}" class="center">
 {% elif session.option == 'ch2_nn1' %}
@@ -61,19 +75,7 @@ mark {
 <img src="{{ url_for('static', filename='images/ch2_nn9.png') }}" class="center">
 {% endif %}
 
-<p style="text-align: center; margin-bottom: 0px;">(<img src="{{ url_for('static', filename='images/tap.png') }}" height="50">試著點擊下方的數字圖片)</p>
-<div class="graph_block">
-	<a href="/ch2_concept_3/ch2_nn0#anchor"><img src="{{ url_for('static', filename='images/0.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_3/ch2_nn1#anchor"><img src="{{ url_for('static', filename='images/1.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_3/ch2_nn2#anchor"><img src="{{ url_for('static', filename='images/2.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_3/ch2_nn3#anchor"><img src="{{ url_for('static', filename='images/3.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_3/ch2_nn4#anchor"><img src="{{ url_for('static', filename='images/4.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_3/ch2_nn5#anchor"><img src="{{ url_for('static', filename='images/5.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_3/ch2_nn6#anchor"><img src="{{ url_for('static', filename='images/6.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_3/ch2_nn7#anchor"><img src="{{ url_for('static', filename='images/7.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_3/ch2_nn8#anchor"><img src="{{ url_for('static', filename='images/8.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_3/ch2_nn9#anchor"><img src="{{ url_for('static', filename='images/9.jpg') }}" height="70" style="margin: auto;"></a>
-</div>
+
 
 {% include 'ch2_buttom.html' %}
 {% endblock %}

@@ -33,8 +33,22 @@ mark {
 
 </style>
 
-
 <h2 id="anchor">資料的輸入與輸出</h2>
+
+<p style="text-align: center; margin-bottom: 0px; margin-top: 50px">(<img src="{{ url_for('static', filename='images/tap.png') }}" height="50">試著點擊下方的數字圖片)</p>
+<div class="graph_block2">
+	<a href="/ch2_concept_2/0#anchor"><img src="{{ url_for('static', filename='images/0.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_2/1#anchor"><img src="{{ url_for('static', filename='images/1.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_2/2#anchor"><img src="{{ url_for('static', filename='images/2.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_2/3#anchor"><img src="{{ url_for('static', filename='images/3.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_2/4#anchor"><img src="{{ url_for('static', filename='images/4.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_2/5#anchor"><img src="{{ url_for('static', filename='images/5.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_2/6#anchor"><img src="{{ url_for('static', filename='images/6.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_2/7#anchor"><img src="{{ url_for('static', filename='images/7.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_2/8#anchor"><img src="{{ url_for('static', filename='images/8.jpg') }}" height="70" style="margin: auto;"></a>
+	<a href="/ch2_concept_2/9#anchor"><img src="{{ url_for('static', filename='images/9.jpg') }}" height="70" style="margin: auto;"></a>
+</div>
+
 <div class="graph_block1">
 	{% if session.option == '0' %}
 	<img src="{{ url_for('static', filename='images/0.jpg') }}" height="200" style="margin: auto;">
@@ -60,19 +74,7 @@ mark {
 	<img src="{{ url_for('static', filename='images/ch2_blocknn.png') }}" height="150" style="margin: auto;">
 	<p style="margin: auto;">{{ session.option }}</p>
 </div>
-<p style="text-align: center; margin-bottom: 0px;">(<img src="{{ url_for('static', filename='images/tap.png') }}" height="50">試著點擊下方的數字圖片)</p>
-<div class="graph_block2">
-	<a href="/ch2_concept_2/0#anchor"><img src="{{ url_for('static', filename='images/0.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_2/1#anchor"><img src="{{ url_for('static', filename='images/1.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_2/2#anchor"><img src="{{ url_for('static', filename='images/2.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_2/3#anchor"><img src="{{ url_for('static', filename='images/3.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_2/4#anchor"><img src="{{ url_for('static', filename='images/4.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_2/5#anchor"><img src="{{ url_for('static', filename='images/5.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_2/6#anchor"><img src="{{ url_for('static', filename='images/6.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_2/7#anchor"><img src="{{ url_for('static', filename='images/7.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_2/8#anchor"><img src="{{ url_for('static', filename='images/8.jpg') }}" height="70" style="margin: auto;"></a>
-	<a href="/ch2_concept_2/9#anchor"><img src="{{ url_for('static', filename='images/9.jpg') }}" height="70" style="margin: auto;"></a>
-</div>
+
 
 <p>讓我們再多認識一個案例，類神經網路領域中相當著名的<mark>「數字手寫辨識」</mark>的案例，</p>
 <p>如果我們將<mark>數字的「圖片」輸入</mark>進訓練好的類神經網路，它就會<mark>輸出對應的數字。</mark></p>
