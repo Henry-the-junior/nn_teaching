@@ -60,12 +60,12 @@ mark {
 <p>在先前的課程，我們將「誤差」定義為「期望輸出」減去「輸出」，</p>
 <p>而如果誤差為正，就需要增加類神經網路的輸出；如果誤差為負，就需要減少類神經網路的輸出，</p>
 <p>依照這個想法，<mark>在1958年時，Frank Rosenblatt提出了一種學習演算法</mark>：</p>
-<p style="text-align: center; margin-bottom: 0px;">w<sub>i</sub><sup>t+1</sup> = w<sub>i</sub><sup>t</sup> + 𝛼 * x<sub>i</sub> * error<sup>t</sup></p>
-<p style="text-align: center; margin-bottom: 0px;">(演算法中的「error」即為「誤差」)</p>
+<p style="text-align: center; margin-bottom: 0px;">w<sub>i</sub><sup>t+1</sup> = w<sub>i</sub><sup>t</sup> + 𝛼 * x<sub>i</sub> * Error<sup>t</sup></p>
+<p style="text-align: center; margin-bottom: 0px;">(演算法中的「Error」即為「誤差」)</p>
 
 <p>這個<mark>演算法主要的設計原理是透過誤差來決定權重需要多少調整，</mark></p>
 <p><mark>如果誤差很大，權重調整的幅度就會大，反之則調整幅度就會小</mark>，</p>
-<p>而演算法當中的「𝛼 * x<sub>i</sub> * error<sup>t</sup>」，</p>
+<p>而演算法當中的「𝛼 * x<sub>i</sub> * Error<sup>t</sup>」，</p>
 <p>就是在每次迭代中，決定權重需要調整多少的計算方式，</p>
 <p><mark>𝛼值為「學習率」</mark>，它是一個介在0和1的正數(它通常不會是0)，</p>
 <p>可以調整每次權重的調整幅度，而x<sub>i</sub>就是類神經網路的輸入值，</p>
