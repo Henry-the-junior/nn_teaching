@@ -90,7 +90,7 @@ function nn1_count() {
 
 }
 
-let nn2_button = document.querySelectorAll('button')[1];
+let nn2_button = document.querySelectorAll('button')[2];
 let nn2_text = ['進行第一次迭代', '進行第二次迭代', '進行第三次迭代', '進行第四次迭代', '進行第五次迭代'];
 let nn2_num = 0;
 
