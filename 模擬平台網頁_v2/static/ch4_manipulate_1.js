@@ -42,14 +42,18 @@ function health_nn_count() {
 			var health_or_sick = document.createElement('div');
 			health_or_sick.className = "health_or_sick";
 			health_or_sick.style.backgroundImage = "url(../static/images/health.png)";
+			document.getElementById("skills").style.backgroundColor = "green";
 		} else {
 			var health_or_sick = document.createElement('div');
 			health_or_sick.className = "health_or_sick";
 			health_or_sick.style.backgroundImage = "url(../static/images/sick.png)";
+			document.getElementById("skills").style.backgroundColor = "red";
 		}
 	}
 
 	health_nn.append(health_or_sick);
+	document.getElementById("skills").innerText = y;
+	document.getElementById("skills").style.width = y + "%";
 }
 
 function getRandomInt(min, max) {
