@@ -300,7 +300,7 @@ function start_iteration() {
 }
 
 
-var step_time = 500;
+var step_time = 1000;
 function iteration() {
 	for(i = 0; i < 10; i++) {
 		if(read_empties[i].childElementCount) {
